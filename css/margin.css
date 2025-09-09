@@ -1,0 +1,11 @@
+.container{
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    padding: 30px;
+    border-width: 20px;
+    border-style: dashed;
+    border-color: yellow;
+    text-align: center;
+    line-height: 200px;
+}

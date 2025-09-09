@@ -1,0 +1,11 @@
+body{
+    height: 95vh;
+    border: 6px solid rgba(221, 10, 10, 0.16);
+}
+.img{
+    height: inherit;
+    background-image: url(../image/GT\ 650.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
