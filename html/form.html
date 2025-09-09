@@ -1,140 +1,79 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fomr in html</title>
-</head>
-<body>
-    <fieldset>
-        <legend style="text-transform: capitalize; font-size: x-large0; font-weight: bolder;">User Details</legend>
-        <form class="form">
-            <label for="name">name</label>
-            <input id="name" required type="text" placeholder="please enter your name" minlength="1" maxlength="15"
-             <br>
-             <label>age</label>
-             <input required type="number" placeholder="enter the age" min="1" max="3">
-
-             <lable>email</lable>
-             <input required type="email" placeholder="enter the email">
-             <br>
-             <label>phone</label>
-             <input required type="tel" placeholder="enter the number"> <br>
-
-             <label> counter</label>
-             <select id="select">
-                <option value="India">India</option>
-                <option value="america">america</option>
-                <option value="up">up</option>
-             </select>
-
-
-             <input list="list" placeholder="select">
-             <datelist id="list">
-                <option value="India">India</option>
-                <option value="america">america</option>
-                <option value="up">up</option>
-             </datelist>
-             <br>
-             <label>address</label>
-             <textarea required cols="20" rows="1" placeholder="enter the area"></textarea>
-             <br>
-
-             <label>time</label>
-             <input type="time">
-             <label>Date</label>
-             <input type="Datte">
-             <label>checkbox</label>
-             <input type="checkbook">
-
-             <input type="file">
-
-             <button type="submit">hello</button>
-             <input type="submit" value="click me"    
-        </form>
-    </fieldset>
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form in HTML</title>
+    <title>Form</title>
 </head>
 <body>
     <fieldset>
         <legend style="text-transform: capitalize; font-size: x-large; font-weight: bolder;">User Details</legend>
         <form class="form">
-            
-            <!-- Name -->
-            <label for="name">Name:</label>
-            <input id="name" required type="text" placeholder="Please enter your name" minlength="1" maxlength="15">
+                 <!-- Name -->
+            <label for="name">Name</label>
+            <input id="name" required="text" placeholder="please enter your name" minlength="1" maxlength="15">
             <br><br>
-
             <!-- Age -->
-            <label for="age">Age:</label>
-            <input id="age" required type="number" placeholder="Enter your age" min="1" max="100">
-            <br><br>
+             <label for="age">Age</label>
+             <input id="age" required="number" placeholder="Enter your age" minlength="1" maxlength="100">
+             <br><br>
+             <!-- Email -->
+              <label for="email">Email</label>
+              <input type="email" required="email" placeholder="Enter your Email">
+              <br><br>
+              <!-- Phone -->
+               <label for="phone">Phone</label>
+               <input type="phone" required="tel" placeholder="Enter your Phone number">
+               <br><br>
+                <!-- Country -->
+                 <label for="select">Country</label>
+                 <select id="select">
+                    <option value="India">India</option>
+                    <option value="Australia">Australia</option>
+                    <option value="	Iran">Iran</option>
+                    <option value="	France">France</option>
+                    <option value="Qatar">Qatar</option>
+                 </select>
+                 <!-- Datalist -->
+                  <label for="listinput">choose</label>
+                  <input id="listinput" list="list" placeholder="select">
+                  <datalist id="list">
+                    <option value="India">India</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Iran">Iran</option>
+                    <option value="France">France</option>
+                    <option value="Qatar">Qatar</option>
+                  </datalist>
+                  <br><br>
+                  <!-- Address -->
+                   <label for="address">Address</label>
+                   <textarea id="address" required cols="20" rows="3" placeholder="Enter the area"></textarea>
+                   <br><br>
+                   <!-- Date $ Time -->
+                    <label for="time">Time</label>
+                    <input type="Time" id="time">
 
-            <!-- Email -->
-            <label for="email">Email:</label>
-            <input id="email" required type="email" placeholder="Enter your email">
-            <br><br>
-
-            <!-- Phone -->
-            <label for="phone">Phone:</label>
-            <input id="phone" required type="tel" placeholder="Enter your number">
-            <br><br>
-
-            <!-- Country Dropdown -->
-            <label for="select">Country:</label>
-            <select id="select">
-                <option value="India">India</option>
-                <option value="America">America</option>
-                <option value="UP">UP</option>
-            </select>
-            <br><br>
-
-            <!-- Datalist -->
-            <label for="listInput">Choose:</label>
-            <input id="listInput" list="list" placeholder="Select">
-            <datalist id="list">
-                <option value="India">
-                <option value="America">
-                <option value="UP">
-            </datalist>
-            <br><br>
-
-            <!-- Address -->
-            <label for="address">Address:</label>
-            <textarea id="address" required cols="20" rows="3" placeholder="Enter the area"></textarea>
-            <br><br>
-
-            <!-- Date & Time -->
-            <label for="time">Time:</label>
-            <input id="time" type="time">
-
-            <label for="date">Date:</label>
-            <input id="date" type="date">
-            <br><br>
-
-            <!-- Checkbox -->
-            <label for="check">Agree Terms:</label>
-            <input id="check" type="checkbox">
-            <br><br>
-
-            <!-- File Upload -->
-            <label for="file">Upload File:</label>
-            <input id="file" type="file">
-            <br><br>
-
-            <!-- Submit Buttons -->
-            <button type="submit">Hello</button>
-            <input type="submit" value="Click Me">
+                    <label for="date">Date</label>
+                    <input type="Date" id="date">
+                    <br><br>
+                    <!-- checkbook -->
+                    <label for="check">Agree check</label>
+                    <input id="check" type="checkbox">
+                    <br><br>
+                    <!-- File Upload -->
+                    <label for="file">Upload File:</label>
+                    <input id="file" type="file">
+                    <br><br>
+                    <!-- Submit Buttons -->
+                    <!-- <button type="submit">clear</button>
+                    <input type="submit" value="Click Me"> -->
+                    <button type="submit">submit</button>
+                    <button type="reset">clear</button>
         </form>
+
     </fieldset>
 </body>
 </html>
+
+
+ 

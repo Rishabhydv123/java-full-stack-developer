@@ -1,0 +1,9 @@
+/* Padding is the space inside an element, between its content and its border.
+It controls the inner spacing. */
+
+ div {
+    border: 2px solid blue;
+    padding: 20px;  /* same padding on all sides */
+    padding: 5%;
+    padding: 30px 60px 30px 60px;
+  }

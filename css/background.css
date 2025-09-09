@@ -1,9 +1,24 @@
-body{
+/* /* CSS3 introduced new background properties that give more control over images, colors, and effects.
+CSS3 Background Properties
+background-color → sets background color
+background-image → sets image as background
+background-repeat → repeats or stops repeating image
+background-position → sets position of background image
+background-attachment → scrolls or fixes background
+background-size → resize background image
+background-clip → defines painting area
+background (shorthand) → combines all */
+
+ body{ 
+
     height: 95vh;
     border: 6px solid rgba(221, 10, 10, 0.16);
 }
 .img{
     height: inherit;
+    
+    /* The background-image property is used to set one or more images as the background of an HTML element.
+    It can be applied to the whole page (body) or to a specific element (div, p, etc.). */
     background-image: url(../image/GT\ 650.jpg);
     background-repeat: no-repeat;
     background-position: center;
