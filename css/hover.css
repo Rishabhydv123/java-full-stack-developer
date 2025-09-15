@@ -7,6 +7,11 @@
     outline: none;
     text-transform: capitalize;
 }
+/* 
+: this is psudo-class
+:: this is psido-elements 
+*/
+
 .btn:hover{
    cursor: pointer;
    background-color: black;
@@ -24,3 +29,5 @@
     content: '  button ' ;
     border: 2px solid greenyellow;
 }
+
+

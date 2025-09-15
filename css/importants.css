@@ -1,0 +1,17 @@
+h1 {
+    color: red;
+    background-color: black;
+    text-transform: uppercase;
+}
+h1 {
+    color: purple ;
+    background-color: greenyellow;
+}
+ h1 {
+    color: red !important;
+    background-color: gold !important;
+    text-transform: capitalize;
+ }
+
+
+ 
