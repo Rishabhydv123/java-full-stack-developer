@@ -1,6 +1,15 @@
 /* Padding is the space inside an element, between its content and its border.
 It controls the inner spacing. */
 
+/* Padding → Space inside the border (between content & border).
+Margin → Space outside the border (between border & neighbor elements) */
+
+/* padding adds space inside the element’s border.
+✔ Can be set using px, %, em, rem.
+✔ Shorthand order: Top → Right → Bottom → Left.
+✔ padding: 20px; → same for all sides.
+✔ padding: 20px 40px; → top/bottom = 20px, left/right = 40px. */
+
  div {
     border: 2px solid blue;
     padding: 20px;  /* same padding on all sides */

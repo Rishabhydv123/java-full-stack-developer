@@ -1,6 +1,16 @@
 /* Margin is the space outside an element’s border.
 It creates space between an element and its neighbors (other elements) */
 
+/* Padding → Space inside the border (between content & border).
+Margin → Space outside the border (between border & neighbor elements) */
+
+/* ✔ margin adds space outside an element’s border.
+✔ Can be set in px, %, em, rem, or auto.
+✔ Shorthand order: Top → Right → Bottom → Left.
+✔ margin: 20px; → same for all sides.
+✔ margin: 10px 40px; → top/bottom = 10px, left/right = 40px.
+✔ margin: auto; → commonly used to center elements horizontally. */
+
 .container{
     width: 200px;
     height: 200px;

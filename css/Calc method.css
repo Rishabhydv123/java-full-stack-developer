@@ -1,3 +1,13 @@
+/* The calc() function lets you perform calculations to set CSS property values.
+You can use + , - , * , / operators inside it.
+Useful when you want dynamic sizing (mixing %, px, em, etc.). */
+
+/* You can use +, -, *, /.
+✔ You must include spaces around operators (✅ 10px + 5% ❌ 10px+5%).
+✔ Can combine different units (px, %, em, vw, etc.).
+✔ Works with properties like width, height, margin, padding, font-size, position values, etc. */
+
+
 :root {
     --width: 100px;
     --width-1: 100%;
