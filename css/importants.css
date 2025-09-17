@@ -1,3 +1,6 @@
+/* The !important rule in CSS is used to override all other styles applied to an element.
+It has the highest priority in the CSS cascade (except inline styles with !important). */
+
 h1 {
     color: red;
     background-color: black;
