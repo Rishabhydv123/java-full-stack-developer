@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-scale {
+    width: 400px;
+    height: 300px;
+    margin: 150px auto;
+}
+
+body {
+    border: 1px solid red;
+    height: 90vh;
+}
+ 
+img {
+    height: inherit;
+    width: inherit;
+    margin: auto 50px;
+    scale: 0.2;
+}
+
+img:hover {
+    scale: 1;
+    transition:  all 0.3s ease-in-out;
+}
