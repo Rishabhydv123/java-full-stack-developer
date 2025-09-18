@@ -1,0 +1,13 @@
+.content-img{
+    border: 1px solid red;
+}
+
+.content-img > img {
+    width: 230px;
+    height: 150px;
+    opacity: 0.03;
+}
+
+.content-img > img:hover {
+    opacity: 1;
+}
