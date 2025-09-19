@@ -10,8 +10,8 @@ Value ranges from 0.0 to 1.0:
 }
 
 .content-img > img {
-    width: 250px;
-    height: 250px;
+    width: 500px;
+    height: 500px;
     opacity: 0.03;
 }
 
