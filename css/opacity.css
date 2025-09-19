@@ -1,3 +1,10 @@
+/* opacity defines how transparent or see-through an element is.
+Value ranges from 0.0 to 1.0:
+1 → fully visible (default).
+0 → fully invisible.
+0.5 → 50% transparent. */
+
+
 .content-img{
     border: 1px solid red;
 }

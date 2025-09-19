@@ -1,3 +1,11 @@
+/* skew() is a CSS transform function.
+It tilts (distorts) an element along the X-axis, Y-axis, or both.
+It makes the element look like it’s being “pushed” sideways.
+x-angle → tilt horizontally (X-axis).
+y-angle → tilt vertically (Y-axis).
+Angles are written in deg (degrees). */
+
+
 .container {
       border: 1px solid rgb(214, 28, 28);
       height: 97vh;
