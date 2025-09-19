@@ -1,0 +1,48 @@
+/* rotate() is a CSS transform function.
+It rotates an element clockwise or counterclockwise.
+The angle is written in degrees (deg), radians (rad), or turns (turn).
+Positive angle → clockwise rotation.
+Negative angle → counterclockwise rotation. */
+
+.container {
+    height: 97vh;
+    gap: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 80px;
+}
+ .box {
+    width: 150px;
+    height: 150px;
+    background: blue;
+    color: antiquewhite;
+ }
+
+ .child-2 {
+    transform: rotate(60deg);
+ }
+
+ .child-3 {
+    transform: rotate(90deg);
+ }
+ 
+ .child-4 {
+    transform: rotate(180deg);
+ }
+
+ .child-5 {
+    transform: rotate(360deg);
+ }
+ 
+ .child-6 {
+    transform: rotateX(30deg);
+ }
+ 
+ .child-7 {
+    transform: rotateY(100deg);
+ }
+
+ .child-8 {
+    transform: rotateZ(50deg);
+ }
