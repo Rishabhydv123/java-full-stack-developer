@@ -1,3 +1,10 @@
+/* scale() is a CSS transform function.
+It resizes an element bigger or smaller.
+Works on X-axis (width), Y-axis (height), or both
+x → scaling factor for width.
+y → scaling factor for height.
+If only one value → both X and Y use the same. */
+
 *{
     margin: 0;
     padding: 0;
