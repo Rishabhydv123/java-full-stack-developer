@@ -29,6 +29,7 @@
  .hello:hover {
     transform: scale(1.5);
 
+
  }
 
  .Animation1 {
@@ -44,3 +45,40 @@
     font-family: Bitcount Grid Double Ink;
     background: tomato;
  }
+ 
+ @keyframes code {
+    from {
+        translate: 200vw 0;
+        scale: 200% 1;
+    }
+    to{
+        translate: 0 0;
+        scale: 100% 1;
+    }
+ }
+
+ .Animation2 {
+    animation-name: Hello;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    text-align: center;
+    font-size: 85px;
+    text-transform: uppercase;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-family: Bitcount Grid Double Ink;
+    background: tomato;
+ }
+ 
+ @keyframes Hello {
+    from {
+        translate: -200vw 0;
+        scale: 200% 1;
+    }
+    to{
+        translate: 0 0;
+        scale: 100% 1;
+    }
+ }
+ 
