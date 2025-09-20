@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double+Ink:wght@100..900&display=swap');
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+
+ .hello {
+    text-transform: capitalize;
+    font-size: 60px;
+    font-family: Bitcount Grid Double Ink;
+    font-weight: 700;
+    text-align: center;
+ }
+
+ .something {
+    text-transform: capitalize;
+    font-size: 85px;
+    font-family: itcount Grid Double Ink;
+    text-align: center;
+    font-weight: 300;
+ }
+
+ .hello {
+    transition: transform 0.5s ease-out 0.7s;
+    cursor: pointer;
+ }
+
+ .hello:hover {
+    transform: scale(1.5);
+
+ }
