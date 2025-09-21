@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  border: 3px solid rgb(12, 1, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 97vh;
+}
+
+.container {
+  width: 500px;
+  height: 500px;
+  background-image: url(../image/krishna.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: spin 10s ease-in-out 5s infinite forwards;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

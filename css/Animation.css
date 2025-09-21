@@ -79,7 +79,7 @@ animation-direction → normal, reverse, alternate. */
     font-weight: 400;
     text-transform: uppercase;
     font-family: Bitcount Grid Double Ink;
-    background: tomato;
+    background: rgb(71, 255, 172);
  }
  
  @keyframes Hello {
