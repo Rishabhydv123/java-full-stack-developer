@@ -8,7 +8,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 97vh;
+  height: 100vh;
 }
 
 .container {
@@ -18,7 +18,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  animation: spin 10s ease-in-out 5s infinite forwards;
+  animation: spin 2s ease-in-out 1s infinite forwards;
 }
 
 @keyframes spin {

@@ -10,6 +10,8 @@ animation-direction → normal, reverse, alternate. */
 
 
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double+Ink:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bitcount+Grid+Double+Ink:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bitcount+Grid+Double+Ink:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
  * {
     margin: 0;
     padding: 0;
@@ -27,7 +29,7 @@ animation-direction → normal, reverse, alternate. */
  .something {
     text-transform: capitalize;
     font-size: 85px;
-    font-family: Bitcount Grid Double Ink;
+    font-family: Bitcount Bitcount Grid Double Ink;
     text-align: center;
     font-weight: 300;
  }
