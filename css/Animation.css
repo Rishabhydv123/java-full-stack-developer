@@ -1,3 +1,14 @@
+/* Animations in CSS let elements move, change color, size, opacity, etc. smoothly.
+@keyframes defines how an element should change style step by step.
+Then you apply it using the animation property */
+/* animation-name → keyframe name.
+animation-duration → how long it runs (2s, 5s).
+animation-iteration-count → 1, 3, infinite.
+animation-timing-function → speed curve (linear, ease, ease-in, ease-out).
+animation-delay → wait before starting.
+animation-direction → normal, reverse, alternate. */
+
+
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double+Ink:wght@100..900&display=swap');
  * {
     margin: 0;
