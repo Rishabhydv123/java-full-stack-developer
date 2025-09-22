@@ -22,3 +22,31 @@ h1 {
 }
 
                 /* Radial Gradient */
+
+.Radial {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, yellow, rgba(180, 118, 3, 0.411), blue);
+    border: 2px solid black;
+    margin-top: 200px;
+    margin-left: 600px;
+}                
+
+/* conic Gradients */
+.conic {
+    margin-top: 200px;
+    margin-left: 600px;
+    width: 200px;
+    height: 200px;
+    background: conic-gradient(
+        from 0deg at center,
+        red,
+        yellow,
+        green,
+        blue,
+        red
+    );
+    border-radius: 50%;
+    border: 2px solid black;
+
+}
