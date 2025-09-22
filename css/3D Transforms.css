@@ -1,6 +1,19 @@
 .container {
     perspective: 600px;
     margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.container1 {
+    perspective: 600px;
+    margin: 50px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
 }
 
 .box {
