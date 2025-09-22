@@ -43,3 +43,15 @@
 .translateZ:hover {
     transform: translate(100px);
 }
+
+/* 
+CSS3 3D Transforms let you move, rotate, scale, and skew elements in three-dimensional space:
+X-axis → Horizontal (left-right)
+Y-axis → Vertical (up-down)
+Z-axis → Depth (in-out, like moving closer/farther from the screen) */
+/* rotateX() → rotates around X-axis.
+rotateY() → rotates around Y-axis.
+rotateZ() → rotates around Z-axis.
+translateZ() → moves element in depth.
+scaleZ() → scales element in depth.
+perspective() → creates 3D depth effect. */

@@ -25,3 +25,9 @@
 .skew:hover {
   transform: skew(20deg, 10deg);
 }
+
+/* translate() → moves an element.
+rotate() → rotates an element.
+scale() → resizes an element.
+skew() → slants an element.
+matrix() → combines multiple transforms. */

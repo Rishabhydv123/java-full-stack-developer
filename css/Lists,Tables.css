@@ -1,0 +1,83 @@
+         /* List */
+/* In HTML, lists are created with <ul> (unordered) or <ol> (ordered).
+With CSS, we can style bullets, numbers, spacing, and alignment.
+✅ Properties for Lists:
+list-style-type → type of bullet/number
+Values: disc, circle, square, decimal, upper-roman, etc.
+list-style-image → use a custom image as a bullet.
+list-style-position → inside (bullet inside text) / outside (default).
+list-style → shorthand property. */
+
+                        /* Table  */
+/* Tables in HTML are created using <table>, <tr>, <td>, <th>.
+With CSS, we can style borders, spacing, padding, alignment, colors.
+✅ Properties for Tables:
+border → style table and cell borders.
+border-collapse → collapse (merge borders) / separate (default).
+width / height → control size.
+padding → space inside cells.
+text-align, vertical-align → alignment.
+nth-child() → style alternate rows.   
+*/
+
+
+      body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: space-around;
+      margin: 70px;
+      background-color: #8fb347;
+    }
+
+    /* LIST STYLING */
+    .list-section {
+      width: 40%;
+      padding: 30px;
+      background: #fff;
+      border-radius: 30px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .list-section h2 {
+      text-align: center;
+      color: rgb(141, 10, 10);
+    }
+    ul {
+      list-style-type: circle;
+      padding-left: 30px;
+    }
+    ol {
+      list-style-type: upper-roman;
+      padding-left: 30px;
+    }
+
+    /* TABLE STYLING */
+    .table-section {
+      width: 50%;
+      padding: 10px;
+      background: #fff;
+      border-radius: 30px;
+      box-shadow: 0 5px 6px rgba(0, 0, 0, 0.596);
+    }
+    .table-section h2 {
+      text-align: center;
+      color: #c51212;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f4f1f1;
+    }
+    tr:hover {
+      background-color: #ddd;
+    }
