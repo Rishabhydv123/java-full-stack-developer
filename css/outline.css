@@ -1,3 +1,28 @@
+/* An outline is a line drawn outside the border of an element.
+It is used mainly for highlighting elements (e.g., links, form inputs).
+👉 Important Difference between Border and Outline:
+Border → part of the element’s size (takes up space).
+Outline → does not take space; it just draws over the element.
+✅ Outline Properties
+1. outline-style
+Defines the style of the outline.
+outline-style: solid | dotted | dashed | double | groove | ridge | inset | outset | none;
+2. outline-color
+Sets the color of the outline.
+outline-color: red;
+3. outline-width
+Sets the thickness of the outline.
+outline-width: thin | medium | thick | 5px;
+4. outline
+Shorthand property → combines outline-width, outline-style, and outline-color.
+outline: 3px solid blue;
+5. outline-offset
+Adds space between the border and the outline.
+outline-offset: 5px; */
+
+
+
+
 * {
   margin: 0;
   padding: 0;
