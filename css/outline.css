@@ -20,9 +20,6 @@ outline: 3px solid blue;
 Adds space between the border and the outline.
 outline-offset: 5px; */
 
-
-
-
 * {
   margin: 0;
   padding: 0;
