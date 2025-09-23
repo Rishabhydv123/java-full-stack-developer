@@ -23,3 +23,18 @@ body {
     outline-style: solid;
     outline-color: purple;
 }
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid;
+    outline: 2px solid;
+    outline-offset: -6px;
+    border-top: 0;
+    border-bottom: 0;
+    background: transparent;
+    height: 50px;
+    width: 100px;
+    text-align: center;
+    justify-content: center;
+}
