@@ -12,11 +12,13 @@
       align-items: center;
       height: 100vh;
       background: gray;
+      height: 100%;
     }
 
     .button-container {
       display: flex;
       gap: 15px;
+      margin-top: 70px;
     }
 
     .btn {
@@ -43,6 +45,11 @@
       background: #4b5d1f;
       color: #fff;
     }
+    img
+    {
+        width: 20px;
+        height: 20px;
+    }
 
     .btn-neupass {
       background: linear-gradient(90deg, #2a004f, #4a007d);
@@ -58,8 +65,10 @@
 </head>
 <body>
   <div class="button-container">
-    <button class="btn btn-gray">EGGS, MEAT AND FISH</button>
-    <button class="btn btn-neupass"><span>NEU</span>PASS</button>
+    <button class="btn btn-gray">EGGS, MEAT <br> AND FISH</button>
+    <button class="btn btn-neupass">
+        <img src="../../image/Neu Pass log.png" alt="">
+        <span>NEU</span>PASS</button>
     <button class="btn btn-green">AYURVEDA</button>
     <button class="btn btn-gray">BUY MORE<br>SAVE MORE</button>
     <button class="btn btn-gray">DEALS<br>OF THE WEEK</button>
