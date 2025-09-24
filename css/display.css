@@ -1,3 +1,30 @@
+/* The display property in CSS defines how an element is displayed on a web page (its layout behavior).
+Every HTML element has a default display value, but you can change it using CSS.
+1. display: block
+Element starts on a new line.
+Takes full width of the container by default.
+Examples: <div>, <p>, <h1> → block elements.
+2. display: inline
+Does not start on a new line.
+Takes only the width of its content.
+Examples: <span>, <a>, <strong> → inline elements.
+3. display: inline-block
+Behaves like inline (no line break).
+But you can set width & height (unlike pure inline)
+4. display: none
+Hides the element completely (removed from layout).
+5. display: flex
+Turns the container into a flexbox (for responsive layouts).
+block → full width, new line.
+inline → same line, only content width.
+inline-block → same line but allows width/height.
+none → hides element.
+flex → flexible box layout.
+grid → grid-based layout.
+table → behaves like a table. */
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bitcount+Grid+Double+Ink:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 
