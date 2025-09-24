@@ -1,0 +1,57 @@
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid rgba(6, 6, 6, 0.808);
+  width: 35%;
+}
+
+
+.box {
+  background-color: rgb(118, 206, 30);
+  border: 3px solid black;
+  height: 60px;
+}
+
+.row-1, .row-2, .row-3, .row-4{
+  display: flex;
+  justify-content: center;
+}
+
+.row-1{
+    gap: 50px;
+}
+
+.row-2{
+    gap: 25px;
+}
+
+.row-3{
+    gap: 25px;
+}
+
+.row-4{
+    gap: 25px;
+}
+
+.small {
+  width: 50px;
+}
+
+.medium {
+  width: 100px;
+}
+
+.large {
+  width: 300px;
+}
