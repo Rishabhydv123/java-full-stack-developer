@@ -26,4 +26,18 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    /* flex-direction: column; */
+    /* flex-direction: column-reverse; */
+    /* flex-direction: row; */
+    /* flex-direction: row-reverse; */
+    flex-wrap: wrap;
+}
+
+.box child-1,
+.box child-5 {
+    flex-shrink: 0.5;
+}
+
+.box child-3 {
+    flex-grow: 0.1;
 }
