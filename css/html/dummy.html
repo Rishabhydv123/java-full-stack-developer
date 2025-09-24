@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category Buttons</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: gray;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 15px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    
+    .btn-gray {
+      background: #e6e6e6;
+      color: #000;
+    }
+
+    .btn-green {
+      background: #4b5d1f;
+      color: #fff;
+    }
+
+    .btn-neupass {
+      background: linear-gradient(90deg, #2a004f, #4a007d);
+      color: #ff6b35;
+      font-size: 18px;
+    }
+
+    .btn-neupass span {
+      color: #fff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="button-container">
+    <button class="btn btn-gray">EGGS, MEAT AND FISH</button>
+    <button class="btn btn-neupass"><span>NEU</span>PASS</button>
+    <button class="btn btn-green">AYURVEDA</button>
+    <button class="btn btn-gray">BUY MORE<br>SAVE MORE</button>
+    <button class="btn btn-gray">DEALS<br>OF THE WEEK</button>
+    <button class="btn btn-gray">COMBO STORE</button>
+  </div>
+</body>
+</html>
