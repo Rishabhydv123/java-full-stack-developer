@@ -1,4 +1,4 @@
-<style>
+
     * {
       margin: 0;
       padding: 0;
@@ -10,7 +10,7 @@
       color: #333;
     }
 
-    /* Top Section */
+    
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -49,7 +49,7 @@
       border-radius: 8px;
     }
 
-    /* Middle Section */
+   
     .info {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -64,7 +64,7 @@
       color: #555;
     }
 
-    /* Features Section */
+    
     .features {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -91,7 +91,7 @@
       margin: 10px 0;
     }
 
-    /* Footer */
+    
     footer {
       background: #f36c2d;
       text-align: center;
@@ -107,4 +107,4 @@
       }
       .hero-text { align-items: center; }
     }
-  </style>
+ 
