@@ -10,6 +10,14 @@
       color: #333;
     }
 
+    .page {
+        box-shadow: none;
+        margin: 0;
+        width: auto;
+        height: auto;
+        padding: 20mm;
+      }
+
     
     .hero {
       display: grid;
@@ -107,4 +115,7 @@
       }
       .hero-text { align-items: center; }
     }
+
+
+    
  
