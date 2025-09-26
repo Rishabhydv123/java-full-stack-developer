@@ -1,0 +1,18 @@
+ body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: relative; /* fixed karna ho to 'fixed' likh sakte ho */
+      bottom: 0;
+      width: 100%;
+    }
+    footer a {
+      color: #ffcc00;
+      margin: 0 10px;
+      text-decoration: none;
+    }
