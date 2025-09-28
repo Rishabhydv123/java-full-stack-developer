@@ -13,6 +13,7 @@ body {
       text-align: center;
       margin: 0;
       padding: 0;
+      height: 50vh;
     }
 
 .Table {
@@ -38,7 +39,39 @@ body {
     
 }
 
+footer {
+     /* background-color: #1e1e2f; */
+      padding: 30px 20px;
+      display: flex;
+      justify-content: center;
+      justify-content: flex-start;
+    }
 
+    .footer-columns {
+     display: grid;
+      grid-template-columns: repeat(4, auto);
+      gap: 250px;
+      
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .content {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     font-size: 14px;
+    }
+
+    .box {
+      width: 15px;
+      height: 15px;
+      border-radius: 3px;
+    }
 
 .green { background-color: green;}
 .orange { background: rgba(220, 145, 5, 0.641);}
