@@ -21,8 +21,7 @@ body {
     grid-template-columns: repeat(18, 60px);
     justify-content: center;
     padding: 20px;
-   
-    
+       
 }    
 
 .element {
@@ -36,6 +35,7 @@ body {
     border-radius: 5px;
     font-weight: bold;
     color: black;
+    
 }
 
 
@@ -47,3 +47,4 @@ body {
 .green {background: green;}
 .white { background: whitesmoke;}
 .purple {background: purple;}
+
