@@ -11,6 +11,8 @@ body {
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
+      margin: 0;
+      padding: 0;
     }
 
 .Table {
@@ -18,6 +20,9 @@ body {
     grid-gap: 6px;
     grid-template-columns: repeat(18, 60px);
     justify-content: center;
+    padding: 20px;
+   
+    
 }    
 
 .element {
@@ -30,11 +35,15 @@ body {
     font-size: 14px;
     border-radius: 5px;
     font-weight: bold;
-    
+    color: black;
 }
+
+
 
 .green { background-color: green;}
 .orange { background: rgba(220, 145, 5, 0.641);}
 .blue { background: blue;}
 .yellow { background: rgba(188, 188, 7, 0.77);}
 .green {background: green;}
+.white { background: whitesmoke;}
+.purple {background: purple;}
