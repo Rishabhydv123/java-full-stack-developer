@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -75,4 +75,103 @@
     <button class="btn btn-gray">COMBO STORE</button>
   </div>
 </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Periodic Table of HTML Elements</title>
+  <style>
+    body {
+      background: #1a1a2e;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 20px 0;
+      font-size: 2rem;
+    }
+
+    .table {
+      display: grid;
+      grid-template-columns: repeat(18, 60px); /* 18 columns */
+      grid-gap: 6px;
+      justify-content: center;
+    }
+
+    .element {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    /* Colors for groups */
+    .blue { background: #3d5af1; }
+    .green { background: #2ecc71; }
+    .orange { background: #e67e22; }
+    .yellow { background: #f1c40f; }
+    .gray { background: #bdc3c7; }
+    .red { background: red;}
+  </style>
+</head>
+<body>
+
+  <h1>Periodic Table of the Elements</h1>
+
+  <div class="table">
+    <!-- First Column -->
+    <div class="element blue">html</div>
+    <div class="element blue">head</div>
+    <div class="element blue">title</div>
+    <div class="element blue">meta</div>
+
+    <!-- Empty spaces -->
+    <div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div>
+
+    <!-- Right side group -->
+    <div class="element orange">col</div>
+    <div class="element orange">table</div>
+    <div class="element orange">colgroup</div>
+    <div class="element orange">tr</div>
+    <div class="element orange">caption</div>
+    <div class="element orange">td</div>
+    <div class="element orange">th</div>
+
+    <!-- Middle group (forms) -->
+    <div class="element green">fieldset</div>
+    <div class="element green">form</div>
+    <div class="element green">meter</div>
+    <div class="element green">select</div>
+    <div class="element green">legend</div>
+    <div class="element green">optgroup</div>
+
+    <!-- Middle group (headings + structure) -->
+    <div class="element blue">body</div>
+    <div class="element blue">h1</div>
+    <div class="element blue">section</div>
+    <div class="element blue">aside</div>
+    <div class="element blue">h2</div>
+    <div class="element blue">header</div>
+    <div class="element blue">address</div>
+    <div class="element blue">h3</div>
+    <div class="element blue">nav</div>
+    <div class="element gray">menu</div>
+    <div class="element red">nav</div>
+    <div class="element red">menu</div>
+  </div>
+
+</body>
 </html>
+
