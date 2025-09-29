@@ -1,0 +1,38 @@
+
+.container { 
+display: grid; 
+grid-gap: 1rem; 
+grid-template-areas: 
+'navbar navbar navbar navbar' 
+'section section section aside' 
+'footer footer footer footer' 
+; 
+} 
+.item { 
+background-color: rgb(159, 187, 154); 
+/* border: 3px solid red; */ 
+padding: 12px 23px; 
+} 
+#navbar { 
+grid-area: navbar; 
+} 
+#section { 
+grid-area: section; 
+} 
+#aside { 
+grid-area: aside; 
+} 
+footer { 
+grid-area: footer; 
+} 
+.menubar li{ 
+float:left; 
+list-style:none; 
+text-decoration: none; 
+margin-left: 80px; 
+} 
+.menubar li a{ 
+padding:3px 3px; 
+text-decoration: none; 
+color:white; 
+}
