@@ -10,7 +10,7 @@ height: 100vh;
 .parent {
 height: 100px;
 background: wheat;
-border: 3pc solid red;
+border: 3px solid red;
 }
 
 .child {
