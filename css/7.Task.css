@@ -8,11 +8,11 @@ body {
         font-weight: bold;
     }
 
-.dropdown {
+.item {
     width: 200px;
 }
 
-.dropdown-level {
+.level {
     background-color: #339933;
     color: white;
     padding: 10px 0;
@@ -22,14 +22,14 @@ body {
     border-top-right-radius: 5px;
 }
 
-.dropdown-links {
+.links {
     background-color: #999900;
     display: block;
     text-align: left;
     padding: 8px 0;
 }
 
-.dropdown-links a {
+.links a {
     display: block;
     color: white;
     padding: 8px 16px;
@@ -38,7 +38,7 @@ body {
     margin-bottom: 2px;
 }
 
-.dropdown-links a:hover {
+.links a:hover {
     background-color: #baba33;
     color: #333;
 }
