@@ -1,0 +1,7 @@
+
+        .mlt_col {
+            columns: 3;
+            column-gap: 30px;
+            column-rule: groove;
+        }
+    
