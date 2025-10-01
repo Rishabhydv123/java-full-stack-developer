@@ -1,0 +1,27 @@
+
+        /* 
+      
+      counter-reset - Creates or resets a counter
+      counter-increment - Increments a counter value
+      content - Inserts generated content
+      counter() or counters() function - Adds the value of a counter to an element
+
+      */
+
+        body {
+            counter-reset: value;
+        }
+
+        /* psudo class  */
+
+        .text:hover {
+            font-size: 4rem !important;
+        }
+
+        /* psudo elements  */
+
+        h2::before {
+            counter-increment: value;
+            content: "DATA" counter(value) " -> ";
+        }
+    
