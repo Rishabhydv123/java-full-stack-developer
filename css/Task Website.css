@@ -95,3 +95,66 @@ nav a {
 .button:hover {
       background: (orange);
     }
+.optimization-section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3rem 2rem;
+  background-color: white;
+  gap: 2rem;
+}
+
+.optimization-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-us {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-us h2 {
+  border-bottom: 2px solid orange;
+  margin-bottom: 1rem;
+}
+
+
+
+.optimized-websites-section {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #999696;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.optimized-websites-section h2 {
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.optimized-websites-section h2 span {
+  border-bottom: 3px solid #e6b341;
+  padding-bottom: 3px;
+  color: #333;
+}
+
+.logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.logos img {
+  height: 40px;
+  width: auto;
+  filter: grayscale(0%);
+  transition: filter 0.3s ease;
+}
+
+.logos img:hover {
+  filter: grayscale(100%);
+  cursor: pointer;
+}
