@@ -106,7 +106,7 @@ header {
   cursor: pointer;
 }
 
-/* .search-box button:hover {
+.search-box button:hover {
   background-color: #3f85c2;
 }
 
@@ -116,4 +116,4 @@ footer {
   text-align: center;
   padding: 10px 0;
   font-weight: bold;
-} */
+}
