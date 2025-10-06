@@ -75,7 +75,7 @@ li:first-of-type + li {
   color: purple;
   font-weight: bold;
 }
-p > b + i {
+p > b + br + i {
   color: gold;
   background: #000;
 }
