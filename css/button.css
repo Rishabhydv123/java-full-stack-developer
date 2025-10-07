@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Advanced CSS3 Button</title>
-<style>
+
 body {
   height: 100vh;
   display: flex;
@@ -61,7 +55,6 @@ body {
   z-index: 1;
 }
 
-
 .button:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 12px 30px rgba(252, 0, 255, 0.3);
@@ -97,11 +90,3 @@ body {
   height: 300px;
   opacity: 0;
 }
-</style>
-</head>
-<body>
-
-<button class="button"><span> Button</span></button>
-
-</body>
-</html>
