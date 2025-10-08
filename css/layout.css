@@ -1,17 +1,16 @@
 :root {
-    --black:#000;
+    --black: #000;
     --text: #fff;
     --header: #ff3131;
-    --nav:#0cc0df;
+    --nav: #0cc0df;
     --main: #e56699;
     --section: #e56699;
-    --article: #FF6347;
+    --article: #ff6347;
     --aside: #8d6ae7;
     --footer: gray;
 }
 
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -23,77 +22,105 @@
 }
 
 body {
-    /* height: 97vh; */
-    border: 2px solid black;
+    border: 2px solid var(--black);
     margin: 7px;
     padding: 7px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    height: auto;
+    min-height: 100vh;
 }
 
 header {
     background: var(--header);
     height: 10vh;
-    line-height: 50px;
+    line-height: 10vh;
     border: 1px solid var(--black);
+    color: var(--text);
 }
 
 nav {
     background: var(--nav);
     height: 10vh;
-    line-height: 44px;
+    line-height: 10vh;
     border: 1px solid var(--black);
+    color: var(--text);
 }
 
 main {
     display: flex;
-    gap: inherit;
-    padding: 10px 0;
-    height: 60vh;
-}
-
-.child-1 {
-    display: flex;
-    flex-direction: column;
     gap: 10px;
+    height: 60vh;
 }
 
 .child-1,
 .child-2 {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .grand-child-1 {
     background: var(--section);
     height: 28vh;
-    line-height: 25vh;
+    line-height: 28vh;
     border: 1px solid var(--black);
+    color: var(--text);
 }
 
 .grand-child-2 {
     background: var(--article);
     height: 28vh;
-    line-height: 25vh;
+    line-height: 28vh;
     border: 1px solid var(--black);
+    color: var(--text);
 }
 
 .child-2 {
     background: var(--aside);
     border: 1px solid var(--black);
+    justify-content: center;
+    align-items: center;
 }
 
-.child-2>aside {
-    line-height: 60vh;
+.child-2 > aside {
+    color: var(--text);
+    line-height: normal;
 }
 
 footer {
     background: var(--footer);
     border: 1px solid var(--black);
-    height: 20vh;
-    line-height: 20vh;
+    height: 10vh;
+    line-height: 10vh;
+    color: var(--text);
 }
- /* media query */
 
- /* for mobile */
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .child-1,
+    .child-2 {
+        width: 100%;
+    }
+
+    .grand-child-1,
+    .grand-child-2 {
+        height: 20vh;
+        line-height: 20vh;
+    }
+
+    .child-2 {
+        height: 20vh;
+        justify-content: center;
+    }
+
+    footer {
+        height: 10vh;
+        line-height: 10vh;
+    }
+}
