@@ -1,0 +1,12 @@
+.text {
+    text-align: center;
+    text-transform: lowercase;
+    font-size: xx-large;
+    font-size: 67px;
+    background: radial-gradient(circle, orange, blue);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 25px solid transparent;
+    padding: 15px;
+    border-image: url(https://tse2.mm.bing.net/th/id/OIP._om0LV5aAKf-kLH4reypugHaHa?pid=Api&P=0&h=180) 80 round;
+}
