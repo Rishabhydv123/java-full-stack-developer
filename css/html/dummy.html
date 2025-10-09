@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Layout Example</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  border: 2px solid black;
+  height: 95vh;
+  display: grid;
+  margin: 10px;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "nav nav"
+    "section aside"
+    "article aside"
+    "footer footer";
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto 1fr 1fr auto;
+  gap: 10px;
+  padding: 10px;
+}
+
+header {
+  grid-area: header;
+  background: #ff4d4d;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  font-size: 1.2em;
+}
+
+nav {
+  grid-area: nav;
+  background: #00bcd4;
+  text-align: center;
+  padding: 15px;
+  color: white;
+}
+
+section {
+  grid-area: section;
+  background: #ffcc66;
+  text-align: center;
+  padding: 20px;
+}
+
+aside {
+  grid-area: aside;
+  background: #ff66cc;
+  text-align: center;
+  padding: 20px;
+}
+
+article {
+  grid-area: article;
+  background: #ff9966;
+  text-align: center;
+  padding: 20px;
+}
+
+footer {
+  grid-area: footer;
+  background: #666;
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>Header</header>
+    <nav>Navigation</nav>
+    <section>Section</section>
+    <aside>Aside</aside>
+    <article>Article</article>
+    <footer>Footer</footer>
+  </div>
+</body>
+</html>
