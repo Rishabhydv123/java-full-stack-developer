@@ -73,7 +73,7 @@ nav a {
     flex: 1 1 40%;
     /* border: 1px solid #171616; */
     width: 48%;
-    padding: 1px;
+    padding: 12px;
     margin: 8px 1%;
     border-radius: 5px;
 }
@@ -90,9 +90,9 @@ nav a {
 }
 
 .button:hover {
-  background: #f15a24;
+   background: #f15a24;
   color: white;
-  }
+    }
 
 .section {
   display: flex;
@@ -120,7 +120,7 @@ nav a {
 .websites-section {
   text-align: center;
   padding: 2rem 1rem;
-  background-color: #fbf6f6;
+  background-color: #999696;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
@@ -159,16 +159,13 @@ nav a {
 .portfolio {
   width: 100%;
   max-width: 1100px;
-  /* text-align: center; */
+  text-align: center;
 }
 
 .portfolio h2 {
   font-size: 1.8rem;
   margin-bottom: 30px;
   color: #222;
-  border-bottom: 3px solid #e6b341;
-  
-  
 }
 
 .item {
@@ -176,7 +173,6 @@ nav a {
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 25px;
   justify-items: center;
-  
 }
 
 .item {
