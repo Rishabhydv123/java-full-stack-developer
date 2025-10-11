@@ -168,14 +168,15 @@ nav a {
   color: #222;
 }
 
-.projects {
+.item {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 25px;
   justify-items: center;
+  
 }
 
-.project {
+.item {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -183,18 +184,18 @@ nav a {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project:hover {
+.item:hover {
   transform: translateY(-6px);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
 }
 
-.project img {
+.item img {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
 
-.project-info {
+.item-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -202,12 +203,12 @@ nav a {
   border-top: 1px solid #eee;
 }
 
-.project-info h3 {
+.item-info h3 {
   font-size: 1rem;
   color: #333;
 }
 
-.project-info span {
+.item-info span {
   font-size: 0.9rem;
   color: #888;
 }
