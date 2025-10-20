@@ -156,7 +156,7 @@
       left:50%;
       transform:translateX(-50%);
       width:140px;
-      height:60px;
+      height:120px;
       border-radius:50%;
       background: radial-gradient(closest-side, var(--glow), transparent 60%);
       z-index:1;
@@ -200,7 +200,7 @@
     .caption{
       margin-top:22px;
       text-align:center;
-      font-size:16px;
+      font-size:px;
       opacity:0.92;
       letter-spacing:0.6px;
     }
