@@ -165,7 +165,9 @@
 
     .sparkle{
       position:absolute;
-      width:6px;height:6px;border-radius:50%;
+      width:20px;
+      height:20px;
+      border-radius:50%;
       background: linear-gradient(180deg,#fff7c9,#ffd2a6);
       opacity:0.9;
       box-shadow: 0 0 18px rgba(255,200,120,0.9);
