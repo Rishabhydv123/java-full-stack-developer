@@ -173,6 +173,7 @@
       box-shadow: 0 0 18px rgba(255,200,120,0.9);
       animation: sparkle 2400ms infinite ease-in-out;
     }
+    
     .s1{left:14%; top:10%; animation-delay:0ms; transform:scale(0.9)}
     .s2{left:78%; top:6%; animation-delay:480ms; transform:scale(0.7)}
     .s3{left:52%; top:4%; animation-delay:980ms; transform:scale(1.1)}
@@ -182,16 +183,19 @@
       50%{transform: translateY(-4px) scaleY(0.98)}
       100%{transform: translateY(0) scaleY(1)}
     }
+
     @keyframes flicker-outer{
       0%{transform: translateY(0) scale(1)}
       50%{transform: translateY(-6px) scale(1.03)}
       100%{transform: translateY(0) scale(1)}
     }
+
     @keyframes sway{
       0%{transform: rotate(-2deg)}
       50%{transform: rotate(2deg)}
       100%{transform: rotate(-2deg)}
     }
+
     @keyframes sparkle{
       0%{opacity:0; transform:translateY(0) scale(0.6)}
       20%{opacity:1}
