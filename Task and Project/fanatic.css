@@ -61,10 +61,11 @@ body {
   gap: 15px;
 }
 
-.actions .login {
+.actions .login{
   color: #555;
   text-decoration: none;
   font-weight: 500;
+  
 }
 
 .middle-menu{
