@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Lesson </title>
+  <style>
+  body {
+  background-color: rgb(18, 17, 17);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+}
+
+.life-lesson {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.text {
+  font-size: 50px;
+  line-height: 0.9;
+}
+
+.l-letter {
+  font-size: 70px;
+  font-weight: bold;
+  position: relative;
+}
+
+.lesson {
+  font-size: 22px;
+  display: block;
+  margin-top: 15px;
+}
+
+.clock {
+  position: absolute;
+  left: -30px;
+  top: -17px;
+  width: 60px;
+  height: 60px;
+}
+
+.circle{
+  width: 15px;
+  height: 15px;
+  background: #c5cdc5;
+  border-radius: 50%; 
+  margin-top: 57px;
+  /* margin: 22px; */
+  
+}
+/* 
+.hand {
+  position: absolute;
+  width: 2px;
+  background: #e9efe9;
+  left: 50%;
+  top: 50%;
+  transform-origin: bottom center;
+}
+
+.hour {
+  height: 35px;
+  transform: rotate(150deg);
+}
+
+.minute {
+  height: 45px;
+  transform: rotate(-3deg);
+}
+
+.Second {
+    height: 37px;
+  transform: rotate(-50deg);
+}
+.quote p {
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.quote span {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+  </style> */
+</head>
+<body>
+  <div class="container">
+    <div class="life-lesson">
+      <div class="clock">
+        <div class="circle"></div>
+        <div class="hand hour"></div>
+        <div class="hand minute"></div>
+        <div class="hand Second"></div>
+      </div>
+      <div class="text">
+        <span class="l-letter"></span>ife<br>
+        <span class="lesson">Lesson</span>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>
+        Itni <span>गहराई</span> se <span>लिखूँगा</span> apne <span>पत्रो</span> me <span>तुम्हे</span>,<br>
+        Ki <span>पढ़ने</span> walo <span>को</span> talab ho jayegi <span>तुम्हे</span> dekhne <span>की</span>..
+      </p>
+    </div>
+  </div>
+</body>
+</html>
