@@ -1,4 +1,4 @@
-// format
+// format of the data in JavaScript
 
 
 // "name"=> string
