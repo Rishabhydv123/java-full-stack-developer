@@ -160,7 +160,7 @@ let full_name = name8 + ' ' + sur_name;
 
 let maried = false;
 
-let answer = `${name8} ${sur_name} is not maried ${maried}`;
+let answerṇ = `${name8} ${sur_name} is not maried ${maried}`;
 
 
 // console.log(' answer:', answer);
