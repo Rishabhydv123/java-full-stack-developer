@@ -165,8 +165,8 @@ let answer = `${name8} ${sur_name} is not maried ${maried}`;
 
 // console.log(' answer:', answer);
 
-let name1 = 'mehfooz';
-let name2 = 'khan';
+let name1 = 'Rishabh';
+let name2 = 'Yadav';
 
 // let full_name = name1 + " " + name2;
 // console.log(" full_name:", full_name);
@@ -186,7 +186,7 @@ let valCheck = 1 > 18 ? true : false;
 
 /* Type operators */
 
-let str = 'Mehfooz khan';
+let str = 'Rishabh Yadav';
 console.log(' str:', typeof str);
 
 let num = 8;
