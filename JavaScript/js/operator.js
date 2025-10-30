@@ -24,12 +24,12 @@ let maried1 = false;
 
 /* Comparison operators */
 
-let num1 = 3;
-console.log('🚀 ~ num1:', typeof num1);
-let num2 = "3";
-console.log('🚀 ~ num2:', typeof num2);
+// let num1 = 3;
+// console.log('🚀 ~ num1:', typeof num1);
+// let num2 = "3";
+// console.log('🚀 ~ num2:', typeof num2);
 
-console.log(' checking value:', num1 !== num2);
+// console.log(' checking value:', num1 !== num2);
 
 /* 
 
@@ -152,9 +152,9 @@ let binaryConv2 = num77.toString(2);
 
 */
 
-let name8 = 'mehfooz';
+let name8 = 'Rishabh';
 
-let sur_name = 'khan';
+let sur_name = 'Yadav';
 
 let full_name = name8 + ' ' + sur_name;
 
