@@ -72,6 +72,7 @@ let flag1 = false;
 
 /* 
 
+
 && -> AND
 || -> OR
 ! -> NOT
@@ -91,6 +92,15 @@ console.log('🚀 ~ or operator: (||)');
 
 let flags = true;
 console.log(' flags:', !flags);
+
+let num1 = 6;
+let num2 = 8;
+
+let flag=false;
+console.log(!flag);
+
+let comparire = num1 === num2 && num2 > num1;
+
 
 /* Bitwise operators */
 
