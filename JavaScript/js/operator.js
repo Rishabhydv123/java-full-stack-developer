@@ -126,9 +126,7 @@ let bin_To_num = parseInt(binaryConv, 2);
 */
 
 let num66 = 1;
-
 let num77 = 14;
-
 let binaryConv1 = num66.toString(2);
 
 // console.log(' binaryConv:', binaryConv1);
@@ -151,13 +149,9 @@ let binaryConv2 = num77.toString(2);
 */
 
 let name8 = 'Rishabh';
-
 let sur_name = 'Yadav';
-
 let full_name = name8 + ' ' + sur_name;
-
 let maried = false;
-
 let answerṇ = `${name8} ${sur_name} is not maried ${maried}`;
 
 
@@ -179,7 +173,6 @@ let valCheck = 1 > 18 ? true : false;
 
 /* 
  condition ? true :false
-
 */
 
 /* Type operators */
