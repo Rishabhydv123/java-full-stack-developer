@@ -36,7 +36,6 @@ let maried1 = false;
 1. = = == -> data value 
 2. = = = === -> data type  check boths  value & type same then it will give you the prope result
 
-
 */
 // let num4 = 2;
 // let num5 = 3;
@@ -71,7 +70,6 @@ let flag1 = false;
 /* Logical operators */
 
 /* 
-
 
 && -> AND
 || -> OR
@@ -237,7 +235,5 @@ let str2 = 'RishabhYadav';
 
 let ans22 = parseInt(str2);
 // let ans22 = Number(str2);
-
 // console.log(' ans22:', ans22);
-
 // done with operators
