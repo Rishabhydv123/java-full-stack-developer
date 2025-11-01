@@ -195,7 +195,6 @@ console.log(' num:', typeof num);
 */
 
 let arr = [1, 2, 3, 4];
-
 let newArr = [...arr, 5, 6, 7, 8];
 // console.log(' newArr:', newArr);
 
@@ -212,7 +211,6 @@ const sum = (...xyz) => {
 sum(1, 2, 3);
 
 // this is create the parameters into array.
-
 // conversion number to string and string to number
 
 let num33 = 88;
@@ -232,7 +230,6 @@ console.log(' newData2:', newData2);
 console.log(' newDatoa2:', typeof newData2);
 
 let str2 = 'RishabhYadav';
-
 let ans22 = parseInt(str2);
 // let ans22 = Number(str2);
 // console.log(' ans22:', ans22);
