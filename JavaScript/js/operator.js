@@ -56,25 +56,22 @@ let flag1 = false;
 /*  task */
 
 /* 
-
 != 
 !==
 >
 <
 <=
 >=
-
 */
 
 /* Logical operators */
 
 /* 
-
 && -> AND
 || -> OR
 ! -> NOT
-
 */
+
 // let num1 = 3;
 // let num2 = 3;
 
