@@ -9,6 +9,7 @@ let dev = n1 / n2;
 let sum1 = n1 + n2;
 let sub1 = n1 - n2;
 let expo = n1 ** n2;
+
 console.log('🚀 ~ expo:', expo);
 // console.log(' sum1:', sum1);
 // console.log(' sub1:', sub1);
@@ -17,7 +18,7 @@ console.log('🚀 ~ expo:', expo);
 
 /* Asignments operators */ // done
 
-let name = 'mehfooz-khan';
+let name = 'Rishabh-Yadav';
 let age = 26;
 let maried1 = false;
 // console.log(' name:', typeof name);
@@ -28,7 +29,6 @@ let maried1 = false;
 // console.log('🚀 ~ num1:', typeof num1);
 // let num2 = "3";
 // console.log('🚀 ~ num2:', typeof num2);
-
 // console.log(' checking value:', num1 !== num2);
 
 /* 
@@ -41,7 +41,6 @@ let maried1 = false;
 // let num5 = 3;
 
 // console.log(' checking1:', num4 === num5);
-
 // console.log(typeof num4);
 // console.log(typeof num5);
 
