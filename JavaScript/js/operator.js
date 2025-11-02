@@ -11,10 +11,10 @@ let sub1 = n1 - n2;
 let expo = n1 ** n2;
 
 console.log('🚀 ~ expo:', expo);
-// console.log(' sum1:', sum1);
-// console.log(' sub1:', sub1);
-// console.log(' dev:', dev);
-// console.log(' mul:', mul);
+console.log(' sum1:', sum1);
+console.log(' sub1:', sub1);
+console.log(' dev:', dev);
+console.log(' mul:', mul);
 
 /* Asignments operators */ // done
 
@@ -183,8 +183,8 @@ console.log(' num:', typeof num);
 # Spread and rest operators 
 */
 
-let arr = [1, 2, 3, 4];
-let newArr = [...arr, 5, 6, 7, 8];
+// let arr = [1, 2, 3, 4];
+// let newArr = [...arr, 5, 6, 7, 8];
 // console.log(' newArr:', newArr);
 
 // let finalArr = [...arr, ...newArr];
@@ -220,6 +220,14 @@ console.log(' newDatoa2:', typeof newData2);
 
 let str2 = 'RishabhYadav';
 let ans22 = parseInt(str2);
-// let ans22 = Number(str2);
-// console.log(' ans22:', ans22);
+let ans23 = Number(str2);
+console.log(' ans22:', ans23);
 // done with operators
+
+
+
+
+
+
+
+
