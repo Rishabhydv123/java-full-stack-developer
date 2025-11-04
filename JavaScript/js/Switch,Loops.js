@@ -97,82 +97,82 @@ switch (month){
 // 3 → Multiplication
 // 4 → Division
 
-let num2=4;
-switch (num2){
-    case 1:
-        console.log("Adition");
-        break;
-        case 2:
-        console.log("subtraction");
-        break;
-        case 3:
-        console.log("Multiplicatin");
-        break;
-        case 4:
-        console.log("Division");
-        break;
-        default:
-            console.log(null);
-}
+// let num2=4;
+// switch (num2){
+//     case 1:
+//         console.log("Adition");
+//         break;
+//         case 2:
+//         console.log("subtraction");
+//         break;
+//         case 3:
+//         console.log("Multiplicatin");
+//         break;
+//         case 4:
+//         console.log("Division");
+//         break;
+//         default:
+//             console.log(null);
+// }
 
 // Q4 Input a grade (A, B, C, D, F). Print a message like Excellent, Good, etc.
-let grade = 'B';
-switch (grade) {
-  case "A":
-    console.log("Excellent");
-    break;
-  case "B":
-    console.log("Very Good");
-    break;
-  case "C":
-    console.log("Good");
-    break;
-  case "D":
-    console.log("Nice");
-    break;
-  case "F":
-    console.log("Poor");
-    break;
-  default:
-    console.log("Invalid grade");
-}
+// let grade = 'B';
+// switch (grade) {
+//   case "A":
+//     console.log("Excellent");
+//     break;
+//   case "B":
+//     console.log("Very Good");
+//     break;
+//   case "C":
+//     console.log("Good");
+//     break;
+//   case "D":
+//     console.log("Nice");
+//     break;
+//   case "F":
+//     console.log("Poor");
+//     break;
+//   default:
+//     console.log("Invalid grade");
+// }
 
 
 // Q5 Input the first letter of a traffic light (R, Y, G). Print Stop, Ready, or Go.
-let light = 'G'; 
-switch (light) {
-  case 'R':
-    console.log("Stop");
-    break;
-  case 'Y':
-    console.log("Ready");
-    break;
-  case 'G':
-    console.log("Go");
-    break;
-  default:
-    console.log("Invalid input");
-}
+// let light = 'G'; 
+// switch (light) {
+//   case 'R':
+//     console.log("Stop");
+//     break;
+//   case 'Y':
+//     console.log("Ready");
+//     break;
+//   case 'G':
+//     console.log("Go");
+//     break;
+//   default:
+//     console.log("Invalid input");
+// }
 
 
 // Q6 Input a browser name (Chrome, Firefox, Edge, Safari). Show a launch message.
-let browser = 'chrome';  
-switch (browser) {
-  case 'chrome':
-    console.log("Launch Chrome...");
-    break;
-  case 'firefox':
-    console.log("Launch Firefox...");
-    break;
-  case 'edge':
-    console.log("Launch Edge...");
-    break;
-  case 'safari':
-    console.log("Launch Safari...");
-    break;
-  default:
-    console.log("null browser!");
-}
+// let browser = 'chrome';  
+// switch (browser) {
+//   case 'chrome':
+//     console.log("Launch Chrome...");
+//     break;
+//   case 'firefox':
+//     console.log("Launch Firefox...");
+//     break;
+//   case 'edge':
+//     console.log("Launch Edge...");
+//     break;
+//   case 'safari':
+//     console.log("Launch Safari...");
+//     break;
+//   default:
+//     console.log("null browser!");
+// }
 
 
 
@@ -196,23 +196,23 @@ switch (number) {
 }
 
 // Q8 Input a language code (en, fr, es, de). Display the language name.
-let language = 'en';  
-switch (language) {
-  case 'en':
-    console.log("English");
-    break;
-  case 'fr':
-    console.log("French");
-    break;
-  case 'es':
-    console.log("Spanish");
-    break;
-  case 'de':
-    console.log("German");
-    break;
-  default:
-    console.log("null Language...!");
-}
+// let language = 'en';  
+// switch (language) {
+//   case 'en':
+//     console.log("English");
+//     break;
+//   case 'fr':
+//     console.log("French");
+//     break;
+//   case 'es':
+//     console.log("Spanish");
+//     break;
+//   case 'de':
+//     console.log("German");
+//     break;
+//   default:
+//     console.log("null Language...!");
+// }
 
 
 
@@ -249,16 +249,13 @@ switch (language) {
 //   }
 
 
-  //Q4 Print the multiplication table of 5.
-  // for (let i = 1; i <= 10; i++) {
-  //   console.log(`5 x ${i} = ${5 * i}`);
-  // }
+// for(let num=1; num<=100; num++){
+//     if(num % 2 === 0){
+//         console.log(num);
+//     }   }
 
+  
 
-//  Q8 Print the cube of the first 10 natural numbers.
-  // for (let i = 1; i <= 10; i++) {
-  //   console.log(i ** 3);
-  // }
 
   
 //  Q3 Print all odd numbers between 1 and 50.
@@ -266,20 +263,50 @@ switch (language) {
   //   console.log(i);
   // }
 
-  
-// Q2 print all even numbers between 1 and 100 using a loop?
 
-// for(let num=1; num<=100; num++){
-//     if(num % 2 === 0){
-//         console.log(num);
-//     }   }
+
+  //Q4 Print the multiplication table of 5.
+  // for (let i = 1; i <= 10; i++) {
+  //   console.log(`5 x ${i} = ${5 * i}`);
+  // }
+  
+
 
 // Q5 print number from 100 down to 1 (reverse order)
+//   for (let i = 100; i >= 1; i--) {
+//   console.log(i);
+// }
+
+
+
+//  Q6 print the sum of number fronm 1 to 100
+// let sum = 0;
+// for (let i = 1; i <= 100; i++) {
+//   sum += i;
+// }
+// console.log("The sum of numbers :", sum);
+
+
+
+// Q7 Print the square of the first 10 natural number
+
+
+
+
+
+//  Q8 Print the cube of the first 10 natural numbers.
+  // for (let i = 1; i <= 10; i++) {
+  //   console.log(i ** 3);
+  // }
+
+
+
+  // Q9 print the first 10 multiples of 3
 
 
 
 
 
 
-
-
+  // Q10 print the factorial of a given number
+  
