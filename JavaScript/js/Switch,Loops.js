@@ -310,3 +310,28 @@ switch (number) {
 
   // Q10 print the factorial of a given number
   
+
+
+
+
+  // Q
+  // let num = 123;
+  // let value = num + '';
+  // console.log(value);
+
+  // let jhola  = '';
+  // let sum =0;
+
+  // for (let i = value.length - 1; i >= 0; i--){
+  //   jhola += value[i];
+  // }
+
+  // jhola = number(jhola);
+  // console.log(jhola);
+
+  // let finalval = num.toString().split('').reverse().map((el) = +el).join('');
+  // console.log(typeof +finalval);
+  
+
+
+  
