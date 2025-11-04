@@ -97,8 +97,8 @@ switch (month){
 // 3 → Multiplication
 // 4 → Division
 
-let num=4;
-switch (num){
+let num2=4;
+switch (num2){
     case 1:
         console.log("Adition");
         break;
@@ -220,8 +220,66 @@ switch (language) {
 
 
                                              // Loop
-let arr = [1,2,3];
-for(var i = 0; i < arr.length; i++){
-    console.log(arr[i]);
+// let arr = [1,2,3];
+// for(var i = 0; i < arr.length; i++){
+//     console.log(arr[i]);
    
-}
+// }
+
+
+
+// Q1.Print number from 1 to 10 using a loop
+// let lastnumber = 50;
+// let i = 1;
+// for (let i = 1; i<=lastnumber; i++){
+//   if(i%2==0){
+//     console.log(i);
+    
+//   }else{
+//     console.log(i);
+    
+//   }
+
+// }
+
+
+// Q2 Print all even numbers between 1 and 50.
+// for (let i = 1; i <= 50; i += 2) {
+//     console.log(i);
+//   }
+
+
+  //Q4 Print the multiplication table of 5.
+  // for (let i = 1; i <= 10; i++) {
+  //   console.log(`5 x ${i} = ${5 * i}`);
+  // }
+
+
+//  Q8 Print the cube of the first 10 natural numbers.
+  // for (let i = 1; i <= 10; i++) {
+  //   console.log(i ** 3);
+  // }
+
+  
+//  Q3 Print all odd numbers between 1 and 50.
+  // for (let i = 1; i <= 50; i += 2) {
+  //   console.log(i);
+  // }
+
+  
+// Q2 print all even numbers between 1 and 100 using a loop?
+
+// for(let num=1; num<=100; num++){
+//     if(num % 2 === 0){
+//         console.log(num);
+//     }   }
+
+// Q5 print number from 100 down to 1 (reverse order)
+
+
+
+
+
+
+
+
