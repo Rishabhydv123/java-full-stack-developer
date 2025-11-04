@@ -214,9 +214,14 @@ switch (language) {
     console.log("null Language...!");
 }
 
-                         // Loop
-// let arr = [1,2,3];
-// for(var i = 0; i < arr.length; i++){
-//     console.log(arr[i]);
+
+
+
+
+
+                                             // Loop
+let arr = [1,2,3];
+for(var i = 0; i < arr.length; i++){
+    console.log(arr[i]);
    
-// }
+}
