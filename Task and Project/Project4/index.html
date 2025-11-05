@@ -112,36 +112,36 @@
           <p>by George Orwell</p>
         </div>
       </div>
-       <div class="card fade-up display-3">
+      <div class="card fade-up display-3">
         <img src="./image/4.jpeg" alt="One day">
         <div class="info">
           <h3>One day</h3>
           <p>Deepak Yadav</p>
         </div>
       </div>
-       <div class="card fade-up display-4">
+      <div class="card fade-up display-4">
         <img src="./image/5.jpeg" alt="Call Me by Your Name">
         <div class="info">
           <h3>Call Me by Your Name</h3>
           <p>Abhishek Pal</p>
         </div>
       </div>
-       <div class="card fade-up display-5">
+      <div class="card fade-up display-5">
         <img src="./image/6.jpeg" alt="Like Water for Chocolate">
         <div class="info">
           <h3>Like Water for Chocolate</h3>
           <p>Aamir Khan</p>
         </div>
       </div>
-       <div class="card fade-up display-6">
+      <div class="card fade-up display-6">
         <img src="./image/7.jpeg" alt="Love in The Time of Cholera">
         <div class="info">
           <h3>Love in The Time of Cholera</h3>
           <p>Ashish Yadav</p>
         </div>
       </div>
-       <div class="card fade-up display-7">
-        <img src="./image/8.jpeg" alt="Eat, Pray, Lovet">
+      <div class="card fade-up display-7">
+        <img src="./image/8.jpeg" alt="Eat, Pray, Love">
         <div class="info">
           <h3>Eat, Pray, Love</h3>
           <p>Shivam Pal</p>
@@ -159,6 +159,30 @@
     <p>✉ rishabhyadav55888@gmail.com</p>
     <p>© 2025 🎬 Classic Cinema Love. Crafted with ❤️</p>
   </footer>
+
+  
+  <audio id="bg-music" src="./image/_Mohabbatein_Ringtone_(by Fringster.com).mp3" autoplay loop></audio>
+
+  <script>
+    window.addEventListener('load', function() {
+      const audio = document.getElementById('bg-music');
+      audio.volume = 0.9; 
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          
+          const btn = document.createElement('button');
+          btn.textContent = "Play Background Music 🎵";
+          btn.style = "position:fixed;bottom:20px;right:20px;padding:10px 20px;border:none;background:#e91e63;color:white;border-radius:10px;cursor:pointer;z-index:1000;";
+          btn.onclick = () => {
+            audio.play();
+            btn.remove();
+          };
+          document.body.appendChild(btn);
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
