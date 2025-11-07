@@ -289,6 +289,12 @@ switch (number) {
 
 
 // Q7 Print the square of the first 10 natural number
+let i = 1;
+
+while (i <= 10) {
+  console.log(`Square of ${i} = ${i * i}`);
+  i++;
+}
 
 
 
@@ -302,6 +308,10 @@ switch (number) {
 
 
   // Q9 print the first 10 multiples of 3
+  for (let i = 1; i <= 10; i++) {
+  console.log(`3 x ${i} = ${3 * i}`);
+}
+
 
 
 
@@ -309,6 +319,15 @@ switch (number) {
 
 
   // Q10 print the factorial of a given number
+  let num = 6;  
+let fact = 1;
+
+for (let i = 1; i <= num; i++) {
+  fact *= i;
+}
+
+console.log(`Factorial of ${num} = ${fact}`);
+
   
 
 
