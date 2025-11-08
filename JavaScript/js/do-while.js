@@ -1,8 +1,8 @@
-// let numbere;
-// do{
-//   number = +prompt('enter your number...');
-// } while (number >= 0);
-// console.log('you enter the negative number?...');
+let numbere;
+do{
+  number = +prompt('enter your number...');
+} while (number >= 0);
+console.log('you enter the negative number?...');
 
 
 // Q1 print number from 1 to 10 using a do..while loop
