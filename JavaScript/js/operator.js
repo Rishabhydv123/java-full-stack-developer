@@ -222,6 +222,9 @@ let str2 = 'RishabhYadav';
 let ans22 = parseInt(str2);
 let ans23 = Number(str2);
 console.log(' ans22:', ans23);
+
+
+
 // done with operators
 
 
