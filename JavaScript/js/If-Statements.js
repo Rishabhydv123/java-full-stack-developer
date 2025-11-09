@@ -34,6 +34,7 @@ else{
 // Q3 Find the greater between two numbers
 // let a1 = 10;
 // let b2 = 25;
+
 // if (a1 > b2) {
 //   console.log("The greater number is: " + a1);
 // } else {
@@ -56,8 +57,8 @@ else{
 // }
 
 // Q5.Check if a given year is a leap year or not.
-
 //  let year =2025;
+
 // if (year % 4 === 0 && year % 100 !== 0) {
 //   console.log(year + " is a leap year.");
 // } else if (year % 400 === 0) {
@@ -121,7 +122,6 @@ if (char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u'
 
 
 // Q9 Check if a number is divisible by both 3 and 5.
-
 // let number = 20; 
 
 // if (number % 3 === 0 && number % 5 === 0) {
@@ -135,6 +135,7 @@ if (char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u'
 // ≤ 10°C → Cold
 // 11–25°C → Pleasant
 // >= 25°C → Hot
+
 let temperature = 30;
 
 if (temperature > 25) {
