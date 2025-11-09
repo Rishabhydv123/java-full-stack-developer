@@ -255,8 +255,6 @@ switch (number) {
 //     }   }
 
   
-
-
   
 //  Q3 Print all odd numbers between 1 and 50.
   // for (let i = 1; i <= 50; i += 2) {
@@ -298,8 +296,6 @@ while (i <= 10) {
 
 
 
-
-
 //  Q8 Print the cube of the first 10 natural numbers.
   // for (let i = 1; i <= 10; i++) {
   //   console.log(i ** 3);
@@ -311,11 +307,6 @@ while (i <= 10) {
   for (let i = 1; i <= 10; i++) {
   console.log(`3 x ${i} = ${3 * i}`);
 }
-
-
-
-
-
 
 
   // Q10 print the factorial of a given number
