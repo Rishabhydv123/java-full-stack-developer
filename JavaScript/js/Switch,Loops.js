@@ -116,43 +116,43 @@ switch (month){
 // }
 
 // Q4 Input a grade (A, B, C, D, F). Print a message like Excellent, Good, etc.
-// let grade = 'B';
-// switch (grade) {
-//   case "A":
-//     console.log("Excellent");
-//     break;
-//   case "B":
-//     console.log("Very Good");
-//     break;
-//   case "C":
-//     console.log("Good");
-//     break;
-//   case "D":
-//     console.log("Nice");
-//     break;
-//   case "F":
-//     console.log("Poor");
-//     break;
-//   default:
-//     console.log("Invalid grade");
-// }
+let grade = 'B';
+switch (grade) {
+  case "A":
+    console.log("Excellent");
+    break;
+  case "B":
+    console.log("Very Good");
+    break;
+  case "C":
+    console.log("Good");
+    break;
+  case "D":
+    console.log("Nice");
+    break;
+  case "F":
+    console.log("Poor");
+    break;
+  default:
+    console.log("Invalid grade");
+}
 
 
 // Q5 Input the first letter of a traffic light (R, Y, G). Print Stop, Ready, or Go.
 // let light = 'G'; 
-// switch (light) {
-//   case 'R':
-//     console.log("Stop");
-//     break;
-//   case 'Y':
-//     console.log("Ready");
-//     break;
-//   case 'G':
-//     console.log("Go");
-//     break;
-//   default:
-//     console.log("Invalid input");
-// }
+switch (light) {
+  case 'R':
+    console.log("Stop");
+    break;
+  case 'Y':
+    console.log("Ready");
+    break;
+  case 'G':
+    console.log("Go");
+    break;
+  default:
+    console.log("Invalid input");
+}
 
 
 // Q6 Input a browser name (Chrome, Firefox, Edge, Safari). Show a launch message.
