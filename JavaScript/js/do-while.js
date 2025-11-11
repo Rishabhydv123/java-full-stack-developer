@@ -14,14 +14,14 @@ console.log('you enter the negative number?...');
 
 
 // Q2 print all even numbers between 1 and 50.
-// let i = 1;
+let i1 = 1;
 
-// do {
-//   if (i % 2 === 0) {
-//     console.log(i);
-//   }
-//   i++;
-// } while (i <= 50);
+do {
+  if (i1 % 2 === 0) {
+    console.log(i1);
+  }
+  i1++;
+} while (i1 <= 50);
 
 // Q3 Print all odd numbers between 1 and 50.
 let i = 1;
