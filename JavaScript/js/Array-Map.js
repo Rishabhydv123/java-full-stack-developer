@@ -22,7 +22,7 @@ console.log(newArray1);
 let str = ["mango", "apple", "kiwi", "watermelon", "mango", "apple", "kiwi", "banana", "lich", "muskmelon"];
 
 let data1 = str.filter((element, index) => {
-  return index === 0;
+  return index == 0;
 });
 // console.log(data1);
 
@@ -46,12 +46,13 @@ let data2 = str.reduce((acc, curr) =>{
 // Task: let array=[2,7,0,3,1,6,4,8] 
 
 let array = [2, 7, 0, 3, 1, 6, 4, 8];
-
-let newArray = array.reduce((acc, curr) => {
-  acc.push(curr * 2);
-  return acc;
+let value = array.reduce((acc, curr) => {
+  // acc.push(curr * 2);
+  return [...acc,curr*2];
 }, []);
 
-console.log(newArray);
+console.log(value);
 
 
+// HW
+// const hello=["68","65", "6C", "6C", "6F"]
