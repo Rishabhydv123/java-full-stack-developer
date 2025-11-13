@@ -97,5 +97,5 @@ let tangent45 = Math.tan(45 * Math.PI / 180);
 console.log("tan(45°):", tangent45); 
 
 // Q20. Convert 30 degrees to radians
-let radians30 = 30 * Math.PI / 180;
-console.log("30° in radians:", radians30);
+// let radians30 = 30 * Math.PI / 180;
+// console.log("30° in radians:", radians30);
