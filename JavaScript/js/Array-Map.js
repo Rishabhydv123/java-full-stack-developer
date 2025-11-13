@@ -56,3 +56,13 @@ console.log(value);
 
 // HW
 // const hello=["68","65", "6C", "6C", "6F"]
+
+const hello = ["68", "65", "6C", "6C", "6F"];
+
+const result = hello.reduce((acc, hex) => 
+  acc + String.fromCharCode(Number("0x" + hex)), 
+  ""
+);
+
+console.log(result); 
+ 
