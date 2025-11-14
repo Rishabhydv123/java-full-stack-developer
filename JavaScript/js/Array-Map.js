@@ -51,7 +51,7 @@ let value = array.reduce((acc, curr) => {
   return [...acc,curr*2];
 }, []);
 
-console.log(value);
+// console.log(value);
 
 
 // HW
