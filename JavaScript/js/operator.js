@@ -211,8 +211,8 @@ let newData = num33.toString();
 // console.log(' newData:', typeof newData);
 
 let newData1 = String(num33);
-// console.log(' newData1:', newData1);
-// console.log(' newData1:', typeof newData1);
+console.log(' newData1:', newData1);
+console.log(' newData1:', typeof newData1);
 
 let newData2 = Number(newData1);
 console.log(' newData2:', newData2);
