@@ -2,13 +2,13 @@ let number = 'helloo';
 
 // Create an array of indexes + 1
 let newArr = Array.from(number, (_, i) => i + 1);
-// console.log(newArr);
+console.log(newArr);
 
 // Map
 let data = newArr.map((element, index) => {
   return element < 5 ? [index] : null;
 });
-// console.log(data);
+console.log(data);
 
 // TAsk:
 let array1 = [2, 7, 0, 3, 1, 6, 4, 8];
@@ -24,7 +24,7 @@ let str = ["mango", "apple", "kiwi", "watermelon", "mango", "apple", "kiwi", "ba
 let data1 = str.filter((element, index) => {
   return index == 0;
 });
-// console.log(data1);
+console.log(data1);
 
 // forEach
 str.forEach((el, i) => {
