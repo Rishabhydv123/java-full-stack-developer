@@ -40,7 +40,7 @@ let data2 = str.reduce((acc, curr) =>{
   return acc;
 }, {});
 
-// console.log(data2);
+console.log(data2);
 
 
 // Task: let array=[2,7,0,3,1,6,4,8] 
@@ -51,7 +51,7 @@ let value = array.reduce((acc, curr) => {
   return [...acc,curr*2];
 }, []);
 
-// console.log(value);
+console.log(value);
 
 
 // HW
