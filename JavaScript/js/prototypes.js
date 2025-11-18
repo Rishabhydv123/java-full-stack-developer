@@ -16,3 +16,8 @@ console.log("ans", ans);
 console.log("arr1", arr1);
 console.log("arr", arr);
 
+//  pop 
+//  unshift
+//  shift
+//  Map
+//  filter
