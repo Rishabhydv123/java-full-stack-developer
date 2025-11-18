@@ -8,7 +8,7 @@ Array.prototype.push = function (value){
     // console.log("arr", arr);
     let index = this.length;
     this[index] = value;
-    return "done";
+    return "arr";
 };
 
 let ans = arr1.push(5,6,7,8);
