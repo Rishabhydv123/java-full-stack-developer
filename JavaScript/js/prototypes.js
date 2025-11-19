@@ -30,6 +30,8 @@ console.log("arr1", arr1);
 //  Map
 //  filter
 
+
+                    //  pop 
 let arr2 = [1, 2, 3, 4];
 
 Array.prototype.countElements = function () {
@@ -57,3 +59,6 @@ arr2 = arr2.yes();
 let anss = arr2.yes();
 
 console.log("arr2:pop_app", anss);
+
+
+
