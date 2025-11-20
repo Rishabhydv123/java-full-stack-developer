@@ -32,6 +32,7 @@ console.log("arr1", arr1);
 
 
                     //  pop 
+                      
 let arr2 = [1, 2, 3, 4];
 
 Array.prototype.countElements = function () {
@@ -43,14 +44,14 @@ Array.prototype.countElements = function () {
 let ans1 = arr2.countElements();
 console.log("countElements:", ans1);
 
-// Custom pop-like method
+
 Array.prototype.yes = function () {
     let last_index = this.length - 1;
 
-    delete this[last_index];   // removes last element but keeps a hole
+    delete this[last_index];   
     console.log("arr2 after delete:", this);
 
-    // remove empty slots
+    
     return this.filter(el => el != null);
 };
 
@@ -62,3 +63,8 @@ console.log("arr2:pop_app", anss);
 
 
 
+let fruit= ["mango", "apple","banana"]
+
+fruit.pop();
+
+console.log("fruit", fruit);
