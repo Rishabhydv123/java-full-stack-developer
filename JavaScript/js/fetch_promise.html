@@ -9,9 +9,9 @@
     <h1>API Calling</h1>
 </body>
 <script>
-    let api = "https://jsonplaceholder.typicode.com/todos";
+    // let api = "https://jsonplaceholder.typicode.com/todos";
 
-    const Apicall = async () => {
+    // const Apicall = async () => {
             //  fetch(api)
             //     .then((res) => res.json())
             //     .then((data) => {
@@ -21,7 +21,31 @@
             //         console.log(error);
             //     });
 
-        try {
+    //     try {
+    //         let res = await fetch(api);
+    //         let data = await res.json();
+    //         console.table(data);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
+
+    // Apicall();  
+
+
+
+    let api = "https://fakestoreapi.com/products";
+    const Apicall = async () => {
+        //  fetch(api)
+        //         .then((res) => res.json())
+        //         .then((data) => {
+        //             console.log(data);
+        //         })
+        //         .catch((error) => {
+        //             console.log(error);
+        //         });
+
+                 try {
             let res = await fetch(api);
             let data = await res.json();
             console.table(data);
@@ -30,6 +54,8 @@
         }
     }
 
-    Apicall();  
+
+
+       Apicall(); 
 </script>
 </html>
