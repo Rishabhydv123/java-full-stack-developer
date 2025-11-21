@@ -47,7 +47,6 @@ Array.prototype.निकालो_शुरुआत = function () {
 
   delete this[this.length - 1];
   this.length -= 1;
-
   return firstElement;
 };
 
@@ -143,7 +142,6 @@ console.log("-> filteredArr:", filteredArr);
 
 } */
 
-
 // let arr = [1, 2, 3, 4, 5];
 
 console.log(arr[4]);
@@ -170,7 +168,6 @@ console.log('🚀 ~ ans:', ans);
 // arr.pushpa(9,10,11);
 arr
 
-
 let object = {
   name: 'mehfooz',
   age: 25
@@ -180,7 +177,6 @@ let object = {
 for (let key of arr) {
   console.log(key);
 }
-
 
 let arr1 = [1, 2, 3, 4, 5];
 
