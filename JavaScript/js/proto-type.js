@@ -146,6 +146,7 @@ console.log("-> filteredArr:", filteredArr);
 
 // console.log(arr[4]);
 
+
 let anss = arr.push(6, 7, 8);
 console.log('🚀 ~ anss:', anss);
 
@@ -160,8 +161,11 @@ Array.prototype.pushpa = function (...value) {
         this[this.length]=values;
     }
 */
+
+
   return this.length;
 }
+
 
 let ans = arr.pushpa(9, 10, 11);
 console.log('🚀 ~ ans:', ans);
