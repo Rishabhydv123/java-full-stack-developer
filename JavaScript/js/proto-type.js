@@ -8,6 +8,7 @@ console.log("✔ ~ arr4:", arr[4]);
   name: 'mehfooz',
 };
 
+
 console.log('-> obj:', typeof obj);
  */
 
