@@ -16,8 +16,6 @@ let newArray1 = array1.map(num => num + -2);
 console.log(newArray1);
 
 
-
-
 // Filter
 let str = ["mango", "apple", "kiwi", "watermelon", "mango", "apple", "kiwi", "banana", "lich", "muskmelon"];
 
