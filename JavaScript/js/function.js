@@ -87,7 +87,7 @@ function calc(...arr){
     }
 }
 let ans1=calc(num_1,num_2,operators)
-console.log(ans1);
+// console.log(ans1);
 
 
 
