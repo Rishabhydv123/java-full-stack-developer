@@ -25,36 +25,36 @@ let ans = name(n1, n2, n3, n4, n5, n6, n7, n8, names);
         // user -> number1, number2 ,operator(+, -, * , /, %)
        
 
-function cal(number1, number2, operator) {
-    let result;
+// function cal(number1, number2, operator) {
+//     let result;
 
-    switch (operator) {
-        case '+':
-            result = number1 + number2;
-            break;
+//     switch (operator) {
+//         case '+':
+//             result = number1 + number2;
+//             break;
 
-        case '-':
-            result = number1 - number2;
-            break;
+//         case '-':
+//             result = number1 - number2;
+//             break;
 
-        case '*':
-            result = number1 * number2;
-            break;
+//         case '*':
+//             result = number1 * number2;
+//             break;
 
-        case '/':
-            result = number1 / number2;
-            break;
+//         case '/':
+//             result = number1 / number2;
+//             break;
 
-        case '%':
-            result = number1 % number2;
-            break;
+//         case '%':
+//             result = number1 % number2;
+//             break;
 
-        default:
-            return "Invalid operator! Please use +, -, *, /, or %.";
-    }
+//         default:
+//             return "Invalid operator! Please use +, -, *, /, or %.";
+//     }
 
-    return `Result: ${result}`;
-}
+//     return `Result: ${result}`;
+// }
 
 
 // console.log(cal(10, 5, '+'));  
