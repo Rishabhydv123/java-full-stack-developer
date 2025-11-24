@@ -1,0 +1,19 @@
+#container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    margin: 20px 40px;
+}
+
+#container > div {
+    border: 2px solid red;
+    padding: 10px;
+}
+
+#container img {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+}
+
+
