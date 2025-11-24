@@ -22,8 +22,9 @@ value.map((el, i, arr) => {
     name_created.innerText = show.name;
     lang_created.innerText = "Language: " + show.language;
     rating_created.innerText = "Rating: " + 9.9;
-    img_created.src = el.image ;
 
+    img_created.src = show.image ? show.image.medium : "";
+   
     cardDiv.append(
         name_created,
         img_created,
