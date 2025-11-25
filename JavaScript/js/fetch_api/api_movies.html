@@ -5,17 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies Api Call</title>
     <style>
-        #container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding: 20px;
-        }
+
+body {
+    background: #2c767e;
+}
+#container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+        
+.navbar {
+  position: sticky;
+  /* top: 0; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(23, 0, 155, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  margin: -8px;
+ 
+}
+
+.logo {
+  font-size: 1.6em;
+  font-weight: 700;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #ff5252;
+}
+
     </style>
 </head>
 <body>
-    <h1>API CALLING</h1>
+    <header class="navbar">
+    <div class="logo">🎬 Classic Cinema Love</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#movies">Movies</a>
+      <a href="#books">Books</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
     <input id="input" type="text" placeholder="Enter the Movie Name..." onchange="inputvalue()">
+  </header>
+    <!-- <h1>API CALLING</h1>
+    <input id="input" type="text" placeholder="Enter the Movie Name..." onchange="inputvalue()"> -->
     <div id="container"></div>
 
     <script src="./api_movies.js"></script>
