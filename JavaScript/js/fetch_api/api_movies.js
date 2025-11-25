@@ -30,15 +30,15 @@ const UI = (data) => {
      cardDiv.className = `div_${i+1}`;
 
     img.src = el.Poster;
-    imdbID.innerText = 'id ${el.imbdID}';
-    Title.innerText = 'title ${el.Title}';
-    Type.innerText = 'type ${el.Type}';
-    Year.innerText = 'year ${el.year}';
+    imdbID.innerText = `id ${el.imbdID}`;
+    Title.innerText = `Title ${el.Title}`;
+    Type.innerText = `Type ${el.Type}`;
+    Year.innerText = `Year ${el.Year}`;
 
     cardDiv.append(
         img,imdbID,Title,Type,Year
     );
-    mainDiv.append(cardDiv);
+     mainDiv.append(cardDiv);
     });
 }
 
