@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
+        #container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            align-items: center;
+
+        }
     </style>
 </head>
 <body>
     <h1>API CALLING</h1>
+    <input id="input" type="text" placeholder="Enter the Movie Name...">
+    <div class="container"></div>
 </body>
 <script src="./api_movies.js"></script>
 </html>
