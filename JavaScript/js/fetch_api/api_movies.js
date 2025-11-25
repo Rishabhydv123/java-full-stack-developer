@@ -1,10 +1,10 @@
 const apikey = '67cf508d'
 
-async function apiCall() {
-    const apiURL = 'http://www.omdbapi.com/?apikey=${apikey}&s=${value}';
+async function apiCall(value) {
+    const apiURL = `https://www.omdbapi.com/?apikey=${apikey}&s=${value}`;
     let res = await fetch(apiURL);
     let data = await res.json();
-    UI = (data.Search);
+    UI(data.Search);
 };
 
 const inputvalue = () => {
@@ -12,7 +12,7 @@ const inputvalue = () => {
     apiCall(inputvalue);
 };
 
-const UI =(data) => {
+const UI = (data) => {
     console.log(data);
     const mainDiv = document.querySelector('#container');
 
@@ -38,6 +38,8 @@ const UI =(data) => {
     cardDiv.append(
         img,imdbID,Title,Type,Year
     );
-    content.append(cardDiv);
+    mainDiv.append(cardDiv);
     });
 }
+
+

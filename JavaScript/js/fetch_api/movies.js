@@ -35,3 +35,7 @@ value.map((el, i, arr) => {
         content.append(cardDiv);
     });
 };
+
+
+
+

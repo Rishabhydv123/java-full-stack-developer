@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Movies Api Call</title>
     <style>
         #container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            justify-content: center;
-            align-items: center;
-
+            gap: 20px;
+            padding: 20px;
         }
     </style>
 </head>
 <body>
     <h1>API CALLING</h1>
-    <input id="input" type="text" placeholder="Enter the Movie Name...">
-    <div class="container"></div>
+    <input id="input" type="text" placeholder="Enter the Movie Name..." onchange="inputvalue()">
+    <div id="container"></div>
+
+    <script src="./api_movies.js"></script>
 </body>
-<script src="./api_movies.js"></script>
 </html>
