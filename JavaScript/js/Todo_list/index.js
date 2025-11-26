@@ -22,14 +22,14 @@ const renderonUI = (data) => {
 
         const childDiv = document.createElement('div');
 
-         btn_edit.innerText ='edit';
-         btn_delete.innerText = 'delete';
+        btn_edit.innerText = 'edit';
+        btn_delete.innerText = 'delete';
         
         text.innerText = el.textTodo;
 
 
         // Edit Functionality
-        
+
 
         // Delete Functionality
 
@@ -40,7 +40,12 @@ const renderonUI = (data) => {
 
         });
 
-        childDiv.append(CheckBok,text,btn_edit,btn_delete);
+        childDiv.append(
+            CheckBok, 
+            text, 
+            btn_edit, 
+            btn_delete);
+
         mainDiv.append(childDiv);
     });
 };
