@@ -1,15 +1,19 @@
 let store = [];
 
 const addTodo = () => {
-    const valueText = document.getElementById('todo').value;
+    const valueText = document.getElementById('todo').value.trim();
+    if (valueText === "") return;
+
     let todoDetails = {
         id: Date.now(),
         textTodo: valueText,
         isEdit: false,
         isCompleted: false,
     };
+
     store.push(todoDetails);
     renderonUI(store);
+    document.getElementById('todo').value = "";
 };
 
 const renderonUI = (data) => {
@@ -17,41 +21,54 @@ const renderonUI = (data) => {
     mainDiv.innerHTML = '';
 
     data.map((el) => {
-        const CheckBok = document.createElement('checkbox');
-        const text = document.createElement('h3');
 
         const childDiv = document.createElement('div');
 
-        btn_edit.innerText = 'edit';
-        btn_delete.innerText = 'delete';
-        
+        const CheckBox = document.createElement('input');
+        CheckBox.type = "checkbox";
+        CheckBox.checked = el.isCompleted;
+
+        const text = document.createElement('h3');
         text.innerText = el.textTodo;
 
+        const btn_edit = document.createElement('button');
+        btn_edit.innerText = 'Edit';
 
-        // Edit Functionality
-
-
-        // Delete Functionality
+        const btn_delete = document.createElement('button');
+        btn_delete.innerText = 'Delete';
 
         btn_delete.addEventListener('click', () => {
-            let deletStore = data.filter((dl) => dl.id ==el.id);
-            store = deletStore;
+            store = store.filter((item) => item.id !== el.id);
             renderonUI(store);
-
         });
 
-        childDiv.append(
-            CheckBok, 
-            text, 
-            btn_edit, 
-            btn_delete);
+        btn_edit.addEventListener('click', () => {
 
+            const editInput = document.createElement('input');
+            editInput.type = "text";
+            editInput.value = el.textTodo;
+
+            const btn_save = document.createElement('button');
+            btn_save.innerText = "confirm";
+
+            const btn_cancel = document.createElement('button');
+            btn_cancel.innerText = "Cancel";
+
+        
+            childDiv.innerHTML = "";  
+            childDiv.append(CheckBox, editInput, btn_save, btn_cancel, btn_delete);
+
+            btn_save.addEventListener('click', () => {
+                el.textTodo = editInput.value.trim();
+                renderonUI(store);
+            });
+
+            btn_cancel.addEventListener('click', () => {
+                renderonUI(store);
+            });
+        });
+
+        childDiv.append(CheckBox, text, btn_edit, btn_delete);
         mainDiv.append(childDiv);
     });
 };
-
-
-// input => empty after adding
-// empty add return
-// create 2 btn (cancel, confirm)
-// editinput
