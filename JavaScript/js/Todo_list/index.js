@@ -49,3 +49,9 @@ const renderonUI = (data) => {
         mainDiv.append(childDiv);
     });
 };
+
+
+// input => empty after adding
+// empty add return
+// create 2 btn (cancel, confirm)
+// editinput
