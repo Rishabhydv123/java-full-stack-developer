@@ -2,7 +2,12 @@ let store = [];
 
 const addTodo = () => {
     const valueText = document.getElementById('todo').value.trim();
-    if (valueText === "") return;
+    
+
+    if (valueText === "") {
+        alert("Please enter a task!");
+        return;
+    }
 
     let todoDetails = {
         id: Date.now(),
@@ -19,6 +24,17 @@ const addTodo = () => {
 const renderonUI = (data) => {
     const mainDiv = document.getElementById('todo_list');
     mainDiv.innerHTML = '';
+
+    //  "Data not found"
+    if (data.length === 0) {
+        const msg = document.createElement("p");
+        msg.innerText = "Data not found";
+        msg.style.color = "black";
+        msg.style.textAlign = "center";
+        msg.style.fontSize = "18px";
+        mainDiv.append(msg);
+        return;
+    }
 
     data.map((el) => {
 
@@ -54,7 +70,6 @@ const renderonUI = (data) => {
             const btn_cancel = document.createElement('button');
             btn_cancel.innerText = "Cancel";
 
-        
             childDiv.innerHTML = "";  
             childDiv.append(CheckBox, editInput, btn_save, btn_cancel, btn_delete);
 
