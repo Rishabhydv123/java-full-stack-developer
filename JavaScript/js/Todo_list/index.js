@@ -26,15 +26,15 @@ const renderonUI = (data) => {
     mainDiv.innerHTML = '';
 
     //  "Data not found"
-    if (data.length === 0) {
-        const msg = document.createElement("p");
-        msg.innerText = "Data not found";
-        msg.style.color = "black";
-        msg.style.textAlign = "center";
-        msg.style.fontSize = "18px";
-        mainDiv.append(msg);
-        return;
-    }
+    // if (data.length === 0) {
+    //     const msg = document.createElement("p");
+    //     msg.innerText = "Data not found";
+    //     msg.style.color = "black";
+    //     msg.style.textAlign = "center";
+    //     msg.style.fontSize = "18px";
+    //     mainDiv.append(msg);
+    //     return;
+    // }
 
     data.map((el) => {
 
