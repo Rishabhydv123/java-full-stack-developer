@@ -16,7 +16,7 @@ body {
   transition: 0.3s;
 }
 
-.center-box {
+#center-box {
     height: 100vh;      
     display: flex;
     align-items: center; 
