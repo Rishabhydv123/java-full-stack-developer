@@ -9,3 +9,14 @@ h1 {
     justify-content: center;
     display: flex;
 }
+
+body {
+  background: #fff;
+  color: #000;
+  transition: 0.3s;
+}
+
+body.dark {
+  background: #1e1e1e;
+  color: #fff;
+}
