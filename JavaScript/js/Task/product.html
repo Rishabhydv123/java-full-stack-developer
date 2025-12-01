@@ -1,13 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favorite Products List</title>
-    <link rel="stylesheet" href="./product.css">
+  <title>Products Favorites List</title>
+  <link rel="stylesheet" href="./product.css">
 </head>
 <body>
-    <h1>Favorite Products List</h1>
+
+<h1>Product & Favorite list</h1>
+
+<div id="pages">
+  <button onclick="showPage('productsPage')">Products</button>
+  <button onclick="showPage('favoritesPage')">Favorites</button>
+</div>
+
+<hr>
+
+<div id="productsPage">
+  <h2>Products</h2>
+  <div id="productList"></div>
+</div>
+
+<div id="favoritesPage">
+  <h2>My Favorites</h2>
+  <div id="favoriteList"></div>
+</div>
+
 </body>
 <script src="./product.js"></script>
 </html>

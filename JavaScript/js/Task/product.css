@@ -1,11 +1,35 @@
-*{
-    margin: 0;
-    padding: 0;
+body { 
+    font-family: Arial; 
+    padding: 20px; 
+
 }
 
 h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: aqua;
+    color: blue;
 }
+
+#productsPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 3, 1fr;
+    color: blue;
+}
+.box { 
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    width: 250px; 
+}
+
+button { 
+    margin-top: 5px; 
+}
+
+#pages button { 
+    margin-right: 10px; 
+}
+  
