@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Validation</title>
-</head>
-<body>
-    <form name="myForm" onsubmit="myFunctions(event)" action="#">
-        <label for="email">Email</label>
-        <input autocomplete="off" type="email" name="email" id="email">
-        <span id="Message"></span>
-        <label for="pass">Password</label>
-        <input autocomplete="off" type="text" name="pass" id="pass">
-        <span id="Message"></span>
-        <button type="submit">Submit</button>
-    </form>
-</body>
-<script>
-    function myform(e) {
+function myform(e) {
   e.preventDefault();
   let userName = document.getElementById("user").value;
   let password = document.getElementById("pass").value;
@@ -49,12 +30,12 @@
   //   pass Validation
   if (password == "") {
     document.getElementById("pass_msg").innerHTML =
-      " ** Please fill the password field";
+    " ** Please fill the password field";
     document.getElementById("pass_msg").style.color = "red";
     return false;
   } else if (password.length <= 5 || password.length > 20) {
     document.getElementById("pass_msg").innerHTML =
-      " ** Please enter the length between 5 to 20";
+    " ** Please enter the length between 5 to 20";
     document.getElementById("pass_msg").style.color = "red";
     return false;
   } else if (password != confirmPassword) {
@@ -100,6 +81,7 @@
   else {
     document.getElementById("mobile_msg").innerHTML = ''
   }
+  
 
   // email Validation
 
@@ -126,5 +108,3 @@
     document.getElementById("email_msg").innerHTML = ''
   }
 }
-</script>
-</html>
