@@ -6,8 +6,8 @@
 // const port = process.env.PORT || 3001; 
 // server.use(middlewares);
 // server.use(router);
-
 // server.listen(port);
+
 // npx json-server --watch db.json --port 3001
 
 
