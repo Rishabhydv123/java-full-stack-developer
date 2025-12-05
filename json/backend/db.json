@@ -1,24 +1,30 @@
 {
-    "user":[
-        {
-            "id": 1,
-            "name":"Rishabh",
-            "age":21,
-            "pass":"Rishabh"
-        }
-    ],
-    "todos": [
-        {
-            "id":1,
-            "text":"learn json",
-            "isEdit":false,
-            "iscompleted": false
-        },
-         {
-            "id":2,
-            "text":"learn react",
-            "isEdit":false,
-            "iscompleted": false
-        }
-    ]
+  "user": [
+    {
+      "id": "1",
+      "name": "Rishabh",
+      "age": 21,
+      "pass": "Rishabh"
+    }
+  ],
+  "todos": [
+    {
+      "id": "1",
+      "text": "learn json",
+      "isEdit": false,
+      "iscompleted": false
+    },
+    {
+      "id": "2",
+      "text": "learn react",
+      "isEdit": false,
+      "iscompleted": false
+    },
+    {
+      "id": 3,
+      "text": "Rishabh",
+      "isEdit": false,
+      "isCompleted": false
+    }
+  ]
 }
