@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login & Signup</title>
+    <style>
+        body { 
+            font-family: Arial; 
+            margin: 30px; 
+        }
+
+        .container { 
+            width: 300px; 
+            margin: auto; 
+        }
+
+        .box { display: none; 
+            border: 1px solid #ccc; 
+            padding: 20px; 
+            border-radius: 5px; 
+        }
+
+        button { 
+            width: 100%; 
+            padding: 10px; 
+            margin-top: 10px; 
+        }
+
+        .switch { 
+            text-align: center; 
+            margin-top: 10px; 
+            cursor: pointer; 
+            color: blue;
+         }
+         
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div id="signupBox" class="box" style="display:block;">
+        <h2>Signup</h2>
+        <input type="text" id="signupName" placeholder="Full Name" required><br><br>
+        <input type="email" id="signupEmail" placeholder="Email" required><br><br>
+        <input type="password" id="signupPassword" placeholder="Password" required><br><br>
+        <button onclick="signup()">Signup</button>
+        <p class="switch" onclick="showLogin()">Already have an account? Login</p>
+    </div>
+
+    <div id="loginBox" class="box">
+        <h2>Login</h2>
+        <input type="email" id="loginEmail" placeholder="Email" required><br><br>
+        <input type="password" id="loginPassword" placeholder="Password" required><br><br>
+        <button onclick="login()">Login</button>
+        <p class="switch" onclick="showSignup()">Don't have an account? Signup</p>
+    </div>
+
+</div>
+
+<script>
+   
+    function showLogin() {
+        document.getElementById("signupBox").style.display = "none";
+        document.getElementById("loginBox").style.display = "block";
+    }
+
+    
+    function showSignup() {
+        document.getElementById("signupBox").style.display = "block";
+        document.getElementById("loginBox").style.display = "none";
+    }
+
+    function signup() {
+        const data = {
+            name: document.getElementById("signupName").value,
+            email: document.getElementById("signupEmail").value,
+            password: document.getElementById("signupPassword").value
+        };
+
+        fetch("https://your-backend.com/api/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(res => alert(res.message))
+        .catch(err => console.log(err));
+    }
+
+    function login() {
+        const data = {
+            email: document.getElementById("loginEmail").value,
+            password: document.getElementById("loginPassword").value
+        };
+
+        fetch("https://your-backend.com/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(res => {
+            if(res.token){
+                alert("Login Success");
+                localStorage.setItem("token", res.token);
+            } else {
+                alert(res.message);
+            }
+        })
+        .catch(err => console.log(err));
+    }
+</script>
+
+</body>
+</html>
