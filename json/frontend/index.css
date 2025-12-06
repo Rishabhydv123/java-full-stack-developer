@@ -94,5 +94,5 @@
 
     .completed {
         text-decoration: line-through;
-        color: gray;
+        color: rgb(112, 92, 92);
     }
