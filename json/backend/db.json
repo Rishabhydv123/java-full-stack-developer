@@ -10,39 +10,15 @@
   "todos": [
     {
       "id": "1",
-      "text": "learn json",
+      "text": "learn json1",
       "isEdit": false,
-      "iscompleted": false
+      "isComplete": false
     },
     {
       "id": "2",
       "text": "learn react",
       "isEdit": false,
-      "iscompleted": false
-    },
-    {
-      "id": "3",
-      "text": "Rishabh",
-      "isEdit": false,
-      "isCompleted": false
-    },
-    {
-      "id": "4",
-      "text": "Aman",
-      "isEdit": false,
-      "isCompleted": false
-    },
-    {
-      "id": "5",
-      "text": "Anurag",
-      "isEdit": false,
-      "isCompleted": false
-    },
-    {
-      "id": 6,
-      "text": "Rishabh",
-      "isEdit": false,
-      "isCompleted": false
+      "isComplete": false
     }
   ]
 }
