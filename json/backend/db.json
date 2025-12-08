@@ -9,20 +9,8 @@
   ],
   "todos": [
     {
-      "id": "1",
-      "text": "learn json1",
-      "isEdit": false,
-      "isComplete": false
-    },
-    {
-      "id": "2",
-      "text": "learn react",
-      "isEdit": false,
-      "isComplete": false
-    },
-    {
-      "id": "94a9",
-      "text": "Rishabh",
+      "id": "4",
+      "text": "Anurag",
       "isEdit": false,
       "isComplete": false
     }
