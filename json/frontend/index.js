@@ -4,10 +4,13 @@ const API = "http://localhost:3001/todos";
 
 function myTodosAdd() {
     const todoText = document.querySelector("#todos").value.trim();
-
     if (!todoText) return;
 
+    // Auto-increment numeric ID
+    const newId = data.length ? Math.max(...data.map(t => Number(t.id))) + 1 : 1;
+
     const newTodo = {
+        id: newId,
         text: todoText,
         isEdit: false,
         isComplete: false
@@ -44,7 +47,7 @@ function showTodos(list) {
                 <strong>ID: ${item.id}</strong> &nbsp;
 
                 <input type="checkbox" ${item.isComplete ? "checked" : ""} 
-                    onclick="toggleComplete(${item.id}, ${item.isComplete})">
+                    onclick="toggleComplete('${item.id}', ${item.isComplete})">
 
                 ${
                     item.isEdit
@@ -54,18 +57,18 @@ function showTodos(list) {
 
                 ${
                     item.isEdit
-                        ? `<button onclick="updateTodo(${item.id})">Confirm</button>`
-                        : `<button onclick="editTodo(${item.id})">Edit</button>`
+                        ? `<button onclick="updateTodo('${item.id}')">Confirm</button>`
+                        : `<button onclick="editTodo('${item.id}')">Edit</button>`
                 }
 
-                <button onclick="deleteTodo(${item.id})">Delete</button>
+                <button onclick="deleteTodo('${item.id}')">Delete</button>
             </div>
         `;
     });
 }
 
 function editTodo(id) {
-    fetch(`${API}/${id}`, {
+    fetch(`${API}/${String(id)}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ isEdit: true }),
@@ -76,7 +79,7 @@ function editTodo(id) {
 function updateTodo(id) {
     const updatedText = document.querySelector(`#edit_${id}`).value;
 
-    fetch(`${API}/${id}`, {
+    fetch(`${API}/${String(id)}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: updatedText, isEdit: false }),
@@ -85,14 +88,14 @@ function updateTodo(id) {
 }
 
 function deleteTodo(id) {
-    fetch(`${API}/${id}`, {
+    fetch(`${API}/${String(id)}`, {
         method: "DELETE",
     })
     .then(fetchTodoDB);
 }
 
 function toggleComplete(id, currentStatus) {
-    fetch(`${API}/${id}`, {
+    fetch(`${API}/${String(id)}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ isComplete: !currentStatus }),

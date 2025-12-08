@@ -9,19 +9,31 @@
   ],
   "todos": [
     {
-      "id": "f1a3",
-      "text": "Rishabh",
+      "id": "1",
+      "text": "Anurag1",
       "isEdit": false,
+      "isComplete": true
+    },
+    {
+      "id": "2",
+      "text": "Rishabh",
+      "isEdit": true,
       "isComplete": false
     },
     {
-      "id": "7cbd",
+      "id": "3",
       "text": "Aman",
       "isEdit": false,
       "isComplete": false
     },
     {
-      "id": "f101",
+      "id": 1,
+      "text": "Anurag",
+      "isEdit": false,
+      "isComplete": false
+    },
+    {
+      "id": 1,
       "text": "hey..",
       "isEdit": false,
       "isComplete": false
