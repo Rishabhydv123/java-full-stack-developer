@@ -6,7 +6,6 @@ function myTodosAdd() {
     const todoText = document.querySelector("#todos").value.trim();
     if (!todoText) return;
 
-    // Auto-increment numeric ID
     const newId = data.length ? Math.max(...data.map(t => Number(t.id))) + 1 : 1;
 
     const newTodo = {
