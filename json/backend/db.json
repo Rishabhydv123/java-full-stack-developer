@@ -10,31 +10,25 @@
   "todos": [
     {
       "id": "1",
-      "text": "Anurag1",
-      "isEdit": false,
-      "isComplete": true
-    },
-    {
-      "id": "2",
-      "text": "Rishabh",
-      "isEdit": true,
-      "isComplete": false
-    },
-    {
-      "id": "3",
-      "text": "Aman",
+      "text": "hey..",
       "isEdit": false,
       "isComplete": false
     },
     {
-      "id": 1,
+      "id": 2,
       "text": "Anurag",
       "isEdit": false,
       "isComplete": false
     },
     {
-      "id": 1,
-      "text": "hey..",
+      "id": 3,
+      "text": "Rishabh",
+      "isEdit": false,
+      "isComplete": false
+    },
+    {
+      "id": 4,
+      "text": "Aman",
       "isEdit": false,
       "isComplete": false
     }
