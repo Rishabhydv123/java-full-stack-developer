@@ -2,11 +2,11 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f4f6f8;
+    background: #c4cfda;
 }
 
 nav {
-    background: #4a90e2;
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
@@ -70,7 +70,7 @@ h1 {
 }
 
 footer {
-    background: #4a90e2;
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
     padding: 20px;
     text-align: center;
     color: white;
