@@ -25,6 +25,6 @@ const signUp = () => {
 
   setTimeout(() => {
     alert('data save successfully ✔️');
-    window.location = '/ls/pages/Login.html';
+    window.location = '/local storage/pages/Login.html';
   }, 100);
 };

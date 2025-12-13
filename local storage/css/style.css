@@ -55,6 +55,7 @@ h1 {
     border: 1px solid #dce1e6;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
     transition: 0.3s ease;
+    border-radius: 70px;
 }
 
 #mainData > div:hover {
@@ -69,7 +70,7 @@ h1 {
     object-fit: contain;
 }
 
-footer {
+#contact {
     background: linear-gradient(135deg, #4e73df, #1cc88a);
     padding: 20px;
     text-align: center;
