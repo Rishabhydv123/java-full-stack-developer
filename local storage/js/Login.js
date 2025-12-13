@@ -1,6 +1,3 @@
-// let locations = window.location.pathname;
-// console.log('📌 ~ location:', locations);
-
 //let locations = window.location.pathname; // route -> reacr-router-dom ->
 //  useLocation -> useSearchParam -> useParam
 
@@ -34,5 +31,7 @@ const Login = () => {
       alert('token has been stored in session storage✅');
     }, 1000);
   }
-  alert("User Not found")
+  else{
+  alert("User Not found ❌")
+  }
 };
