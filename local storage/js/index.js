@@ -49,17 +49,15 @@ function dataAppend(value) {
   });
 }
 
-// ✅ NEW FUNCTION (localStorage)
 function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // duplicate check
   const exists = cart.find(item => item.id === product.id);
 
   if (exists) {
     alert("Already added in cart");
   } else {
-    product.qty = 1; // quantity
+    product.qty = 1; 
     cart.push(product);
     localStorage.setItem("cart", JSON.stringify(cart));
     alert("Product added to cart");
