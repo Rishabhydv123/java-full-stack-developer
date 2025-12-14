@@ -14,6 +14,7 @@ nav {
     color: white;
 }
 
+
 nav .logo {
     font-size: 22px;
     font-weight: bold;
@@ -78,3 +79,28 @@ h1 {
     margin-top: 40px;
     font-size: 18px;
 }
+
+/* Add to Cart Button */
+button {
+  background: linear-gradient(135deg, #09c8af, #1e40af);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+
