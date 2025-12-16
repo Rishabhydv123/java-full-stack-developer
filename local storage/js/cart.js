@@ -1,63 +1,71 @@
-const API = "https://fakestoreapi.com/products";
-
-async function ApiCall() {
-  try {
-    const res = await fetch(API);
-    const data = await res.json();
-    dataAppend(data);
-  } catch (error) {
-    console.log(error);
-  }
+function getCartData() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  renderCart(cart);
 }
 
-ApiCall();
+getCartData();
 
-function dataAppend(data) {
-  const mainDiv = document.querySelector("#mainData");
+function renderCart(cart) {
+  const mainDiv = document.getElementById("mainData");
+  const totalDiv = document.getElementById("total");
 
-  data.forEach((el) => {
-    const card = document.createElement("div");
+  mainDiv.innerHTML = "";
+  totalDiv.innerHTML = "";
 
-    const img = document.createElement("img");
-    img.src = el.image;
-
-    const title = document.createElement("h3");
-    title.innerText = el.title;
-
-    const price = document.createElement("h4");
-    price.innerText = `₹ ${el.price}`;
-
-    const btn = document.createElement("button");
-    btn.innerText = "Add to Cart";
-
-    btn.addEventListener("click", () => addToCart(el));
-
-    card.append(img, title, price, btn);
-    mainDiv.append(card);
-  });
-}
-
-function addToCart(product) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  const exists = cart.find(item => item.id === product.id);
-
-  if (exists) {
-    alert("Product already in cart");
+  if (cart.length === 0) {
+    mainDiv.innerHTML = "<h2>Cart is Empty</h2>";
     return;
   }
 
-  const cartProduct = {
-    id: product.id,
-    title: product.title,
-    price: product.price,
-    image: product.image,
-    category: product.category,
-    description: product.description,
-    qty: 1
-  };
+  let totalPrice = 0;
 
-  cart.push(cartProduct);
+  cart.forEach((item, index) => {
+    totalPrice += item.price * item.qty;
+
+    const card = document.createElement("div");
+
+    card.innerHTML = `
+      <img src="${item.image}">
+      <h3>${item.title}</h3>
+      <h4>₹ ${item.price}</h4>
+      <div>
+        <button onclick="updateQty(${index}, -1)">-</button>
+        <span style="margin:0 10px">${item.qty}</span>
+        <button onclick="updateQty(${index}, 1)">+</button>
+      </div>
+      <br>
+      <button onclick="removeFromCart(${index})">Remove</button>
+    `;
+
+    mainDiv.appendChild(card);
+  });
+
+  totalDiv.innerHTML = `
+    Total: ₹ ${totalPrice.toFixed(2)}
+    <br>
+    <button id="checkoutBtn" onclick="goCheckout()">Checkout</button>
+  `;
+}
+
+function updateQty(index, change) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart[index].qty += change;
+
+  if (cart[index].qty < 1) {
+    cart.splice(index, 1);
+  }
+
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert("Product added to cart");
+  getCartData();
+}
+
+function removeFromCart(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  getCartData();
+}
+
+function goCheckout() {
+  window.location.href = "/local storage/page/checkout.html";
 }
