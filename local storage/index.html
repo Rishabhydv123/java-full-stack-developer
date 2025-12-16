@@ -7,25 +7,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-
-<nav>
-     <div class="logo">
-    <img src="https://fakestoreapi.com/icons/logo.png" height="60px" width="60px" alt=" Logo">
-  </div>
-
-  
-    <ul>
-        <li>Home</li>
-        <li>Product</li>
-        <li>Contact</li>
-    </ul>
-
-    <ul>
-        <li onclick="window.location=`/local storage/page/cart.html`">Cart🛒</li>
-        <li onclick="window.location=`/local storage/page/Login.html`">Login</li>
-        <li onclick="window.location=`/local storage/page/Signup.html`">Signup</li>
-    </ul>
-</nav>
+  <nav id="navbar"></nav>
 
 <h1>Product List</h1>
 
@@ -53,5 +35,11 @@
     console.log('🚀 ~ sumOfTwoNumber:hello index', sumOfTwoNumber(2, 5));
 </script> -->
 
+
+<script type="module">
+  import { navbar } from'./componets/navbar.js'
+  console.log(navbar);
+
+  document.querySelector("#navbar").innerHTML = navbar();
 </script>
 </html>
