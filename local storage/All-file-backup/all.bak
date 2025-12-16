@@ -1,0 +1,310 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <nav id="navbar"></nav>
+
+<h1>Product List</h1>
+
+<div id ="mainData"></div>
+
+ <footer id="contact">
+    <p>Follow us on 
+     •<a href="#">Instagram</a> • 
+      <a href="#">Twitter</a> • 
+      <a href="#">YouTube</a>
+    </p>
+    <p>✉ rishabhyadav55888@gmail.com</p>
+    <p>© 2025 Product List❤️</p>
+  </footer>
+
+</body>
+
+<script src="./js/index.js"></script>
+
+<!-- <script type="module">
+    import xyz from './Components/navbar.js'
+    console.log('🚀 ~ xyz:', xyz);
+    const { sumOfTwoNumber, subOfTwoNumber } = xyz;
+    console.log('🚀 ~ xyz:sub', xyz.subOfTwoNumber(2, 5));
+    console.log('🚀 ~ sumOfTwoNumber:hello index', sumOfTwoNumber(2, 5));
+</script> -->
+
+
+<script type="module">
+  import { navbar } from'./componets/navbar.js'
+  console.log(navbar);
+
+  document.querySelector("#navbar").innerHTML = navbar();
+</script>
+</html>
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+index.js
+const API = 'https://fakestoreapi.com/products';
+
+async function ApiCall() {
+  try {
+    const res = await fetch(API);
+    const data = await res.json();
+    dataAppend(data);
+  } catch (error) {
+    console.log(' ~ error:', error);
+  }
+}
+
+ApiCall();
+
+function dataAppend(value) {
+  const mainDiv = document.querySelector('#mainData');
+
+  value.forEach((el) => {
+    const childDiv = document.createElement('div');
+
+    const id = document.createElement('h3');
+    const img = document.createElement('img');
+    const title = document.createElement('h3');
+    const description = document.createElement('p');
+    const price = document.createElement('h3');
+    const category = document.createElement('h3');
+
+    const btn = document.createElement('button');
+
+    id.innerText = el.id;
+    img.src = el.image;
+    title.innerText = el.title;
+    description.innerText = el.description;
+    price.innerText = el.price;
+    category.innerText = el.category;
+
+    btn.innerText = "Add to Cart";
+
+    btn.addEventListener("click", () => {
+      addToCart(el);
+    });
+
+    childDiv.append(id, img, title, description, price, category, btn);
+    mainDiv.append(childDiv);
+  });
+}
+
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const exists = cart.find(item => item.id === product.id);
+
+  if (exists) {
+    alert("Already added in cart");
+  } else {
+    product.qty = 1; 
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Product added to cart");
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+cart.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <link rel="stylesheet" href="/local storage/css/cart.css">
+    <link rel="stylesheet" href="/local storage/css/style.css">
+</head>
+<body onload="UI_Cart()">
+     <nav id="navbar"></nav>
+
+    <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
+
+    <div id="mainData"></div>
+   <div id="total"></div>
+
+</body>
+<script src="/local storage/js/cart.js"></script>
+
+<script type="module">
+  import { navbar } from'/local storage/componets/navbar.js'
+  console.log(navbar);
+
+  document.querySelector("#navbar").innerHTML = navbar();
+</script>
+
+</html>
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+cart.js
+function getCartData() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  renderCart(cart);
+}
+
+getCartData();
+
+function renderCart(cart) {
+  const mainDiv = document.getElementById("mainData");
+  const totalDiv = document.getElementById("total");
+
+  mainDiv.innerHTML = "";
+  totalDiv.innerHTML = "";
+
+  if (cart.length === 0) {
+    mainDiv.innerHTML = "<h2>Cart is Empty</h2>";
+    return;
+  }
+
+  let totalPrice = 0;
+
+  cart.forEach((item, index) => {
+    totalPrice += item.price * item.qty;
+
+    const card = document.createElement("div");
+
+    card.innerHTML = `
+      <img src="${item.image}">
+      <h3>${item.title}</h3>
+      <h4>₹ ${item.price}</h4>
+      <div>
+        <button onclick="updateQty(${index}, -1)">-</button>
+        <span style="margin:0 10px">${item.qty}</span>
+        <button onclick="updateQty(${index}, 1)">+</button>
+      </div>
+      <br>
+      <button onclick="removeFromCart(${index})">Remove</button>
+    `;
+
+    mainDiv.appendChild(card);
+  });
+
+  totalDiv.innerHTML = `
+    Total: ₹ ${totalPrice.toFixed(2)}
+    <br>
+    <button id="checkoutBtn" onclick="goCheckout()">Checkout</button>
+  `;
+}
+
+function updateQty(index, change) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart[index].qty += change;
+
+  if (cart[index].qty < 1) {
+    cart.splice(index, 1);
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  getCartData();
+}
+
+function removeFromCart(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  getCartData();
+}
+
+function goCheckout() {
+  window.location.href = "/local storage/page/checkout.html";
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+checkout.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+ <link rel="stylesheet" href="/local storage/css/checkout.css">
+ <link rel="stylesheet" href="/local storage/css/style.css">
+</head>
+<body onload="UI_Cart()">
+   <nav id="navbar"></nav>
+   <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
+
+ <div class="container">
+  <h2>Checkout Summary</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Product</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody id="cartTableBody"></tbody>
+  </table>
+
+  <div id="totalAmount"></div>
+
+  <!-- <form id="checkoutForm">
+    <input type="text" placeholder="Full Name" required>
+    <input type="tel" placeholder="Mobile Number" required>
+    <textarea placeholder="Address" required></textarea>
+    <button type="submit">Place Order</button>
+  </form>
+</div> -->
+
+
+</body>
+ <script src="/local storage/js/checkout.js"></script>
+
+<script type="module">
+  import { navbar } from'/local storage/componets/navbar.js'
+  console.log(navbar);
+
+  document.querySelector("#navbar").innerHTML = navbar();
+</script>
+</html>
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+checkout.js
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+if (cart.length === 0) {
+  alert("Cart is empty");
+  window.location.href = "/local storage/index.html";
+}
+
+const tbody = document.getElementById("cartTableBody");
+let total = 0;
+
+cart.forEach((item, i) => {
+  const tr = document.createElement("tr");
+  const subtotal = item.price * item.qty;
+  total += subtotal;
+
+  tr.innerHTML = `
+    <td>${i + 1}</td>
+    <td>${item.title}</td>
+    <td><img src="${item.image}"></td>
+    <td>₹ ${item.price}</td>
+    <td>${item.qty}</td>
+    <td>₹ ${subtotal.toFixed(2)}</td>
+  `;
+
+  tbody.appendChild(tr);
+});
+
+document.getElementById("totalAmount").innerText =
+  `Total Amount: ₹ ${total.toFixed(2)}`;
+
+document.getElementById("checkoutForm").addEventListener("submit", e => {
+  e.preventDefault();
+  alert("Order placed successfully 🎉");
+  localStorage.removeItem("cart");
+  window.location.href = "/local storage/index.html";
+
+});

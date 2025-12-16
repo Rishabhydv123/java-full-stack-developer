@@ -47,6 +47,8 @@ function renderCart(cart) {
   `;
 }
 
+
+
 function updateQty(index, change) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart[index].qty += change;
@@ -69,3 +71,5 @@ function removeFromCart(index) {
 function goCheckout() {
   window.location.href = "/local storage/page/checkout.html";
 }
+
+

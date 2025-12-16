@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background: #c4cfda;
+    
 }
 
 nav {
@@ -71,7 +72,7 @@ h1 {
     object-fit: contain;
 }
 
-#contact {
+#footer {
     background: linear-gradient(135deg, #4e73df, #1cc88a);
     padding: 20px;
     text-align: center;
@@ -80,7 +81,7 @@ h1 {
     font-size: 18px;
 }
 
-/* Add to Cart Button */
+
 button {
   background: linear-gradient(135deg, #09c8af, #1e40af);
   color: #fff;
@@ -91,6 +92,7 @@ button {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin: 20px;
 }
 
 button:hover {

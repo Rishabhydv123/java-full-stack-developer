@@ -29,6 +29,7 @@
    
 export const navbar = () => {
   return `
+  
     <div class="logo">
       <img src="https://fakestoreapi.com/icons/logo.png" height="60" width="60" alt="Logo">
     </div>
@@ -46,4 +47,7 @@ export const navbar = () => {
     </ul>
   `;
 };
+
+
+
 

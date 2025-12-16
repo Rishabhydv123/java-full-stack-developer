@@ -1,45 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Local Storage</title>
-    <link rel="stylesheet" href="./css/style.css">
+  <meta charset="UTF-8">
+  <title>Products</title>
+  <link rel="stylesheet" href="/local storage/css/style.css">
 </head>
 <body>
-  <nav id="navbar"></nav>
+
+<nav id="navbar"></nav>
 
 <h1>Product List</h1>
+<div id="mainData"></div>
 
-<div id ="mainData"></div>
+<footer id="footer"></footer>
 
- <footer id="contact">
-    <p>Follow us on 
-     •<a href="#">Instagram</a> • 
-      <a href="#">Twitter</a> • 
-      <a href="#">YouTube</a>
-    </p>
-    <p>✉ rishabhyadav55888@gmail.com</p>
-    <p>© 2025 Product List❤️</p>
-  </footer>
-
-</body>
-
-<script src="./js/index.js"></script>
-
-<!-- <script type="module">
-    import xyz from './Components/navbar.js'
-    console.log('🚀 ~ xyz:', xyz);
-    const { sumOfTwoNumber, subOfTwoNumber } = xyz;
-    console.log('🚀 ~ xyz:sub', xyz.subOfTwoNumber(2, 5));
-    console.log('🚀 ~ sumOfTwoNumber:hello index', sumOfTwoNumber(2, 5));
-</script> -->
-
+<script src="/local storage/js/index.js"></script>
 
 <script type="module">
-  import { navbar } from'./componets/navbar.js'
-  console.log(navbar);
-
-  document.querySelector("#navbar").innerHTML = navbar();
+  import { navbar } from "./componets/navbar.js";
+  document.getElementById("navbar").innerHTML = navbar();
 </script>
+
+<script type="module">
+  import { footer } from "./componets/footer.js";
+  document.getElementById("footer").innerHTML = footer();
+</script>
+
+
+</body>
 </html>

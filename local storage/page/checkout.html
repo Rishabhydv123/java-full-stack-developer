@@ -3,38 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title>Checkout</title>
- <link rel="stylesheet" href="/local storage/css/checkout.css">
+  <link rel="stylesheet" href="/local storage/css/checkout.css">
+  <link rel="stylesheet" href="/local storage/css/style.css">
 </head>
-<body onload="UI_Cart()">
-   <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
+<body>
+<nav id="navbar"></nav>
+<button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
 
- <div class="container">
-  <h2>Checkout Summary</h2>
+<h2>Checkout Summary</h2>
 
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Product</th>
-        <th>Image</th>
-        <th>Price</th>
-        <th>Qty</th>
-        <th>Subtotal</th>
-      </tr>
-    </thead>
-    <tbody id="cartTableBody"></tbody>
-  </table>
+<table border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Product</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th>Qty</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+  <tbody id="cartTableBody"></tbody>
+</table>
 
-  <div id="totalAmount"></div>
+<div id="totalAmount"></div>
 
-  <form id="checkoutForm">
-    <input type="text" placeholder="Full Name" required>
-    <input type="tel" placeholder="Mobile Number" required>
-    <textarea placeholder="Address" required></textarea>
-    <button type="submit">Place Order</button>
-  </form>
-</div>
+<script src="/local storage/js/checkout.js"></script>
 
- <script src="/local storage/js/checkout.js"></script>
+<script type="module">
+  import { navbar } from "../componets/navbar.js";
+  document.getElementById("navbar").innerHTML = navbar();
+</script>
+
 </body>
 </html>

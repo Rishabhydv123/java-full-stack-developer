@@ -1,61 +1,66 @@
-const API = 'https://fakestoreapi.com/products';
+const API = "https://fakestoreapi.com/products";
 
-async function ApiCall() {
-  try {
-    const res = await fetch(API);
-    const data = await res.json();
-    dataAppend(data);
-  } catch (error) {
-    console.log(' ~ error:', error);
-  }
-}
+fetch(API)
+  .then(res => res.json())
+  .then(data => renderProducts(data));
 
-ApiCall();
+function renderProducts(data) {
+  const main = document.getElementById("mainData");
+  main.innerHTML = "";
 
-function dataAppend(value) {
-  const mainDiv = document.querySelector('#mainData');
+  data.forEach(el => {
+    const div = document.createElement("div");
 
-  value.forEach((el) => {
-    const childDiv = document.createElement('div');
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let item = cart.find(i => i.id === el.id);
 
-    const id = document.createElement('h3');
-    const img = document.createElement('img');
-    const title = document.createElement('h3');
-    const description = document.createElement('p');
-    const price = document.createElement('h3');
-    const category = document.createElement('h3');
+    div.innerHTML = `
+      <img src="${el.image}" width="150">
+      <h3>${el.title}</h3>
+      <p>₹ ${el.price}</p>
 
-    const btn = document.createElement('button');
+      <button onclick="updateCart(${el.id}, -1)">-</button>
+      <span id="qty-${el.id}">${item ? item.qty : 0}</span>
+      <button onclick="updateCart(${el.id}, 1)">+</button>
+    `;
 
-    id.innerText = el.id;
-    img.src = el.image;
-    title.innerText = el.title;
-    description.innerText = el.description;
-    price.innerText = el.price;
-    category.innerText = el.category;
-
-    btn.innerText = "Add to Cart";
-
-    btn.addEventListener("click", () => {
-      addToCart(el);
-    });
-
-    childDiv.append(id, img, title, description, price, category, btn);
-    mainDiv.append(childDiv);
+    main.appendChild(div);
   });
+
+  updateCartCount();
 }
 
-function addToCart(product) {
+function updateCart(id, change) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  const exists = cart.find(item => item.id === product.id);
+  fetch(API)
+    .then(res => res.json())
+    .then(products => {
+      let product = products.find(p => p.id === id);
+      let item = cart.find(i => i.id === id);
 
-  if (exists) {
-    alert("Already added in cart");
-  } else {
-    product.qty = 1; 
-    cart.push(product);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Product added to cart");
-  }
+      if (!item && change === 1) {
+        product.qty = 1;
+        cart.push(product);
+      } else if (item) {
+        item.qty += change;
+        if (item.qty <= 0) {
+          cart = cart.filter(i => i.id !== id);
+        }
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      document.getElementById(`qty-${id}`).innerText =
+        cart.find(i => i.id === id)?.qty || 0;
+
+      updateCartCount();
+    });
+}
+
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let count = cart.reduce((sum, i) => sum + i.qty, 0);
+  const span = document.getElementById("cartCount");
+  if (span) span.innerText = count;
 }
