@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+#btn {
+  margin: 20px;
+  width: 100px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  /* background: #ff6b6b; */
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#btn:hover {
+  /* background: #ff3b3b; */
+  background: linear-gradient(135deg, #67a4cf, #2563eb);
+  transform: scale(1.05);
+}
+
+
+h1 {
+  text-align: center;
+  margin: 10px 0 20px;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  width: 90%;
+  max-width: 500px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* HEADINGS */
+.container h2 {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 25px;
+}
+
+/* PAYMENT OPTIONS */
+.payment-option {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid transparent;
+  padding: 15px 18px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.payment-option:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+/* SELECTED STATE */
+.payment-option.selected {
+  border-color: #00f2fe;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 242, 254, 0.3),
+    rgba(79, 172, 254, 0.3)
+  );
+  box-shadow: 0 10px 25px rgba(0, 242, 254, 0.3);
+}
+
+/* PAYMENT TEXT */
+.payment-name {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+/* CHECKMARK */
+.checkmark {
+  opacity: 0;
+  font-size: 1.3rem;
+  color: #00f2fe;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.payment-option.selected .checkmark {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* BUTTONS */
+.continue-btn,
+.back-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* CONTINUE BUTTON */
+.continue-btn {
+  margin-top: 20px;
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+  color: #000;
+}
+
+.continue-btn:disabled {
+  background: rgba(255, 255, 255, 0.3);
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.continue-btn:not(:disabled):hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0, 242, 254, 0.4);
+}
+
+
+
+.back-btn {
+  margin-top: 12px;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.back-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+
+footer {
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+
+nav {
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+
+nav .logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li {
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 18px;
+}
+
+nav ul li:hover {
+    color: #000;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .payment-name {
+    font-size: 0.95rem;
+  }
+}

@@ -308,3 +308,152 @@ document.getElementById("checkoutForm").addEventListener("submit", e => {
   window.location.href = "/local storage/index.html";
 
 });
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Payment Method</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef1f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      width: 360px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .payment-option {
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: 0.2s;
+    }
+
+    .payment-option:hover {
+      border-color: #8b8bf9;
+    }
+
+    .payment-option.selected {
+      border-color: #6a6afc;
+      background: #f3f3ff;
+    }
+
+    .payment-name {
+      font-weight: 500;
+    }
+
+    .checkmark {
+      display: none;
+      color: #6a6afc;
+      font-weight: bold;
+    }
+
+    .payment-option.selected .checkmark {
+      display: block;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .continue-btn {
+      background: #6a6afc;
+      color: #fff;
+      opacity: 0.5;
+    }
+
+    .continue-btn.enabled {
+      opacity: 1;
+    }
+
+    .back-btn {
+      background: transparent;
+      color: #333;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Select payment method</h2>
+  <div class="subtitle">Preferred method for future transactions</div>
+
+  <div class="payment-option" onclick="selectPayment(this)">
+    <span class="payment-name">Pay with Visa</span>
+    <span class="checkmark">✔</span>
+  </div>
+
+  <div class="payment-option" onclick="selectPayment(this)">
+    <span class="payment-name">Pay with Mastercard</span>
+    <span class="checkmark">✔</span>
+  </div>
+
+  <div class="payment-option" onclick="selectPayment(this)">
+    <span class="payment-name">Pay with PayPal</span>
+    <span class="checkmark">✔</span>
+  </div>
+
+  <div class="payment-option" onclick="selectPayment(this)">
+    <span class="payment-name">Pay with Apple Pay</span>
+    <span class="checkmark">✔</span>
+  </div>
+
+  <div class="payment-option" onclick="selectPayment(this)">
+    <span class="payment-name">Pay with Stripe</span>
+    <span class="checkmark">✔</span>
+  </div>
+
+  <button class="continue-btn" id="continueBtn" disabled>Continue</button>
+  <button class="back-btn">Go Back</button>
+</div>
+
+<script>
+  function selectPayment(element) {
+    document.querySelectorAll('.payment-option').forEach(option => {
+      option.classList.remove('selected');
+    });
+
+    element.classList.add('selected');
+
+    const continueBtn = document.getElementById('continueBtn');
+    continueBtn.disabled = false;
+    continueBtn.classList.add('enabled');
+  }
+</script>
+
+</body>
+</html>

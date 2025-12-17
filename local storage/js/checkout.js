@@ -39,7 +39,12 @@ document.getElementById("totalAmount").innerHTML = `
 `;
 
 function placeOrder() {
-  alert("Order placed successfully 🎉");
+  // alert("Order placed successfully 🎉");
   localStorage.removeItem("cart");
-  window.location.href = "/local storage/index.html";
+  // window.location.href = "/local storage/index.html";
+   window.location.href = "/local storage/page/payment.html";
 }
+
+// function goCheckout() {
+//   window.location.href = "/local storage/page/payment.html";
+// }

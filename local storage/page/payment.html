@@ -4,9 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
+    <link rel="stylesheet" href="/local storage/css/payment.css">
 </head>
 <body>
-    
+    <nav id="navbar"></nav>
+    <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
+    <h1>Payment Method</h1>
+
+    <div class="container">
+  <h2>Select payment method</h2>
+  <div class="subtitle">Preferred method for future transactions</div>
+
+  <div class="payment-option" onclick="selectPayment(this)">
+    <span class="payment-name">Pay with Visa</span>
+    <span class="checkmark">✔</span>
+  </div>
+
+  <div class="payment-option" onclick="selectPayment(this)">
+    <span class="payment-name">Pay with Mastercard</span>
+    <span class="checkmark">✔</span>
+  </div>
+
+  <div class="payment-option" onclick="selectPayment(this)">
+    <span class="payment-name">Pay with PayPal</span>
+    <span class="checkmark">✔</span>
+  </div>
+
+  <div class="payment-option" onclick="selectPayment(this)">
+    <span class="payment-name">Pay with Apple Pay</span>
+    <span class="checkmark">✔</span>
+  </div>
+
+  <div class="payment-option" onclick="selectPayment(this)">
+    <span class="payment-name">Pay with Stripe</span>
+    <span class="checkmark">✔</span>
+  </div>
+
+  <button class="continue-btn" id="continueBtn" disabled>Continue</button>
+  <button class="back-btn">Go Back</button>
+</div>
+
+    <footer id="footer"></footer>
 </body>
 <script src="/local storage/js/payment.js"></script>
+
+<script type="module">
+  import { navbar } from "/local storage/componets/navbar.js";
+  document.getElementById("navbar").innerHTML = navbar();
+</script>
+
+<script type="module">
+  import { footer } from "/local storage/componets/footer.js";
+  document.getElementById("footer").innerHTML = footer();
+</script>
 </html>
