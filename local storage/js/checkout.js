@@ -35,6 +35,6 @@ document.getElementById("totalAmount").innerHTML = `
 `;
 
 function placeOrder() {
-  // ❌ Cart yaha remove nahi hoga
+
   window.location.href = "/local storage/page/payment.html";
 }
