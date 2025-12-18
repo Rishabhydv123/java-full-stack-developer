@@ -6,7 +6,6 @@ if (cart.length === 0) {
 }
 
 const tbody = document.getElementById("cartTableBody");
-
 let total = 0;
 
 cart.forEach((item, i) => {
@@ -17,14 +16,11 @@ cart.forEach((item, i) => {
   tr.innerHTML = `
     <td>${i + 1}</td>
     <td>${item.title}</td>
-    <td>
-      <img src="${item.image}" width="60" height="60">
-    </td>
+    <td><img src="${item.image}" width="60"></td>
     <td>₹ ${item.price}</td>
     <td>${item.qty}</td>
     <td>₹ ${subtotal.toFixed(2)}</td>
   `;
-
   tbody.appendChild(tr);
 });
 
@@ -39,12 +35,6 @@ document.getElementById("totalAmount").innerHTML = `
 `;
 
 function placeOrder() {
-  // alert("Order placed successfully 🎉");
-  localStorage.removeItem("cart");
-  // window.location.href = "/local storage/index.html";
-   window.location.href = "/local storage/page/payment.html";
+  // ❌ Cart yaha remove nahi hoga
+  window.location.href = "/local storage/page/payment.html";
 }
-
-// function goCheckout() {
-//   window.location.href = "/local storage/page/payment.html";
-// }
