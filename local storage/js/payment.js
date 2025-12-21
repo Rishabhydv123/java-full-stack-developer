@@ -11,6 +11,7 @@ function selectPayment(element) {
   btn.style.color = "white";
 }
 
+
 function completePayment() {
   alert("Payment Successful ✅");
 
