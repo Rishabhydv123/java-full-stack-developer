@@ -35,6 +35,5 @@ document.getElementById("totalAmount").innerHTML = `
 `;
 
 function placeOrder() {
-
   window.location.href = "/local storage/page/payment.html";
 }
