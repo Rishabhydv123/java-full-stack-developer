@@ -105,3 +105,26 @@ button:active {
 }
 
 
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  color: #fff;
+  cursor: pointer;
+  display: none; 
+}
+
+#scrollTopBtn:hover {
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(5, 59, 176, 0.4);
+}
+
+#scrollTopBtn:active {
+  transform: scale(0.95);
+}
