@@ -4,144 +4,266 @@ index.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Local Storage</title>
-    <link rel="stylesheet" href="./css/style.css">
+  <title>Products</title>
+  
+  <link rel="stylesheet" href="/local storage/css/style.css">
 </head>
 <body>
-  <nav id="navbar"></nav>
+<nav id="navbar"></nav>
 
 <h1>Product List</h1>
+<div id="mainData"></div>
 
-<div id ="mainData"></div>
+<footer id="footer"></footer>
 
- <footer id="contact">
-    <p>Follow us on 
-     •<a href="#">Instagram</a> • 
-      <a href="#">Twitter</a> • 
-      <a href="#">YouTube</a>
-    </p>
-    <p>✉ rishabhyadav55888@gmail.com</p>
-    <p>© 2025 Product List❤️</p>
-  </footer>
-
-</body>
-
-<script src="./js/index.js"></script>
-
-<!-- <script type="module">
-    import xyz from './Components/navbar.js'
-    console.log('🚀 ~ xyz:', xyz);
-    const { sumOfTwoNumber, subOfTwoNumber } = xyz;
-    console.log('🚀 ~ xyz:sub', xyz.subOfTwoNumber(2, 5));
-    console.log('🚀 ~ sumOfTwoNumber:hello index', sumOfTwoNumber(2, 5));
-</script> -->
+<script src="/local storage/js/index.js"></script>
 
 
 <script type="module">
-  import { navbar } from'./componets/navbar.js'
-  console.log(navbar);
-
-  document.querySelector("#navbar").innerHTML = navbar();
+  import { navbar } from "./componets/navbar.js";
+  document.getElementById("navbar").innerHTML = navbar();
 </script>
+
+<script type="module">
+  import { footer } from "./componets/footer.js";
+  document.getElementById("footer").innerHTML = footer();
+</script>
+</body>
 </html>
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 index.js
-const API = 'https://fakestoreapi.com/products';
+const API = "https://fakestoreapi.com/products";
 
-async function ApiCall() {
-  try {
-    const res = await fetch(API);
-    const data = await res.json();
-    dataAppend(data);
-  } catch (error) {
-    console.log(' ~ error:', error);
-  }
-}
+fetch(API)
+  .then(res => res.json())
+  .then(data => renderProducts(data));
 
-ApiCall();
+function renderProducts(data) {
+  const main = document.getElementById("mainData");
+  main.innerHTML = "";
 
-function dataAppend(value) {
-  const mainDiv = document.querySelector('#mainData');
+  data.forEach(el => {
+    const div = document.createElement("div");
 
-  value.forEach((el) => {
-    const childDiv = document.createElement('div');
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let item = cart.find(i => i.id === el.id);
 
-    const id = document.createElement('h3');
-    const img = document.createElement('img');
-    const title = document.createElement('h3');
-    const description = document.createElement('p');
-    const price = document.createElement('h3');
-    const category = document.createElement('h3');
+    div.innerHTML = `
+      <img src="${el.image}" width="150">
+      <h3>${el.title}</h3>
+      <p>₹ ${el.price}</p>
 
-    const btn = document.createElement('button');
+      <button onclick="updateCart(${el.id}, -1)">-</button>
+      <span id="qty-${el.id}">${item ? item.qty : 0}</span>
+      <button onclick="updateCart(${el.id}, 1)">+</button>
+    `;
 
-    id.innerText = el.id;
-    img.src = el.image;
-    title.innerText = el.title;
-    description.innerText = el.description;
-    price.innerText = el.price;
-    category.innerText = el.category;
-
-    btn.innerText = "Add to Cart";
-
-    btn.addEventListener("click", () => {
-      addToCart(el);
-    });
-
-    childDiv.append(id, img, title, description, price, category, btn);
-    mainDiv.append(childDiv);
+    main.appendChild(div);
   });
+
+  updateCartCount();
 }
 
-function addToCart(product) {
+function updateCart(id, change) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  const exists = cart.find(item => item.id === product.id);
+  fetch(API)
+    .then(res => res.json())
+    .then(products => {
+      let product = products.find(p => p.id === id);
+      let item = cart.find(i => i.id === id);
 
-  if (exists) {
-    alert("Already added in cart");
-  } else {
-    product.qty = 1; 
-    cart.push(product);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Product added to cart");
-  }
+      if (!item && change === 1) {
+        product.qty = 1;
+        cart.push(product);
+      } else if (item) {
+        item.qty += change;
+        if (item.qty <= 0) {
+          cart = cart.filter(i => i.id !== id);
+        }
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      document.getElementById(`qty-${id}`).innerText =
+        cart.find(i => i.id === id)?.qty || 0;
+
+      updateCartCount();
+    });
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let count = cart.reduce((sum, i) => sum + i.qty, 0);
+  const span = document.getElementById("cartCount");
+  if (span) span.innerText = count;
+}
+updateCartCount();
+
+
+login.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/local storage/css/Login.css">
+</head>
+<body>
+     <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
+    <div class="mainContainer">
+        <div class="loginPage">
+            <h1>Login</h1>
+            <label>Username</label>
+            <input type="text" placeholder="Enter your Name...." name="loginUsername" id="loginUsername" autocomplete="off">
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password" name="Loginpassword" id="Loginpassword"autocomplete="off">
+            <button class="button" type="button" onclick="Login()">Submit</button>
+            <p id="loginError" style="color:red;"></p>
+        </div>
+    </div>
+</body>
+<script src="/local storage/js/Login.js"></script>
+</html>
+
+login.js
+//let locations = window.location.pathname; // route -> reacr-router-dom ->
+//  useLocation -> useSearchParam -> useParam
+
+const storeData = JSON.parse(localStorage.getItem('userData'));
+
+const Login = () => {
+  let userName = document.getElementById('loginUsername').value.trim();
+  console.log('🚀 ~ userName:', userName);
+  let password = document.getElementById('Loginpassword').value.trim();
+
+  let findUser = storeData.find((el) => el.user === userName);
+
+  if (findUser !== undefined) {
+    if (findUser.pass !== password) {
+      alert("password dosen't match!❌");
+      return;
+    }
+    let random = function () {
+      return Math.random().toString(36).substr(2); // remove `0.`
+    };
+
+    let token = function () {
+      return (
+        random() + random() + random() + '-' + random() + random() + random()
+      ); // to make it longer
+    };
+
+    sessionStorage.setItem('token', JSON.stringify(token()));
+
+    setTimeout(() => {
+      alert('token has been stored in session storage✅');
+    }, 1000);
+  }
+  else{
+  alert("User Not found ❌")
+  }
+};
+
+
+signup.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singup Page</title>
+    <link rel="stylesheet" href="../css/Signup.css">
+</head>
+<body>
+    <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
+    <div class="mainContainer">
+     <div class="signupPage">
+            <h1>SignUp</h1>
+            <label>Username</label>
+            <input type="text" placeholder="Enter your Name...." name="signUsername" id="signUsername" autocomplete="off">
+            <label>Age</label>
+            <input type="number" placeholder="Enter your Age....." name="signAge" id="SignAge" autocomplete="off">
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password" name="signPassword" id="signPassword" autocomplete="off">
+            <button class="button" type="button" onclick="signUp()">Submit</button>
+
+            <p id="signupError" style="color:red;"></p>
+            <p id="signupSuccess" style="color:green;"></p>
+        </div>
+    </div>
+</body>
+<script src="/local storage/js/Singup.js"></script>
+</html>
+
+
+singup.js
+const storeData = JSON.parse(localStorage.getItem('userData')) || [];
+
+// let locations = window.location.pathname;
+// console.log('🚀 ~ location:', locations);
+
+const signUp = async () => {
+  let userName = document.getElementById('signUsername').value.trim();
+  let age = document.getElementById('SignAge').value.trim();
+  let password = document.getElementById('signPassword').value.trim();
+
+  let singlePersonData = {
+    user: userName,
+    age,
+    pass: password,
+  };
+  storeData.push(singlePersonData);
+
+  setTimeout(() => {
+    alert('data save sucessfully✅');
+    localStorage.setItem('userData', JSON.stringify(storeData));
+    window.location = '/local storage/page/Login.html';
+  }, 100);
+};
+
 cart.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart Page</title>
-    <link rel="stylesheet" href="/local storage/css/cart.css">
-    <link rel="stylesheet" href="/local storage/css/style.css">
+  <title>Cart</title>
+  <link rel="stylesheet" href="/local storage/css/style.css">
+  <link rel="stylesheet" href="/local storage/css/cart.css">
 </head>
-<body onload="UI_Cart()">
-     <nav id="navbar"></nav>
+<body>
+  
 
-    <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
+<nav id="navbar"></nav>
+<button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
 
-    <div id="mainData"></div>
-   <div id="total"></div>
+<h2>My Cart</h2>
+<div id="mainData"></div>
+<div id="total"></div>
 
-</body>
+<footer id="footer"></footer>
+
 <script src="/local storage/js/cart.js"></script>
 
 <script type="module">
-  import { navbar } from'/local storage/componets/navbar.js'
-  console.log(navbar);
-
-  document.querySelector("#navbar").innerHTML = navbar();
+  import { navbar } from "/local storage/componets/navbar.js";
+  document.getElementById("navbar").innerHTML = navbar();
 </script>
 
+<script type="module">
+  import { footer } from "/local storage/componets/footer.js";
+  document.getElementById("footer").innerHTML = footer();
+</script>
+
+
+
+</body>
 </html>
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 cart.js
 function getCartData() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -216,60 +338,51 @@ function goCheckout() {
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 checkout.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Checkout</title>
- <link rel="stylesheet" href="/local storage/css/checkout.css">
- <link rel="stylesheet" href="/local storage/css/style.css">
+
+  <link rel="stylesheet" href="/local storage/css/checkout.css">
+  <link rel="stylesheet" href="/local storage/css/style.css">
 </head>
-<body onload="UI_Cart()">
-   <nav id="navbar"></nav>
-   <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
+<body>
 
- <div class="container">
-  <h2>Checkout Summary</h2>
+<nav id="navbar"></nav>
 
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Product</th>
-        <th>Image</th>
-        <th>Price</th>
-        <th>Qty</th>
-        <th>Subtotal</th>
-      </tr>
-    </thead>
-    <tbody id="cartTableBody"></tbody>
-  </table>
+<button id="btn" onclick="window.history.back()">Back</button>
 
-  <div id="totalAmount"></div>
+<h2>Checkout Summary</h2>
 
-  <!-- <form id="checkoutForm">
-    <input type="text" placeholder="Full Name" required>
-    <input type="tel" placeholder="Mobile Number" required>
-    <textarea placeholder="Address" required></textarea>
-    <button type="submit">Place Order</button>
-  </form>
-</div> -->
+<table border="2" cellpadding="10">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Product</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th>Qty</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+  <tbody id="cartTableBody"></tbody>
+</table>
 
+<div id="totalAmount"></div>
 
-</body>
- <script src="/local storage/js/checkout.js"></script>
+<script src="/local storage/js/checkout.js"></script>
 
 <script type="module">
-  import { navbar } from'/local storage/componets/navbar.js'
-  console.log(navbar);
-
-  document.querySelector("#navbar").innerHTML = navbar();
+  import { navbar } from "/local storage/componets/navbar.js";
+  document.getElementById("navbar").innerHTML = navbar();
 </script>
+
+</body>
 </html>
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 checkout.js
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -282,178 +395,160 @@ const tbody = document.getElementById("cartTableBody");
 let total = 0;
 
 cart.forEach((item, i) => {
-  const tr = document.createElement("tr");
   const subtotal = item.price * item.qty;
   total += subtotal;
 
+  const tr = document.createElement("tr");
   tr.innerHTML = `
     <td>${i + 1}</td>
     <td>${item.title}</td>
-    <td><img src="${item.image}"></td>
+    <td><img src="${item.image}" width="60"></td>
     <td>₹ ${item.price}</td>
     <td>${item.qty}</td>
     <td>₹ ${subtotal.toFixed(2)}</td>
   `;
-
   tbody.appendChild(tr);
 });
 
-document.getElementById("totalAmount").innerText =
-  `Total Amount: ₹ ${total.toFixed(2)}`;
+const gst = total * 0.18;
+const grandTotal = total + gst;
 
-document.getElementById("checkoutForm").addEventListener("submit", e => {
-  e.preventDefault();
-  alert("Order placed successfully 🎉");
-  localStorage.removeItem("cart");
-  window.location.href = "/local storage/index.html";
+document.getElementById("totalAmount").innerHTML = `
+  <h3>Subtotal: ₹ ${total.toFixed(2)}</h3>
+  <h3>GST (18%): ₹ ${gst.toFixed(2)}</h3>
+  <h2>Grand Total: ₹ ${grandTotal.toFixed(2)}</h2>
+  <button onclick="placeOrder()">Place Order</button>
+`;
 
-});
+function placeOrder() {
+  window.location.href = "/local storage/page/payment.html";
+}
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+payment.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Select Payment Method</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #eef1f7;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment</title>
 
-    .container {
-      background: #fff;
-      width: 360px;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      margin-bottom: 5px;
-    }
-
-    .subtitle {
-      font-size: 13px;
-      color: #666;
-      margin-bottom: 15px;
-    }
-
-    .payment-option {
-      border: 2px solid #ddd;
-      border-radius: 6px;
-      padding: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      margin-bottom: 10px;
-      transition: 0.2s;
-    }
-
-    .payment-option:hover {
-      border-color: #8b8bf9;
-    }
-
-    .payment-option.selected {
-      border-color: #6a6afc;
-      background: #f3f3ff;
-    }
-
-    .payment-name {
-      font-weight: 500;
-    }
-
-    .checkmark {
-      display: none;
-      color: #6a6afc;
-      font-weight: bold;
-    }
-
-    .payment-option.selected .checkmark {
-      display: block;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 15px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .continue-btn {
-      background: #6a6afc;
-      color: #fff;
-      opacity: 0.5;
-    }
-
-    .continue-btn.enabled {
-      opacity: 1;
-    }
-
-    .back-btn {
-      background: transparent;
-      color: #333;
-      margin-top: 8px;
-    }
-  </style>
+  <link rel="stylesheet" href="/local storage/css/payment.css">
 </head>
 <body>
 
+<nav id="navbar"></nav>
+
+<button id="btn" onclick="goBack()">Back</button>
+
+<h1>Payment Method</h1>
+
 <div class="container">
-  <h2>Select payment method</h2>
-  <div class="subtitle">Preferred method for future transactions</div>
 
-  <div class="payment-option" onclick="selectPayment(this)">
-    <span class="payment-name">Pay with Visa</span>
-    <span class="checkmark">✔</span>
-  </div>
+  <div class="payment-option" onclick="selectPayment(this)">Visa</div>
+  <div class="payment-option" onclick="selectPayment(this)">MasterCard</div>
+  <div class="payment-option" onclick="selectPayment(this)">PayPal</div>
+  <div class="payment-option" onclick="selectPayment(this)">Apple Pay</div>
+  <div class="payment-option" onclick="selectPayment(this)">Stripe</div>
 
-  <div class="payment-option" onclick="selectPayment(this)">
-    <span class="payment-name">Pay with Mastercard</span>
-    <span class="checkmark">✔</span>
-  </div>
-
-  <div class="payment-option" onclick="selectPayment(this)">
-    <span class="payment-name">Pay with PayPal</span>
-    <span class="checkmark">✔</span>
-  </div>
-
-  <div class="payment-option" onclick="selectPayment(this)">
-    <span class="payment-name">Pay with Apple Pay</span>
-    <span class="checkmark">✔</span>
-  </div>
-
-  <div class="payment-option" onclick="selectPayment(this)">
-    <span class="payment-name">Pay with Stripe</span>
-    <span class="checkmark">✔</span>
-  </div>
-
-  <button class="continue-btn" id="continueBtn" disabled>Continue</button>
-  <button class="back-btn">Go Back</button>
+  <button id="continueBtn" disabled onclick="completePayment()">Continue</button>
 </div>
 
-<script>
-  function selectPayment(element) {
-    document.querySelectorAll('.payment-option').forEach(option => {
-      option.classList.remove('selected');
-    });
+<footer id="footer"></footer>
 
-    element.classList.add('selected');
+<script src="/local storage/js/payment.js"></script>
 
-    const continueBtn = document.getElementById('continueBtn');
-    continueBtn.disabled = false;
-    continueBtn.classList.add('enabled');
-  }
+<script type="module">
+  import { navbar } from "/local storage/componets/navbar.js";
+  document.getElementById("navbar").innerHTML = navbar();
 </script>
+
+<script type="module">
+  import { footer } from "/local storage/componets/footer.js";
+  document.getElementById("footer").innerHTML = footer();
+</script>
+
+</body>
+</html>
+
+
+payment.js
+function selectPayment(element) {
+  document.querySelectorAll(".payment-option").forEach(opt => {
+    opt.classList.remove("selected");
+  });
+
+  element.classList.add("selected");
+
+  const btn = document.getElementById("continueBtn");
+  btn.disabled = false;
+  btn.style.background = "green";
+  btn.style.color = "white";
+}
+
+function completePayment() {
+  alert("Payment Successful ✅");
+
+  
+  localStorage.removeItem("cart");
+
+  window.location.href = "/local storage/index.html";
+}
+
+function goBack() {
+  window.history.back();
+}
+
+contact.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart</title>
+
+  <link rel="stylesheet" href="/local storage/css/style.css" />
+  <link rel="stylesheet" href="/local storage/css/cart.css" />
+</head>
+<body>
+
+  <nav id="navbar"></nav>
+
+  <button id="btn" onclick="window.location='/local storage/index.html'">
+    Back
+  </button>
+
+  <h2>My Cart</h2>
+  <div id="mainData"></div>
+  <div id="total"></div>
+
+  <footer id="footer"></footer>
+
+  
+  <script type="module">
+    import { navbar } from "/local storage/componets/navbar.js";
+    import { footer } from "/local storage/componets/footer.js";
+
+    
+    document.getElementById("navbar").innerHTML = navbar();
+    document.getElementById("footer").innerHTML = footer();
+
+    const homeBtn = document.getElementById("home");
+    if (homeBtn) {
+      homeBtn.addEventListener("click", () => {
+        window.location.href = "/local storage/index.html";
+      });
+    }
+
+
+    const contactBtn = document.getElementById("contact");
+    if (contactBtn) {
+      contactBtn.addEventListener("click", () => {
+        alert("I am already here!!");
+        window.location.href = "/local storage/pages/contact.html";
+      });
+    }
+  </script>
 
 </body>
 </html>
