@@ -9,3 +9,4 @@ export const footer = () =>  {
     <p>© 2025 Product List❤️</p>
     `;
 };
+
