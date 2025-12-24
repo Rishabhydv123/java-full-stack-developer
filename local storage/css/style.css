@@ -80,7 +80,6 @@ h1 {
     font-size: 18px;
 }
 
-
 button {
   background: linear-gradient(135deg, #09c8af, #1e40af);
   color: #fff;
@@ -103,7 +102,6 @@ button:hover {
 button:active {
   transform: scale(0.95);
 }
-
 
 #scrollTopBtn {
   position: fixed;
