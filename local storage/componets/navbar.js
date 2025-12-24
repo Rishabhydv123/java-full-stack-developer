@@ -46,7 +46,7 @@ export const navbar = () => {
       <li onclick="window.location='/local storage/page/Signup.html'">Signup</li>
     </ul>
   `;
-};
+}; 
 
 
 

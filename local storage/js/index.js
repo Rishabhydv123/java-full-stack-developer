@@ -74,7 +74,6 @@ function updateCartCount() {
 
 updateCartCount();
 
-
 const btn = document.getElementById("scrollTopBtn");
 window.addEventListener("scroll", () => {
   if (window.scrollY > 300) {
