@@ -1,3 +1,4 @@
+main file
 index.html
 <!DOCTYPE html>
 <html lang="en">
@@ -5,7 +6,6 @@ index.html
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products</title>
-  
   <link rel="stylesheet" href="/local storage/css/style.css">
 </head>
 <body>
@@ -13,11 +13,10 @@ index.html
 
 <h1>Product List</h1>
 <div id="mainData"></div>
+<button id="scrollTopBtn">↑</button>
 
 <footer id="footer"></footer>
-
 <script src="/local storage/js/index.js"></script>
-
 
 <script type="module">
   import { navbar } from "./componets/navbar.js";
@@ -28,10 +27,11 @@ index.html
   import { footer } from "./componets/footer.js";
   document.getElementById("footer").innerHTML = footer();
 </script>
+
 </body>
 </html>
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 index.js
 const API = "https://fakestoreapi.com/products";
 
@@ -39,191 +39,93 @@ fetch(API)
   .then(res => res.json())
   .then(data => renderProducts(data));
 
-function renderProducts(data) {
+function renderProducts(products) {
   const main = document.getElementById("mainData");
   main.innerHTML = "";
 
-  data.forEach(el => {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  products.forEach(p => {
+    let item = cart.find(i => i.id === p.id);
+
     const div = document.createElement("div");
-
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let item = cart.find(i => i.id === el.id);
-
     div.innerHTML = `
-      <img src="${el.image}" width="150">
-      <h3>${el.title}</h3>
-      <p>₹ ${el.price}</p>
+      <img src="${p.image}" width="120">
+      <h4>${p.title}</h4>
+      <p>₹ ${p.price}</p>
 
-      <button onclick="updateCart(${el.id}, -1)">-</button>
-      <span id="qty-${el.id}">${item ? item.qty : 0}</span>
-      <button onclick="updateCart(${el.id}, 1)">+</button>
+      ${
+        item
+          ? `
+            <button onclick="changeQty(${p.id},-1)">-</button>
+            <span>${item.qty}</span>
+            <button onclick="changeQty(${p.id},1)">+</button>
+          `
+          : `<button onclick="addToCart(${p.id})">Add to Cart</button>`
+      }
     `;
-
     main.appendChild(div);
   });
 
   updateCartCount();
 }
 
-function updateCart(id, change) {
+function addToCart(id) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   fetch(API)
     .then(res => res.json())
     .then(products => {
       let product = products.find(p => p.id === id);
-      let item = cart.find(i => i.id === id);
-
-      if (!item && change === 1) {
-        product.qty = 1;
-        cart.push(product);
-      } else if (item) {
-        item.qty += change;
-        if (item.qty <= 0) {
-          cart = cart.filter(i => i.id !== id);
-        }
-      }
-
+      product.qty = 1;
+      cart.push(product);
       localStorage.setItem("cart", JSON.stringify(cart));
-
-      document.getElementById(`qty-${id}`).innerText =
-        cart.find(i => i.id === id)?.qty || 0;
-
-      updateCartCount();
+      renderProducts(products);
     });
+}
+
+function changeQty(id, change) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let item = cart.find(i => i.id === id);
+
+  item.qty += change;
+  if (item.qty <= 0) {
+    cart = cart.filter(i => i.id !== id);
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  fetch(API)
+    .then(res => res.json())
+    .then(data => renderProducts(data));
 }
 
 function updateCartCount() {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let count = cart.reduce((sum, i) => sum + i.qty, 0);
-  const span = document.getElementById("cartCount");
+  let count = cart.reduce((a, b) => a + b.qty, 0);
+  let span = document.getElementById("cartCount");
   if (span) span.innerText = count;
 }
+
 updateCartCount();
 
-
-login.html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="/local storage/css/Login.css">
-</head>
-<body>
-     <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
-    <div class="mainContainer">
-        <div class="loginPage">
-            <h1>Login</h1>
-            <label>Username</label>
-            <input type="text" placeholder="Enter your Name...." name="loginUsername" id="loginUsername" autocomplete="off">
-            <label>Password</label>
-            <input type="password" placeholder="Enter your password" name="Loginpassword" id="Loginpassword"autocomplete="off">
-            <button class="button" type="button" onclick="Login()">Submit</button>
-            <p id="loginError" style="color:red;"></p>
-        </div>
-    </div>
-</body>
-<script src="/local storage/js/Login.js"></script>
-</html>
-
-login.js
-//let locations = window.location.pathname; // route -> reacr-router-dom ->
-//  useLocation -> useSearchParam -> useParam
-
-const storeData = JSON.parse(localStorage.getItem('userData'));
-
-const Login = () => {
-  let userName = document.getElementById('loginUsername').value.trim();
-  console.log('🚀 ~ userName:', userName);
-  let password = document.getElementById('Loginpassword').value.trim();
-
-  let findUser = storeData.find((el) => el.user === userName);
-
-  if (findUser !== undefined) {
-    if (findUser.pass !== password) {
-      alert("password dosen't match!❌");
-      return;
-    }
-    let random = function () {
-      return Math.random().toString(36).substr(2); // remove `0.`
-    };
-
-    let token = function () {
-      return (
-        random() + random() + random() + '-' + random() + random() + random()
-      ); // to make it longer
-    };
-
-    sessionStorage.setItem('token', JSON.stringify(token()));
-
-    setTimeout(() => {
-      alert('token has been stored in session storage✅');
-    }, 1000);
+const btn = document.getElementById("scrollTopBtn");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
   }
-  else{
-  alert("User Not found ❌")
-  }
-};
+});
 
+btn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
 
-signup.html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Singup Page</title>
-    <link rel="stylesheet" href="../css/Signup.css">
-</head>
-<body>
-    <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
-    <div class="mainContainer">
-     <div class="signupPage">
-            <h1>SignUp</h1>
-            <label>Username</label>
-            <input type="text" placeholder="Enter your Name...." name="signUsername" id="signUsername" autocomplete="off">
-            <label>Age</label>
-            <input type="number" placeholder="Enter your Age....." name="signAge" id="SignAge" autocomplete="off">
-            <label>Password</label>
-            <input type="password" placeholder="Enter your password" name="signPassword" id="signPassword" autocomplete="off">
-            <button class="button" type="button" onclick="signUp()">Submit</button>
-
-            <p id="signupError" style="color:red;"></p>
-            <p id="signupSuccess" style="color:green;"></p>
-        </div>
-    </div>
-</body>
-<script src="/local storage/js/Singup.js"></script>
-</html>
-
-
-singup.js
-const storeData = JSON.parse(localStorage.getItem('userData')) || [];
-
-// let locations = window.location.pathname;
-// console.log('🚀 ~ location:', locations);
-
-const signUp = async () => {
-  let userName = document.getElementById('signUsername').value.trim();
-  let age = document.getElementById('SignAge').value.trim();
-  let password = document.getElementById('signPassword').value.trim();
-
-  let singlePersonData = {
-    user: userName,
-    age,
-    pass: password,
-  };
-  storeData.push(singlePersonData);
-
-  setTimeout(() => {
-    alert('data save sucessfully✅');
-    localStorage.setItem('userData', JSON.stringify(storeData));
-    window.location = '/local storage/page/Login.html';
-  }, 100);
-};
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 cart.html
 <!DOCTYPE html>
 <html lang="en">
@@ -235,15 +137,14 @@ cart.html
   <link rel="stylesheet" href="/local storage/css/cart.css">
 </head>
 <body>
-  
-
+                                                                                                                          
 <nav id="navbar"></nav>
 <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
 
 <h2>My Cart</h2>
 <div id="mainData"></div>
 <div id="total"></div>
-
+<button id="scrollTopBtn">↑</button>
 <footer id="footer"></footer>
 
 <script src="/local storage/js/cart.js"></script>
@@ -258,12 +159,10 @@ cart.html
   document.getElementById("footer").innerHTML = footer();
 </script>
 
-
-
 </body>
 </html>
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 cart.js
 function getCartData() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -337,7 +236,23 @@ function goCheckout() {
   window.location.href = "/local storage/page/checkout.html";
 }
 
+const btn = document.getElementById("scrollTopBtn");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+});
 
+btn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 checkout.html
 <!DOCTYPE html>
 <html lang="en">
@@ -372,7 +287,8 @@ checkout.html
 </table>
 
 <div id="totalAmount"></div>
-
+<!-- <button id="scrollTopBtn">↑</button> -->
+ 
 <script src="/local storage/js/checkout.js"></script>
 
 <script type="module">
@@ -383,6 +299,7 @@ checkout.html
 </body>
 </html>
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 checkout.js
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -424,7 +341,24 @@ function placeOrder() {
   window.location.href = "/local storage/page/payment.html";
 }
 
+// const btn = document.getElementById("scrollTopBtn");
+// window.addEventListener("scroll", () => {
+//   if (window.scrollY > 300) {
+//     btn.style.display = "block";
+//   } else {
+//     btn.style.display = "none";
+//   }
+// });
 
+// btn.addEventListener("click", () => {
+//   window.scrollTo({
+//     top: 0,
+//     behavior: "smooth"
+//   });
+// });
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 payment.html
 <!DOCTYPE html>
 <html lang="en">
@@ -438,11 +372,8 @@ payment.html
 <body>
 
 <nav id="navbar"></nav>
-
 <button id="btn" onclick="goBack()">Back</button>
-
 <h1>Payment Method</h1>
-
 <div class="container">
 
   <div class="payment-option" onclick="selectPayment(this)">Visa</div>
@@ -471,7 +402,7 @@ payment.html
 </body>
 </html>
 
-
+////////////////////////////////////////////////////////////////////////////////////////
 payment.js
 function selectPayment(element) {
   document.querySelectorAll(".payment-option").forEach(opt => {
@@ -488,10 +419,7 @@ function selectPayment(element) {
 
 function completePayment() {
   alert("Payment Successful ✅");
-
-  
   localStorage.removeItem("cart");
-
   window.location.href = "/local storage/index.html";
 }
 
@@ -499,56 +427,173 @@ function goBack() {
   window.history.back();
 }
 
-contact.html
+//////////////////////////////////////////////////////////////////////////////////////
+login.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cart</title>
-
-  <link rel="stylesheet" href="/local storage/css/style.css" />
-  <link rel="stylesheet" href="/local storage/css/cart.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/local storage/css/Login.css">
 </head>
 <body>
-
-  <nav id="navbar"></nav>
-
-  <button id="btn" onclick="window.location='/local storage/index.html'">
-    Back
-  </button>
-
-  <h2>My Cart</h2>
-  <div id="mainData"></div>
-  <div id="total"></div>
-
-  <footer id="footer"></footer>
-
-  
-  <script type="module">
-    import { navbar } from "/local storage/componets/navbar.js";
-    import { footer } from "/local storage/componets/footer.js";
-
-    
-    document.getElementById("navbar").innerHTML = navbar();
-    document.getElementById("footer").innerHTML = footer();
-
-    const homeBtn = document.getElementById("home");
-    if (homeBtn) {
-      homeBtn.addEventListener("click", () => {
-        window.location.href = "/local storage/index.html";
-      });
-    }
-
-
-    const contactBtn = document.getElementById("contact");
-    if (contactBtn) {
-      contactBtn.addEventListener("click", () => {
-        alert("I am already here!!");
-        window.location.href = "/local storage/pages/contact.html";
-      });
-    }
-  </script>
-
+     <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
+    <div class="mainContainer">
+        <div class="loginPage">
+            <h1>Login</h1>
+            <label>Username</label>
+            <input type="text" placeholder="Enter your Name...." name="loginUsername" id="loginUsername" autocomplete="off">
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password" name="Loginpassword" id="Loginpassword"autocomplete="off">
+            <button class="button" type="button" onclick="Login()">Submit</button>
+            <p id="loginError" style="color:red;"></p>
+        </div>
+    </div>
 </body>
+<script src="/local storage/js/Login.js"></script>
 </html>
+
+
+/////////////////////////////////////////////////////////////////////////////////
+login.js
+//let locations = window.location.pathname; // route -> reacr-router-dom ->
+//  useLocation -> useSearchParam -> useParam
+
+const storeData = JSON.parse(localStorage.getItem('userData'));
+
+const Login = () => {
+  let userName = document.getElementById('loginUsername').value.trim();
+  console.log('🚀 ~ userName:', userName);
+  let password = document.getElementById('Loginpassword').value.trim();
+
+  let findUser = storeData.find((el) => el.user === userName);
+
+  if (findUser !== undefined) {
+    if (findUser.pass !== password) {
+      alert("password dosen't match!❌");
+      return;
+    }
+    let random = function () {
+      return Math.random().toString(36).substr(2); // remove `0.`
+    };
+
+    let token = function () {
+      return (
+        random() + random() + random() + '-' + random() + random() + random()
+      ); // to make it longer
+    };
+
+    sessionStorage.setItem('token', JSON.stringify(token()));
+
+    setTimeout(() => {
+      alert('token has been stored in session storage✅');
+    }, 1000);
+  }
+  else{
+  alert("User Not found ❌")
+  }
+};
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+signup.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singup Page</title>
+    <link rel="stylesheet" href="../css/Signup.css">
+</head>
+<body>
+    <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
+    <div class="mainContainer">
+     <div class="signupPage">
+            <h1>SignUp</h1>
+            <label>Username</label>
+            <input type="text" placeholder="Enter your Name...." name="signUsername" id="signUsername" autocomplete="off">
+            <label>Age</label>
+            <input type="number" placeholder="Enter your Age....." name="signAge" id="SignAge" autocomplete="off">
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password" name="signPassword" id="signPassword" autocomplete="off">
+            <button class="button" type="button" onclick="signUp()">Submit</button>
+
+            <p id="signupError" style="color:red;"></p>
+            <p id="signupSuccess" style="color:green;"></p>
+        </div>
+    </div>
+</body>
+<script src="/local storage/js/Singup.js"></script>
+</html>
+
+
+
+////////////////////////////////////////////////////////////////////////////////////
+signup.js
+const storeData = JSON.parse(localStorage.getItem('userData')) || [];
+
+// let locations = window.location.pathname;
+// console.log('🚀 ~ location:', locations);
+
+const signUp = async () => {
+  let userName = document.getElementById('signUsername').value.trim();
+  let age = document.getElementById('SignAge').value.trim();
+  let password = document.getElementById('signPassword').value.trim();
+
+  let singlePersonData = {
+    user: userName,
+    age,
+    pass: password,
+  };
+  storeData.push(singlePersonData);
+
+  setTimeout(() => {
+    alert('data save sucessfully✅');
+    localStorage.setItem('userData', JSON.stringify(storeData));
+    window.location = '/local storage/page/Login.html';
+  }, 100);
+};
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+navbar.js
+export const navbar = () => {
+  return `
+  
+    <div class="logo">
+      <img src="https://fakestoreapi.com/icons/logo.png" height="60" width="60" alt="Logo">
+    </div>
+
+    <ul>
+      <li>Home</li>
+      <li>Product</li>
+      <li>Contact</li>
+    </ul>
+
+    <ul>
+      <li onclick="window.location='/local storage/page/cart.html'">Cart 🛒</li>
+      <li onclick="window.location='/local storage/page/Login.html'">Login</li>
+      <li onclick="window.location='/local storage/page/Signup.html'">Signup</li>
+    </ul>
+  `;
+}; 
+
+/////////////////////////////////////////////////////////////////////////////////////
+footer.j
+export const footer = () =>  {
+  return`
+  <p>Follow us on 
+     •<a href="#">Instagram</a> • 
+      <a href="#">Twitter</a> • 
+      <a href="#">YouTube</a>
+    </p>
+    <p>✉ rishabhyadav55888@gmail.com</p>
+    <p>© 2025 Product List❤️</p>
+    `;
+};
+
+
+
+
+
+
