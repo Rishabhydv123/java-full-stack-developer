@@ -27,26 +27,49 @@
 
 
    
+// export const navbar = () => {
+//   return `
+  
+//     <div class="logo">
+//       <img src="https://fakestoreapi.com/icons/logo.png" height="60" width="60" alt="Logo">
+//     </div>
+
+//     <ul>
+//       <li>Home</li>
+//       <li>Product</li>
+//       <li>Contact</li>
+//     </ul>
+
+//     <ul>
+//       <li onclick="window.location='/local storage/page/cart.html'">Cart 🛒</li>
+//       <li onclick="window.location='/local storage/page/Login.html'">Login</li>
+//       <li onclick="window.location='/local storage/page/Signup.html'">Signup</li>
+//     </ul>
+//   `;
+// }; 
+
+
 export const navbar = () => {
   return `
-  
     <div class="logo">
-      <img src="https://fakestoreapi.com/icons/logo.png" height="60" width="60" alt="Logo">
+       <img src="https://fakestoreapi.com/icons/logo.png" height="60" width="60" alt="Logo">
     </div>
 
     <ul>
-      <li>Home</li>
-      <li>Product</li>
-      <li>Contact</li>
+      <li onclick="window.location='/local storage/index.html'">Home</li>
+      <li onclick="window.location='/local storage/page/products.html'">Products</li>
+      <li onclick="window.location='/local storage/index.html'">Contact</li>
     </ul>
 
     <ul>
-      <li onclick="window.location='/local storage/page/cart.html'">Cart 🛒</li>
+      <li onclick="window.location='/local storage/page/cart.html'">
+        Cart 🛒 <span id="cartCount">0</span>
+      </li>
       <li onclick="window.location='/local storage/page/Login.html'">Login</li>
       <li onclick="window.location='/local storage/page/Signup.html'">Signup</li>
     </ul>
   `;
-}; 
+};
 
 
 

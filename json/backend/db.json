@@ -10,7 +10,7 @@
   "todos": [
     {
       "id": "1",
-      "text": "hey..123",
+      "text": "hey..",
       "isEdit": false,
       "isComplete": false
     },
@@ -33,7 +33,7 @@
       "isComplete": false
     },
     {
-      "id": 5,
+      "id": "5",
       "text": "Hello",
       "isEdit": false,
       "isComplete": false
