@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
+    <link rel="stylesheet" href="/local storage/css/style.css">
 </head>
 <body>
+    <nav id="navbar"></nav>
+    <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
     <h1>Contact Page</h1>
+
+    <footer id="footer"></footer>
+
+
+  <script type="module">
+  import { navbar } from "/local storage/componets/navbar.js";
+  document.getElementById("navbar").innerHTML = navbar();
+  </script>
+
+  <script type="module">
+  import { footer } from "/local storage/componets/footer.js";
+  document.getElementById("footer").innerHTML = footer();
+  </script>
+
 </body>
 </html>
