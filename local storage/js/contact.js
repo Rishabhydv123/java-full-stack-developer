@@ -1,16 +1,19 @@
-document.getElementById("contactForm").addEventListener("submit", function(e) {
+document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
-  let name = document.getElementById("name").value;
-  let email = document.getElementById("email").value;
-  let message = document.getElementById("message").value;
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const msg = document.getElementById("msg");
 
   if (name === "" || email === "" || message === "") {
-    alert("Please fill all fields");
-  } else {
-    document.getElementById("successMsg").innerText =
-      "Thank you, " + name + "! Your message has been sent.";
-    
-    document.getElementById("contactForm").reset();
+    msg.style.color = "red";
+    msg.textContent = "All fields are required!";
+    return;
   }
+
+  msg.style.color = "green";
+  msg.textContent = "Message sent successfully ✔";
+
+  this.reset();
 });
