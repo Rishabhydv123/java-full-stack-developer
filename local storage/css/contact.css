@@ -85,7 +85,6 @@ body {
   text-align: center;
 }
 
-/* Map */
 .map {
   margin-top: 40px;
   height: 350px;
@@ -100,7 +99,6 @@ body {
   border: 0;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .contact-box {
     flex-direction: column;
