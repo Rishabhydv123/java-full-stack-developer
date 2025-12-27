@@ -14,7 +14,7 @@ function selectPayment(element) {
 function completePayment() {
   alert("Payment Successful ✅");
   localStorage.removeItem("cart");
-  window.location.href = "/local storage/index.html";
+  window.location.href = "/local storage/page/home.html";
 }
 
 function goBack() {

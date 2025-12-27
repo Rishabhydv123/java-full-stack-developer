@@ -1,37 +1,46 @@
 //let locations = window.location.pathname; // route -> reacr-router-dom ->
 //  useLocation -> useSearchParam -> useParam
 
-const storeData = JSON.parse(localStorage.getItem('userData'));
+const storeData = JSON.parse(localStorage.getItem('userData')) || [];
 
 const Login = () => {
-  let userName = document.getElementById('loginUsername').value.trim();
+  const userName = document
+    .getElementById('loginUsername')
+    .value.trim();
+
+  const password = document
+    .getElementById('Loginpassword')
+    .value.trim();
+
   console.log('🚀 ~ userName:', userName);
-  let password = document.getElementById('Loginpassword').value.trim();
 
-  let findUser = storeData.find((el) => el.user === userName);
+  const findUser = storeData.find(
+    (el) => el.user === userName
+  );
 
-  if (findUser !== undefined) {
-    if (findUser.pass !== password) {
-      alert("password dosen't match!❌");
-      return;
-    }
-    let random = function () {
-      return Math.random().toString(36).substr(2); // remove `0.`
-    };
-
-    let token = function () {
-      return (
-        random() + random() + random() + '-' + random() + random() + random()
-      ); // to make it longer
-    };
-
-    sessionStorage.setItem('token', JSON.stringify(token()));
-
-    setTimeout(() => {
-      alert('token has been stored in session storage✅');
-    }, 1000);
+  if (!findUser) {
+    alert('User not found ❌');
+    return;
   }
-  else{
-  alert("User Not found ❌")
+
+  if (findUser.pass !== password) {
+    alert("Password doesn't match ❌");
+    return;
   }
+
+  const generateToken = () => {
+    return (
+      Math.random().toString(36).substring(2) +
+      Math.random().toString(36).substring(2) +
+      '-' +
+      Math.random().toString(36).substring(2)
+    );
+  };
+
+  const token = generateToken();
+  sessionStorage.setItem('token', token);
+
+  setTimeout(() => {
+    alert('Token has been stored in session storage ✅');
+  }, 1000);
 };
