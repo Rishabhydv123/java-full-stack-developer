@@ -149,7 +149,6 @@ nav ul {
   padding: 0;
 }
 
-
 nav ul li {
   position: relative;
   cursor: pointer;
@@ -169,7 +168,7 @@ nav ul li:hover {
   position: absolute;
   top: -6px;
   right: -10px;
-   background: linear-gradient(135deg, #234cc7, #09e997);
+  background: linear-gradient(135deg, #09e997, #4e73df);
   color: #fff;
   font-size: 12px;
   font-weight: bold;

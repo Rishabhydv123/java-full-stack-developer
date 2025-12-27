@@ -183,18 +183,6 @@ h2 {
   font-size: 18px;
 }
 
-@media (max-width: 768px) {
-  h2 {
-    font-size: 22px;
-  }
-
-  #total {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-}
-
 .cart-card,
 #total,
 #navbar,
@@ -210,5 +198,17 @@ h2 {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 22px;
+  }
+
+  #total {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
 }
