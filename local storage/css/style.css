@@ -169,7 +169,7 @@ nav ul li:hover {
   position: absolute;
   top: -6px;
   right: -10px;
-  background: #ef4444;
+   background: linear-gradient(135deg, #234cc7, #09e997);
   color: #fff;
   font-size: 12px;
   font-weight: bold;
