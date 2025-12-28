@@ -4,64 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
+
     <link rel="stylesheet" href="/local storage/css/style.css">
     <link rel="stylesheet" href="/local storage/css/contact.css">
 </head>
 <body>
+
     <nav id="navbar"></nav>
-    <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
+
+    <button id="btn" onclick="window.location='/local storage/index.html'">
+        Back
+    </button>
+
     <button id="scrollTopBtn">↑</button>
 
-  <div class="contact-container">
-     <section class="contact">
+    <div class="contact-container">
+        <section class="contact">
 
-  <div class="title">
-    <h1>Contact Us</h1>
-    <p>We are here to help you</p>
-  </div>
+            <div class="title">
+                <h1>Contact Us</h1>
+                <p>We are here to help you</p>
+            </div>
 
-  <div class="contact-box">
-    <div class="contact-info">
-      <h2>Get In Touch</h2>
-      <p>📍 Goregaon (East) Mumbai, India</p>
-      <p>📞+91 8291601042</p>
-      <p>✉ rishabhyadav55888@gmail.com</p>
+            <div class="contact-box">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>📍 Goregaon (East) Mumbai, India</p>
+                    <p>📞 +91 8291601042</p>
+                    <p>✉ rishabhyadav55888@gmail.com</p>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+
+                        <input type="text" id="name" placeholder="Your Name" required>
+
+                        <input type="email" id="email" placeholder="Your Email" required>
+
+                        <textarea id="message" placeholder="Your Message" required></textarea>
+
+                        <button type="submit">Send Message</button>
+
+                        <span id="msg"></span>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps?q=Goregaon%20East%20Mumbai&output=embed"
+                    loading="lazy">
+                </iframe>
+            </div>
+
+        </section>
     </div>
 
-    <div class="contact-form">
-      <form id="contactForm">
-        <input type="text" id="name" placeholder="Your Name">
-        <input type="email" id="email" placeholder="Your Email">
-        <textarea id="message" placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-        <span id="msg"></span>
-      </form>
-    </div>
-  </div>
+    <footer id="footer"></footer>
 
- <div class="map">
-  <iframe 
-    src="https://www.google.com/maps?q=Goregaon%20East%20Mumbai&output=embed"
-    loading="...">
-  </iframe>
-</div>
+    <script src="/local storage/js/contact.js"></script>
 
-</section>
+    <script type="module">
+        import { navbar } from "/local storage/componets/navbar.js";
+        document.getElementById("navbar").innerHTML = navbar();
+    </script>
 
-  <footer id="footer"></footer>
-
-  <script src="/local storage/js/contact.js"></script>
-
-
-  <script type="module">
-  import { navbar } from "/local storage/componets/navbar.js";
-  document.getElementById("navbar").innerHTML = navbar();
-  </script>
-
-  <script type="module">
-  import { footer } from "/local storage/componets/footer.js";
-  document.getElementById("footer").innerHTML = footer();
-  </script>
+    <script type="module">
+        import { footer } from "/local storage/componets/footer.js";
+        document.getElementById("footer").innerHTML = footer();
+    </script>
 
 </body>
 </html>
