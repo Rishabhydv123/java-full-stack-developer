@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Singup Page</title>
     <link rel="stylesheet" href="../css/Signup.css">
+    <link rel="stylesheet" href="/local storage/css/style.css">
 </head>
 <body>
+    <nav id="navbar"></nav>
+
     <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
     <div class="mainContainer">
      <div class="signupPage">
@@ -23,8 +26,19 @@
             <p id="signupSuccess" style="color:green;"></p>
         </div>
     </div>
+    <footer id="footer"></footer>
 </body>
 <script src="/local storage/js/Singup.js"></script>
+
+<script type="module">
+  import { navbar } from "/local storage/componets/navbar.js";
+  document.getElementById("navbar").innerHTML = navbar();  
+</script>
+
+<script type="module">
+  import { footer } from "/local storage/componets/footer.js";
+  document.getElementById("footer").innerHTML = footer();
+</script>
 </html>
 
 

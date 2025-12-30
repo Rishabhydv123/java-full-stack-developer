@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="/local storage/css/Login.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<link rel="stylesheet" href="/local storage/css/Login.css">
+<link rel="stylesheet" href="/local storage/css/style.css">
 </head>
 <body>
-     <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
+    <nav id="navbar"></nav>
+
+    <button id="btn" onclick="window.location='/local storage/index.html'">Back</button>
     <div class="mainContainer">
         <div class="loginPage">
             <h1>Login</h1>
@@ -19,6 +22,18 @@
             <p id="loginError" style="color:red;"></p>
         </div>
     </div>
+    <footer id="footer"></footer>
 </body>
 <script src="/local storage/js/Login.js"></script>
+
+<script type="module">
+  import { navbar } from "/local storage/componets/navbar.js";
+  document.getElementById("navbar").innerHTML = navbar();  
+</script>
+
+<script type="module">
+  import { footer } from "/local storage/componets/footer.js";
+  document.getElementById("footer").innerHTML = footer();
+</script>
+
 </html>
