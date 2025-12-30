@@ -12,8 +12,6 @@ const Login = () => {
     .getElementById('Loginpassword')
     .value.trim();
 
-  console.log('🚀 ~ userName:', userName);
-
   const findUser = storeData.find(
     (el) => el.user === userName
   );
@@ -40,7 +38,8 @@ const Login = () => {
   const token = generateToken();
   sessionStorage.setItem('token', token);
 
-  setTimeout(() => {
-    alert('Token has been stored in session storage ✅');
-  }, 1000);
+  alert('Login Successful ✅');
+
+
+  window.location.href = "/local storage/page/home.html"; 
 };
