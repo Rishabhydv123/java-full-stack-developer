@@ -80,7 +80,7 @@ window.goToCart = function () {
   const token = sessionStorage.getItem("token");
 
   if (!token) {
-    alert("Pehle login karo, uske baad cart access milega ❌");
+    alert("Please log in first: only then will you be able to access your cart. ❌");
     window.location.href = "/local storage/page/Login.html";
   } else {
     window.location.href = "/local storage/page/cart.html";
@@ -89,6 +89,6 @@ window.goToCart = function () {
 
 window.logout = function () {
   sessionStorage.clear();
-  alert("Logout Successful 👋");
+  // alert("Logout Successful 👋");
   window.location.href = "/local storage/page/Login.html";
 };

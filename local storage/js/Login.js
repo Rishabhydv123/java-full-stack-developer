@@ -19,6 +19,6 @@ function Login() {
   sessionStorage.setItem("token", "loggedin");
   sessionStorage.setItem("loggedUser", userName);
 
-  alert("Login Successful ✅");
+  // alert("Login Successful ✅");
   window.location.href = "/local storage/page/home.html";
 }

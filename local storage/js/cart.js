@@ -1,5 +1,5 @@
 if (!sessionStorage.getItem("token")) {
-  alert("Please log in first: only then will you be able to access your cart. ❌");
+  alert("Please log in first:only then will you be able to access your cart. ❌");
   window.location.href = "/local storage/page/Login.html";
 }
 
