@@ -1,13 +1,12 @@
-const token = sessionStorage.getItem("token");
-
-if (!token) {
-  alert("Please login to access cart ❌");
+if (!sessionStorage.getItem("token")) {
+  alert("Please log in first: only then will you be able to access your cart. ❌");
   window.location.href = "/local storage/page/Login.html";
 }
 
 function getCartData() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   renderCart(cart);
+  updateCartCount();
 }
 
 getCartData();
@@ -30,26 +29,23 @@ function renderCart(cart) {
     totalPrice += item.price * item.qty;
 
     const card = document.createElement("div");
-
     card.innerHTML = `
       <img src="${item.image}">
       <h3>${item.title}</h3>
       <h4>₹ ${item.price}</h4>
-      <div>
-        <button onclick="updateQty(${index}, -1)">-</button>
-        <span style="margin:0 10px">${item.qty}</span>
-        <button onclick="updateQty(${index}, 1)">+</button>
-      </div>
-      <br>
+
+      <button onclick="updateQty(${index}, -1)">-</button>
+      <span style="margin:0 10px">${item.qty}</span>
+      <button onclick="updateQty(${index}, 1)">+</button>
+
+      <br><br>
       <button onclick="removeFromCart(${index})">Remove</button>
     `;
-
     mainDiv.appendChild(card);
   });
 
   totalDiv.innerHTML = `
-    Total: ₹ ${totalPrice.toFixed(2)}
-    <br>
+    <h3>Total: ₹ ${totalPrice.toFixed(2)}</h3>
     <button onclick="goCheckout()">Checkout</button>
   `;
 }

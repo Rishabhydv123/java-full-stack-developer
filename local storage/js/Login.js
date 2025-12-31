@@ -1,13 +1,13 @@
-const storeData = JSON.parse(localStorage.getItem('userData')) || [];
+const storeData = JSON.parse(localStorage.getItem("userData")) || [];
 
-const Login = () => {
-  const userName = document.getElementById('loginUsername').value.trim();
-  const password = document.getElementById('Loginpassword').value.trim();
+function Login() {
+  const userName = document.getElementById("loginUsername").value.trim();
+  const password = document.getElementById("Loginpassword").value.trim();
 
   const findUser = storeData.find(el => el.user === userName);
 
   if (!findUser) {
-    alert('User not found ❌');
+    alert("User not found ❌");
     return;
   }
 
@@ -16,12 +16,9 @@ const Login = () => {
     return;
   }
 
-  const token =
-    Math.random().toString(36).substring(2) +
-    Math.random().toString(36).substring(2);
+  sessionStorage.setItem("token", "loggedin");
+  sessionStorage.setItem("loggedUser", userName);
 
-  sessionStorage.setItem('token', token);
-
-  alert('Login Successful ✅');
+  alert("Login Successful ✅");
   window.location.href = "/local storage/page/home.html";
-};
+}
