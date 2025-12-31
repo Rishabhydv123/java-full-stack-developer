@@ -71,7 +71,6 @@ function updateCartCount() {
   let span = document.getElementById("cartCount");
   if (span) span.innerText = count;
 }
-
 updateCartCount();
 
 const btn = document.getElementById("scrollTopBtn");

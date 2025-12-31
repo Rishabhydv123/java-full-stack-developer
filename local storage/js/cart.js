@@ -1,3 +1,10 @@
+const token = sessionStorage.getItem("token");
+
+if (!token) {
+  alert("Please login to access cart ❌");
+  window.location.href = "/local storage/page/Login.html";
+}
+
 function getCartData() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   renderCart(cart);
@@ -43,7 +50,7 @@ function renderCart(cart) {
   totalDiv.innerHTML = `
     Total: ₹ ${totalPrice.toFixed(2)}
     <br>
-    <button id="checkoutBtn" onclick="goCheckout()">Checkout</button>
+    <button onclick="goCheckout()">Checkout</button>
   `;
 }
 
@@ -51,9 +58,7 @@ function updateQty(index, change) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart[index].qty += change;
 
-  if (cart[index].qty < 1) {
-    cart.splice(index, 1);
-  }
+  if (cart[index].qty < 1) cart.splice(index, 1);
 
   localStorage.setItem("cart", JSON.stringify(cart));
   getCartData();
@@ -69,19 +74,3 @@ function removeFromCart(index) {
 function goCheckout() {
   window.location.href = "/local storage/page/checkout.html";
 }
-
-const btn = document.getElementById("scrollTopBtn");
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    btn.style.display = "block";
-  } else {
-    btn.style.display = "none";
-  }
-});
-
-btn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-});
