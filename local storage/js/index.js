@@ -1,5 +1,4 @@
 const API = "https://fakestoreapi.com/products";
-
 fetch(API)
   .then(res => res.json())
   .then(data => renderProducts(data));
