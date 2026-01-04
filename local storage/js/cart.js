@@ -10,7 +10,6 @@ function getCartData() {
 }
 
 getCartData();
-
 function renderCart(cart) {
   const mainDiv = document.getElementById("mainData");
   const totalDiv = document.getElementById("total");
@@ -24,7 +23,6 @@ function renderCart(cart) {
   }
 
   let totalPrice = 0;
-
   cart.forEach((item, index) => {
     totalPrice += item.price * item.qty;
 
@@ -37,7 +35,6 @@ function renderCart(cart) {
       <button onclick="updateQty(${index}, -1)">-</button>
       <span style="margin:0 10px">${item.qty}</span>
       <button onclick="updateQty(${index}, 1)">+</button>
-
       <br><br>
       <button onclick="removeFromCart(${index})">Remove</button>
     `;
@@ -53,9 +50,7 @@ function renderCart(cart) {
 function updateQty(index, change) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart[index].qty += change;
-
   if (cart[index].qty < 1) cart.splice(index, 1);
-
   localStorage.setItem("cart", JSON.stringify(cart));
   getCartData();
 }
