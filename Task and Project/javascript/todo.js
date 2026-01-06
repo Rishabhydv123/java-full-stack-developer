@@ -1,98 +1,130 @@
 let store = JSON.parse(localStorage.getItem("todos")) || [];
 
-const saveToLocalStorage = () => {
+const saveData = () => {
     localStorage.setItem("todos", JSON.stringify(store));
 };
 
 const addTodo = () => {
-    const valueText = document.getElementById('todo').value.trim();
+    const input = document.getElementById("todo");
+    const text = input.value.trim();
 
-    if (valueText === "") {
-        alert("Please enter a task!");
-        return;
-    }
+    if (!text) return alert("Please enter a task!");
 
-    const todoDetails = {
+    store.push({
         id: Date.now(),
-        textTodo: valueText,
+        textTodo: text,
         isCompleted: false,
-    };
+        groupType: "unpinned",
+        groupId: Date.now() // unique but NOT used for numbering
+    });
 
-    store.push(todoDetails);
-    saveToLocalStorage();
-    renderonUI(store);
-
-    document.getElementById('todo').value = "";
+    saveData();
+    renderUI();
+    input.value = "";
 };
 
-const renderonUI = (data) => {
-    const mainDiv = document.getElementById('todo_list');
-    mainDiv.innerHTML = "";
+const renderUI = () => {
+    const pinnedDiv = document.getElementById("pinned_list");
+    const unpinnedDiv = document.getElementById("todo_list");
 
-    data.forEach((el) => {
-        const childDiv = document.createElement('div');
+    pinnedDiv.innerHTML = "";
+    unpinnedDiv.innerHTML = "";
 
-        const CheckBox = document.createElement('input');
-        CheckBox.type = "checkbox";
-        CheckBox.checked = el.isCompleted;
+    const pinnedGroups = {};
+    const unpinnedGroups = {};
 
-        CheckBox.addEventListener('change', () => {
-            el.isCompleted = CheckBox.checked;
-            saveToLocalStorage();
-        });
+    store.forEach(todo => {
+        const target =
+            todo.groupType === "pinned" ? pinnedGroups : unpinnedGroups;
 
-        const text = document.createElement('h3');
-        text.innerText = el.textTodo;
+        target[todo.groupId] = target[todo.groupId] || [];
+        target[todo.groupId].push(todo);
+    });
 
-        if (el.isCompleted) {
-            text.style.textDecoration = "line-through";
-        }
+    createBoxes(pinnedGroups, pinnedDiv, "Pinned");
+    createBoxes(unpinnedGroups, unpinnedDiv, "Unpinned");
+};
 
-        const btn_edit = document.createElement('button');
-        btn_edit.innerText = 'Edit';
+const createBoxes = (groups, parent, title) => {
+    let boxNumber = 1; 
 
-        const btn_delete = document.createElement('button');
-        btn_delete.innerText = 'Delete';
+    Object.values(groups).forEach(groupTodos => {
+        const box = document.createElement("div");
+        box.className = "group-box";
 
-        btn_delete.addEventListener('click', () => {
-            store = store.filter((item) => item.id !== el.id);
-            saveToLocalStorage();
-            renderonUI(store);
-        });
+        const heading = document.createElement("h3");
+        heading.innerText = `${title} ${boxNumber++}`;
+        box.appendChild(heading);
 
-        btn_edit.addEventListener('click', () => {
-            const editInput = document.createElement('input');
-            editInput.type = "text";
-            editInput.value = el.textTodo;
+        groupTodos.forEach(todo => {
+            const item = document.createElement("div");
+            item.className = "todo-item";
 
-            const btn_save = document.createElement('button');
-            btn_save.innerText = "Confirm";
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.checked = todo.isCompleted;
 
-            const btn_cancel = document.createElement('button');
-            btn_cancel.innerText = "Cancel";
+            checkbox.onchange = () => {
+                todo.isCompleted = checkbox.checked;
+                saveData();
+                renderUI();
+            };
 
-            childDiv.innerHTML = "";
-            childDiv.append(CheckBox, editInput, btn_save, btn_cancel, btn_delete);
+            const text = document.createElement("span");
+            text.innerText = todo.textTodo;
+            if (todo.isCompleted) {
+                text.style.textDecoration = "line-through";
+            }
 
-            btn_save.addEventListener('click', () => {
-                const updatedText = editInput.value.trim();
-                if (updatedText !== "") {
-                    el.textTodo = updatedText;
-                    saveToLocalStorage();
-                    renderonUI(store);
+            const pinBtn = document.createElement("button");
+            pinBtn.innerText =
+                todo.groupType === "pinned" ? "Unpin" : "Pin";
+
+            pinBtn.onclick = () => {
+                todo.groupType =
+                    todo.groupType === "pinned" ? "unpinned" : "pinned";
+
+                todo.groupId = Date.now(); 
+                saveData();
+                renderUI();
+            };
+
+            const editBtn = document.createElement("button");
+            editBtn.innerText = "Edit";
+
+            editBtn.onclick = () => {
+                const updated = prompt("Edit task", todo.textTodo);
+                if (updated && updated.trim()) {
+                    todo.textTodo = updated.trim();
+                    saveData();
+                    renderUI();
                 }
-            });
+            };
 
-            btn_cancel.addEventListener('click', () => {
-                renderonUI(store);
-            });
+            const deleteBtn = document.createElement("button");
+            deleteBtn.innerText = "Delete";
+
+            deleteBtn.onclick = () => {
+                store = store.filter(item => item.id !== todo.id);
+                saveData();
+                renderUI();
+            };
+
+            item.append(
+                checkbox,
+                text,
+                pinBtn,
+                editBtn,
+                deleteBtn
+            );
+
+            box.appendChild(item);
         });
 
-        childDiv.append(CheckBox, text, btn_edit, btn_delete);
-        mainDiv.append(childDiv);
+        parent.appendChild(box);
     });
 };
 
-document.getElementById('btn').addEventListener('click', addTodo);
+document.getElementById("btn").addEventListener("click", addTodo);
 
-renderonUI(store);
+renderUI();
