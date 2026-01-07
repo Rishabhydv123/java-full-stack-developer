@@ -5,9 +5,63 @@ fetch(API)
   .then(res => res.json())
   .then(data => {
     allProducts = data;
-    renderProducts(allProducts);
-    setupCategoryFilter(allProducts);
+    createSortFilterUI(data);
+    renderProducts(data);
   });
+
+function createSortFilterUI(products) {
+  const container = document.createElement("div");
+  container.style.display = "flex";
+  container.style.gap = "15px";
+  container.style.padding = "15px";
+
+   container.className = "sort-filter-container";
+
+  const sortSelect = document.createElement("select");
+  sortSelect.innerHTML = `
+    <option value="">Sort By Price</option>
+    <option value="low-high">Low to High</option>
+    <option value="high-low">High to Low</option>
+  `;
+
+  const filterSelect = document.createElement("select");
+  filterSelect.innerHTML = `<option value="all">All Categories</option>`;
+
+  const categories = [...new Set(products.map(p => p.category))];
+  categories.forEach(cat => {
+    const option = document.createElement("option");
+    option.value = cat;
+    option.innerText = cat.toUpperCase();
+    filterSelect.appendChild(option);
+  });
+
+  sortSelect.addEventListener("change", applySortFilter);
+  filterSelect.addEventListener("change", applySortFilter);
+
+  container.append(sortSelect, filterSelect);
+
+  const main = document.getElementById("mainData");
+  document.body.insertBefore(container, main);
+}
+
+function applySortFilter() {
+  const sortValue = document.querySelector("select").value;
+  const filterValue = document.querySelectorAll("select")[1].value;
+
+  let filtered = [...allProducts];
+
+  if (filterValue !== "all") {
+    filtered = filtered.filter(p => p.category === filterValue);
+  }
+
+  if (sortValue === "low-high") {
+    filtered.sort((a, b) => a.price - b.price);
+  } else if (sortValue === "high-low") {
+    filtered.sort((a, b) => b.price - a.price);
+  }
+
+  renderProducts(filtered);
+}
 
 function renderProducts(products) {
   const main = document.getElementById("mainData");
@@ -49,7 +103,7 @@ function addToCart(id) {
   else cart.push({ ...product, qty: 1 });
 
   localStorage.setItem("cart", JSON.stringify(cart));
-  renderProducts(getFilteredProducts());
+  renderProducts(allProducts);
 }
 
 function changeQty(id, change) {
@@ -61,47 +115,7 @@ function changeQty(id, change) {
   if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
 
   localStorage.setItem("cart", JSON.stringify(cart));
-  renderProducts(getFilteredProducts());
-}
-
-const sortSelect = document.getElementById("sortby");
-sortSelect.addEventListener("change", () => {
-  renderProducts(getFilteredProducts());
-});
-
-const categorySelect = document.getElementById("filterBy");
-
-function setupCategoryFilter(products) {
-  const categories = ["all", ...new Set(products.map(p => p.category))];
-
-  categories.forEach(cat => {
-    const option = document.createElement("option");
-    option.value = cat;
-    option.innerText = cat.toUpperCase();
-    categorySelect.appendChild(option);
-  });
-}
-
-categorySelect.addEventListener("change", () => {
-  renderProducts(getFilteredProducts());
-});
-
-function getFilteredProducts() {
-  let products = [...allProducts];
-
-  const category = categorySelect.value;
-  if (category && category !== "all") {
-    products = products.filter(p => p.category === category);
-  }
-
-  const sortValue = sortSelect.value;
-  if (sortValue === "low-to-high") {
-    products.sort((a, b) => a.price - b.price);
-  } else if (sortValue === "high-to-low") {
-    products.sort((a, b) => b.price - a.price);
-  }
-
-  return products;
+  renderProducts(allProducts);
 }
 
 function updateCartCount() {
@@ -111,11 +125,3 @@ function updateCartCount() {
   if (span) span.innerText = count;
 }
 updateCartCount();
-
-const btn = document.getElementById("scrollTopBtn");
-window.addEventListener("scroll", () => {
-  btn.style.display = window.scrollY > 300 ? "block" : "none";
-});
-btn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});

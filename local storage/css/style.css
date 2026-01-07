@@ -15,36 +15,40 @@ nav {
     color: white;
 }
 
-#sortby,
-#filterBy {
-  padding: 8px 12px;
-  margin: 15px 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  cursor: pointer;
+.sort-filter-container {
+  display: flex;
+  justify-content: flex-end;   
+  gap: 15px;
+  padding: 15px 20px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
 }
 
-#sortby:focus,
-#filterBy:focus {
+.sort-filter-container select:hover {
+  border-color: #3399cc;
+}
+
+.sort-filter-container select:focus {
   outline: none;
   border-color: #3399cc;
-  
+  box-shadow: 0 0 5px rgba(51,153,204,0.5);
 }
+
 
 #mainData {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
   padding: 20px;
-  
 }
 
 #mainData > div {
-  background: #fff;
+  background: #ffffff;
   border-radius: 10px;
   padding: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -74,13 +78,14 @@ nav {
 
 #mainData button {
   padding: 6px 12px;
-  margin: 3px;
+  margin: 4px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   background-color: #3399cc;
   color: white;
-  transition: background-color 0.2s ease;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
 #mainData button:hover {
@@ -89,7 +94,7 @@ nav {
 
 #mainData span {
   font-weight: bold;
-  margin: 0 5px;
+  margin: 0 6px;
 }
 
 #cartCount {
@@ -100,7 +105,6 @@ nav {
   font-size: 12px;
   margin-left: 4px;
 }
-
 
 #scrollTopBtn {
   position: fixed;
@@ -118,8 +122,6 @@ nav {
 #scrollTopBtn:hover {
   background: #267aa8;
 }
-
-
 
 nav .logo {
     font-size: 22px;
