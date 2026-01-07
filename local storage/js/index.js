@@ -1,7 +1,6 @@
 const API = "https://fakestoreapi.com/products";
 let allProducts = [];
 
-// ---------- FETCH PRODUCTS ----------
 fetch(API)
   .then(res => res.json())
   .then(data => {
@@ -10,7 +9,6 @@ fetch(API)
     setupCategoryFilter(allProducts);
   });
 
-// ---------- RENDER PRODUCTS ----------
 function renderProducts(products) {
   const main = document.getElementById("mainData");
   main.innerHTML = "";
@@ -42,7 +40,6 @@ function renderProducts(products) {
   updateCartCount();
 }
 
-// ---------- ADD TO CART ----------
 function addToCart(id) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   const product = allProducts.find(p => p.id === id);
@@ -55,7 +52,6 @@ function addToCart(id) {
   renderProducts(getFilteredProducts());
 }
 
-// ---------- CHANGE QTY ----------
 function changeQty(id, change) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   const item = cart.find(i => i.id === id);
@@ -68,13 +64,11 @@ function changeQty(id, change) {
   renderProducts(getFilteredProducts());
 }
 
-// ---------- SORT ----------
 const sortSelect = document.getElementById("sortby");
 sortSelect.addEventListener("change", () => {
   renderProducts(getFilteredProducts());
 });
 
-// ---------- CATEGORY FILTER ----------
 const categorySelect = document.getElementById("filterBy");
 
 function setupCategoryFilter(products) {
@@ -92,17 +86,14 @@ categorySelect.addEventListener("change", () => {
   renderProducts(getFilteredProducts());
 });
 
-// ---------- APPLY SORT + FILTER ----------
 function getFilteredProducts() {
   let products = [...allProducts];
 
-  // category filter
   const category = categorySelect.value;
   if (category && category !== "all") {
     products = products.filter(p => p.category === category);
   }
 
-  // price sort
   const sortValue = sortSelect.value;
   if (sortValue === "low-to-high") {
     products.sort((a, b) => a.price - b.price);
@@ -113,7 +104,6 @@ function getFilteredProducts() {
   return products;
 }
 
-// ---------- CART COUNT ----------
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const count = cart.reduce((sum, item) => sum + item.qty, 0);
@@ -122,7 +112,6 @@ function updateCartCount() {
 }
 updateCartCount();
 
-// ---------- SCROLL TO TOP ----------
 const btn = document.getElementById("scrollTopBtn");
 window.addEventListener("scroll", () => {
   btn.style.display = window.scrollY > 300 ? "block" : "none";

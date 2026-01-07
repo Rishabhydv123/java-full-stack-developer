@@ -15,6 +15,112 @@ nav {
     color: white;
 }
 
+#sortby,
+#filterBy {
+  padding: 8px 12px;
+  margin: 15px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+#sortby:focus,
+#filterBy:focus {
+  outline: none;
+  border-color: #3399cc;
+  
+}
+
+#mainData {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  
+}
+
+#mainData > div {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#mainData > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+#mainData img {
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+#mainData h4 {
+  font-size: 14px;
+  margin-bottom: 8px;
+  height: 40px;
+  overflow: hidden;
+}
+
+#mainData p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#mainData button {
+  padding: 6px 12px;
+  margin: 3px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #3399cc;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+#mainData button:hover {
+  background-color: #267aa8;
+}
+
+#mainData span {
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+#cartCount {
+  background: red;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  border: none;
+  background: #3399cc;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+#scrollTopBtn:hover {
+  background: #267aa8;
+}
+
+
+
 nav .logo {
     font-size: 22px;
     font-weight: bold;
