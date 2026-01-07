@@ -1,16 +1,24 @@
 const API = "https://fakestoreapi.com/products";
+let allProducts = [];
+
+// ---------- FETCH PRODUCTS ----------
 fetch(API)
   .then(res => res.json())
-  .then(data => renderProducts(data));
+  .then(data => {
+    allProducts = data;
+    renderProducts(allProducts);
+    setupCategoryFilter(allProducts);
+  });
 
+// ---------- RENDER PRODUCTS ----------
 function renderProducts(products) {
   const main = document.getElementById("mainData");
   main.innerHTML = "";
 
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   products.forEach(p => {
-    let item = cart.find(i => i.id === p.id);
+    const item = cart.find(i => i.id === p.id);
 
     const div = document.createElement("div");
     div.innerHTML = `
@@ -21,9 +29,9 @@ function renderProducts(products) {
       ${
         item
           ? `
-            <button onclick="changeQty(${p.id},-1)">-</button>
+            <button onclick="changeQty(${p.id}, -1)">-</button>
             <span>${item.qty}</span>
-            <button onclick="changeQty(${p.id},1)">+</button>
+            <button onclick="changeQty(${p.id}, 1)">+</button>
           `
           : `<button onclick="addToCart(${p.id})">Add to Cart</button>`
       }
@@ -34,56 +42,91 @@ function renderProducts(products) {
   updateCartCount();
 }
 
+// ---------- ADD TO CART ----------
 function addToCart(id) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const product = allProducts.find(p => p.id === id);
 
-  fetch(API)
-    .then(res => res.json())
-    .then(products => {
-      let product = products.find(p => p.id === id);
-      product.qty = 1;
-      cart.push(product);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      renderProducts(products);
-    });
-}
-
-function changeQty(id, change) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let item = cart.find(i => i.id === id);
-
-  item.qty += change;
-  if (item.qty <= 0) {
-    cart = cart.filter(i => i.id !== id);
-  }
+  const existing = cart.find(i => i.id === id);
+  if (existing) existing.qty += 1;
+  else cart.push({ ...product, qty: 1 });
 
   localStorage.setItem("cart", JSON.stringify(cart));
-
-  fetch(API)
-    .then(res => res.json())
-    .then(data => renderProducts(data));
+  renderProducts(getFilteredProducts());
 }
 
-function updateCartCount() {
+// ---------- CHANGE QTY ----------
+function changeQty(id, change) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let count = cart.reduce((a, b) => a + b.qty, 0);
-  let span = document.getElementById("cartCount");
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+
+  item.qty += change;
+  if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderProducts(getFilteredProducts());
+}
+
+// ---------- SORT ----------
+const sortSelect = document.getElementById("sortby");
+sortSelect.addEventListener("change", () => {
+  renderProducts(getFilteredProducts());
+});
+
+// ---------- CATEGORY FILTER ----------
+const categorySelect = document.getElementById("filterBy");
+
+function setupCategoryFilter(products) {
+  const categories = ["all", ...new Set(products.map(p => p.category))];
+
+  categories.forEach(cat => {
+    const option = document.createElement("option");
+    option.value = cat;
+    option.innerText = cat.toUpperCase();
+    categorySelect.appendChild(option);
+  });
+}
+
+categorySelect.addEventListener("change", () => {
+  renderProducts(getFilteredProducts());
+});
+
+// ---------- APPLY SORT + FILTER ----------
+function getFilteredProducts() {
+  let products = [...allProducts];
+
+  // category filter
+  const category = categorySelect.value;
+  if (category && category !== "all") {
+    products = products.filter(p => p.category === category);
+  }
+
+  // price sort
+  const sortValue = sortSelect.value;
+  if (sortValue === "low-to-high") {
+    products.sort((a, b) => a.price - b.price);
+  } else if (sortValue === "high-to-low") {
+    products.sort((a, b) => b.price - a.price);
+  }
+
+  return products;
+}
+
+// ---------- CART COUNT ----------
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const count = cart.reduce((sum, item) => sum + item.qty, 0);
+  const span = document.getElementById("cartCount");
   if (span) span.innerText = count;
 }
 updateCartCount();
 
+// ---------- SCROLL TO TOP ----------
 const btn = document.getElementById("scrollTopBtn");
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    btn.style.display = "block";
-  } else {
-    btn.style.display = "none";
-  }
+  btn.style.display = window.scrollY > 300 ? "block" : "none";
 });
-
 btn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
