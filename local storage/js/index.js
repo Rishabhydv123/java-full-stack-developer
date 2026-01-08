@@ -125,3 +125,4 @@ function updateCartCount() {
   if (span) span.innerText = count;
 }
 updateCartCount();
+
