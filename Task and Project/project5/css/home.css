@@ -9,15 +9,15 @@ body {
   background: linear-gradient(135deg, #050b3b, #020824);
   color: white;
   min-height: 100vh;
-  /* background-image: url("../utils/WhatsApp\ Image\ 2026-01-08\ at\ 10.00.43\ AM.jpeg"); */
+  /* background-image: url("../utils/WhatsApp\ Image\ 2026-01-08\ at\ 10.00.43\ AM.jpeg");
+   */
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 60px;
-  
+  padding: 25px 60px; 
 }
 
 .logo {
