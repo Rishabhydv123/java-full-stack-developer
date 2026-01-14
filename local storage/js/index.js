@@ -124,6 +124,7 @@ function updateCartCount() {
   const span = document.getElementById("cartCount");
   if (span) span.innerText = count;
 }
+
 updateCartCount();
 
 
