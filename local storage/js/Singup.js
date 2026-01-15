@@ -1,8 +1,5 @@
 const storeData = JSON.parse(localStorage.getItem('userData')) || [];
 
-// let locations = window.location.pathname;
-// console.log('🚀 ~ location:', locations);
-
 const signUp = async () => {
   let userName = document.getElementById('signUsername').value.trim();
   let age = document.getElementById('SignAge').value.trim();
