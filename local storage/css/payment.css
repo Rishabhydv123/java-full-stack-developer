@@ -182,7 +182,6 @@ footer {
     font-size: 18px;
 }
 
-
 nav {
     background: linear-gradient(135deg, #4e73df, #1cc88a);
     padding: 15px 30px;
@@ -191,7 +190,6 @@ nav {
     align-items: center;
     color: white;
 }
-
 
 nav .logo {
     font-size: 22px;

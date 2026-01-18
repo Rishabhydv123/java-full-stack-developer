@@ -32,7 +32,6 @@ body{
     transform: scale(0.95);
 }
 
-
 .mainContainer{
     display: flex;
     justify-content: center;
