@@ -1,3 +1,24 @@
+class ClassRoom {
+  #contact;
+
+  constructor(name, batch) {
+    this.studentName = name;
+    this.studentBatch = batch;
+    this.#contact = "7052331551";
+  }
+
+  showDetails() {
+    return `this is my number ${this.#contact}`;
+  }
+}
+
+const std1 = new ClassRoom("Rishabh Yadav", "FSD-3");
+
+// console.log("👉 std1:", std1.contact);
+// console.log("👉 std1:", std1.studentBatch);
+// console.log("👉 std1:", std1.studentName);
+// console.log("👉 std1:", std1.showDetails());
+
 class Car {
   constructor(n, b) {
     this.name = n;
@@ -28,10 +49,10 @@ class miniSUV extends SUV {
 }
 
 // let car2 = new miniSUV("audi", "audi");
-// console.log(car2);
+// console.log(car2)
 
 class Cars {
-  #count; // Private variable you cannot access out side of it
+  #count; 
   constructor(n, b) {
     this.name = n;
     this.brand = b;
@@ -43,11 +64,12 @@ class Cars {
   }
 
   getCount() {
-    return this.#count; // Getter method to access private field
+    return this.#count; 
   }
 }
 
 let c11 = new Cars("Thar", "MahIndra");
 
-console.log(c11, "this is the encapsulation"); // Won't show #count
-console.log(c11.getCount()); // ✅ Now we can see the private value (100)
+// console.log(c11, "this is the encapsulation");
+// console.log(c11.getCount()); 
+
