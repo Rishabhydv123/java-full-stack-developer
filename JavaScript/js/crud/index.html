@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+    <link rel="stylesheet" href="./comp/style.css">
+</head>
+<body>
+  <form onsubmit="handelForm(event)">
+
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="Enter your email...">
+
+    <label for="pass">Password</label>
+    <input id="pass" type="password" placeholder="Enter your pass...">
+
+    <fieldset>
+      <legend>Gender</legend>
+
+      <label for="male">male</label>
+      <!-- <input id="gender" type="radio" value="male"> -->
+       <input type="radio" name="gender" value="male">
+
+      <label for="female">female</label>
+      <!-- <input id="gender" type="radio" value="female"> -->
+       <input type="radio" name="gender" value="female">
+    </fieldset>
+
+    <label for="country">Country</label>
+    <select name="country" id="country">
+      <option value="none">none</option>
+      <option value="india">india</option>
+      <option value="china">china</option>
+      <option value="afganistan">afganistan</option>
+    </select>
+
+    <div>
+      <label for="">please check before you submit</label>
+      <input onchange="watchmanFunc()" id="watchman" type="checkbox">
+    </div>
+
+    <input id="btn" type="submit" value="submit">
+
+  </form>
+
+</body>
+<script src="./js/index.js"></script>
+</html>
