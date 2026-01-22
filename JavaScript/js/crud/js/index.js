@@ -4,32 +4,20 @@
 data we want in this format
 {
   email: xyz@gmail.com
-  pass: 283ddby!@#$
-  gender: male / female
+  pass: 2833dby!@#$
+  gender: male/female
   country: xyz
 }
 */
 
-// this is gender value
+const BASE_URL = "http://localhost:8080/userData";
 
-// const handleMale = () => {
-//   const getMale = document.querySelector('#male').checked;
-//   console.log('🚀 ~ getMale:', getMale);
-// };
-
-// const handleFemale = () => {
-//   const getFemale = document.querySelector('#female').value;
-//   console.log('🚀 ~ getFemale:', getFemale);
-// };
-
-// gender func end
-
-
-const btnSubmit = document.querySelector('#btn');
+const btnSubmit = document.querySelector("#btn");
 btnSubmit.disabled = true;
 
+// checkbox (terms & conditions)
 const watchmanFunc = () => {
-  const watchman = document.querySelector('#watchman').checked;
+  const watchman = document.querySelector("#watchman").checked;
 
   if (watchman === true) {
     btnSubmit.disabled = false;
@@ -38,31 +26,37 @@ const watchmanFunc = () => {
   }
 };
 
-/*
-email
-pass
-male female
-country
-*/
-
-const handelForm = (e) => {
+// form submit
+const handleForm = (e) => {
   e.preventDefault();
 
-  const getEmail = document.querySelector('#email').value;
-  const getPass = document.querySelector('#pass').value;
-  const getCountry = document.querySelector('#country').value;
-  const getGender = document.querySelectorAll('#gender');
+  const getEmail = document.querySelector("#email").value;
+  const getPass = document.querySelector("#pass").value;
+  const getCountry = document.querySelector("#country").value;
+  const getGender = document.querySelectorAll("#gender");
+
+  let userData = {
+    email: getEmail,
+    pass: getPass,
+    country: getCountry,
+  };
 
   for (let i = 0; i < getGender.length; i++) {
     if (getGender[i].checked === true) {
-      console.log(getGender[i].value);
+      userData.gender = getGender[i].value;
     }
   }
 
-  // console.log('🚀 ~ getGender:', getGender[0].checked);
-  // console.log('🚀 ~ getGender:', getGender[1].checked);
+  postData(userData);
+};
 
-  // console.log('🚀 ~ getEmail:', getEmail);
-  // console.log('🚀 ~ getPass:', getPass);
-  // console.log('🚀 ~ getCountry:', getCountry);
+// POST request
+const postData = (data) => {
+  fetch(BASE_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
 };
