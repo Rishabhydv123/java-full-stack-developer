@@ -10,7 +10,7 @@ data we want in this format
 }
 */
 
-const BASE_URL = "http://localhost:8080/userData";
+const BASE_URL = " http://localhost:8080/userData";
 
 const btnSubmit = document.querySelector("#btn");
 btnSubmit.disabled = true;
@@ -35,11 +35,18 @@ const handleForm = (e) => {
   const getCountry = document.querySelector("#country").value;
   const getGender = document.querySelectorAll("#gender");
 
-  let userData = {
-    email: getEmail,
-    pass: getPass,
-    country: getCountry,
+  if (!getEmail || !getPass || !getCountry){
+    return;
+  } else {
+    let userDara = {
+      email: getEmail,
+      pass: getPass,
+      cuntry:getCountry
+    }
+
   };
+
+
 
   for (let i = 0; i < getGender.length; i++) {
     if (getGender[i].checked === true) {
@@ -60,3 +67,6 @@ const postData = (data) => {
     body: JSON.stringify(data),
   });
 };
+
+
+
