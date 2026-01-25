@@ -15,7 +15,7 @@ const BASE_URL = " http://localhost:8080/userData";
 const btnSubmit = document.querySelector("#btn");
 btnSubmit.disabled = true;
 
-// checkbox (terms & conditions)
+
 const watchmanFunc = () => {
   const watchman = document.querySelector("#watchman").checked;
 
@@ -26,7 +26,7 @@ const watchmanFunc = () => {
   }
 };
 
-// form submit
+
 const handleForm = (e) => {
   e.preventDefault();
 
