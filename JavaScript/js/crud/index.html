@@ -9,7 +9,7 @@
 
 <body>
 
-  <form onsubmit="handleForm(event)">
+  <form id="myForm">
 
     <label>Email</label><br />
     <input id="email" type="email" required /><br /><br />
@@ -19,26 +19,27 @@
 
     <fieldset>
       <legend>Gender</legend>
-
-      <input type="radio" name="gender" value="male" required /> Male
+      <input type="radio" name="gender" value="male" /> Male
       <input type="radio" name="gender" value="female" /> Female
     </fieldset><br />
 
     <label>Country</label><br />
     <select id="country" required>
-      <option id= "btn" value="">Select</option>
-      <option id= "btn" value="india">India</option>
-      <option id= "btn" value="china">China</option>
-      <option id= "btn" value="afghanistan">Afghanistan</option>
+      <option value="">Select</option>
+      <option value="india">India</option>
+      <option value="china">China</option>
+      <option value="afghanistan">Afghanistan</option>
     </select><br /><br />
 
     <label>
-      <input type="checkbox" id="watchman" onchange="watchmanFunc()" />
+      <input type="checkbox" id="watchman" />
       Please check before submit
     </label><br /><br />
 
-    <button id="btn" disabled>Submit</button>
+    <button id="btn" type="submit" disabled>Submit</button>
+
   </form>
+
+  <script src="./js/index.js"></script>
 </body>
-<script src="./js/index.js"></script>
 </html>

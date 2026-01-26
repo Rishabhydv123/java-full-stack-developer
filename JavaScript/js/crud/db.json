@@ -18,6 +18,13 @@
       "gender": "male",
       "country": "india",
       "id": 3
+    },
+    {
+      "email": "yashrajput202425@gmail.com",
+      "pass": "yadav@123",
+      "gender": "male",
+      "country": "india",
+      "id": 4
     }
   ]
 }
