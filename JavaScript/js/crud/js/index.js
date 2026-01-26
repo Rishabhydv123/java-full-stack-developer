@@ -1,72 +1,47 @@
-// https://api-server-o2u1.onrender.com/user
+const BASE_URL = "http://localhost:8080/userData";
 
-/*
-data we want in this format
-{
-  email: xyz@gmail.com
-  pass: 2833dby!@#$
-  gender: male/female
-  country: xyz
+const btn = document.getElementById("btn");
+
+// checkbox enable/disable
+function watchmanFunc() {
+  btn.disabled = !document.getElementById("watchman").checked;
 }
-*/
 
-const BASE_URL = " http://localhost:8080/userData";
-
-const btnSubmit = document.querySelector("#btn");
-btnSubmit.disabled = true;
-
-
-const watchmanFunc = () => {
-  const watchman = document.querySelector("#watchman").checked;
-
-  if (watchman === true) {
-    btnSubmit.disabled = false;
-  } else {
-    btnSubmit.disabled = true;
-  }
-};
-
-
-const handleForm = (e) => {
+// form submit
+function handleForm(e) {
   e.preventDefault();
 
-  const getEmail = document.querySelector("#email").value;
-  const getPass = document.querySelector("#pass").value;
-  const getCountry = document.querySelector("#country").value;
-  const getGender = document.querySelectorAll("#gender");
+  const email = document.getElementById("email").value;
+  const pass = document.getElementById("pass").value;
+  const country = document.getElementById("country").value;
 
-  if (!getEmail || !getPass || !getCountry){
+  const genderEl = document.querySelector('input[name="gender"]:checked');
+
+  if (!genderEl) {
+    alert("Select gender");
     return;
-  } else {
-    let userDara = {
-      email: getEmail,
-      pass: getPass,
-      cuntry:getCountry
-    }
-
-  };
-
-
-
-  for (let i = 0; i < getGender.length; i++) {
-    if (getGender[i].checked === true) {
-      userData.gender = getGender[i].value;
-    }
   }
 
-  postData(userData);
-};
+  const userData = {
+    email,
+    pass,
+    gender: genderEl.value,
+    country
+  };
 
-// POST request
-const postData = (data) => {
   fetch(BASE_URL, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify(data),
-  });
-};
-
-
-
+    body: JSON.stringify(userData)
+  })
+    .then(res => res.json())
+    .then(data => {
+      console.log("Saved:", data);
+      alert("Data saved successfully");
+      e.target.reset();
+      btn.disabled = true;
+    })
+    .catch(err => console.error(err));
+}

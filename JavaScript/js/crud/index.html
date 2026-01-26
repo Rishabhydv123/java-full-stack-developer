@@ -1,52 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>canvas</title>
-    <link rel="stylesheet" href="./style/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form</title>
+  <link rel="stylesheet" href="./style/style.css">
 </head>
+
 <body>
-  <form onsubmit="handelForm(event)">
 
-    <label for="email">Email</label>
-    <input id="email" type="email" placeholder="Enter your email...">
+  <form onsubmit="handleForm(event)">
 
-    <label for="pass">Password</label>
-    <input id="pass" type="password" placeholder="Enter your pass...">
+    <label>Email</label><br />
+    <input id="email" type="email" required /><br /><br />
+
+    <label>Password</label><br />
+    <input id="pass" type="password" required /><br /><br />
 
     <fieldset>
       <legend>Gender</legend>
 
-      <label for="male">male</label>
-      <!-- <input id="gender" type="radio" value="male"> -->
-       <input type="radio" name="gender" value="male">
+      <input type="radio" name="gender" value="male" required /> Male
+      <input type="radio" name="gender" value="female" /> Female
+    </fieldset><br />
 
-      <label for="female">female</label>
-      <!-- <input id="gender" type="radio" value="female"> -->
-       <input type="radio" name="gender" value="female">
-    </fieldset>
+    <label>Country</label><br />
+    <select id="country" required>
+      <option id= "btn" value="">Select</option>
+      <option id= "btn" value="india">India</option>
+      <option id= "btn" value="china">China</option>
+      <option id= "btn" value="afghanistan">Afghanistan</option>
+    </select><br /><br />
 
-    <label for="country">Country</label>
-    <select name="country" id="country">
-      <option value="none">none</option>
-      <option value="india">india</option>
-      <option value="china">china</option>
-      <option value="afganistan">afganistan</option>
-    </select>
+    <label>
+      <input type="checkbox" id="watchman" onchange="watchmanFunc()" />
+      Please check before submit
+    </label><br /><br />
 
-    <div>
-      <label for="">please check before you submit</label>
-      <input onchange="watchmanFunc()" id="watchman" type="checkbox">
-    </div>
-    <input id="btn" type="submit" value="submit">
+    <button id="btn" disabled>Submit</button>
   </form>
 
+  <script src="./js/index.js"></script>
 </body>
-<script src="./js/index.js"></script>
 </html>
-
-
-
-
-

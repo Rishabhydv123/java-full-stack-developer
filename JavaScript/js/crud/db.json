@@ -1,9 +1,23 @@
 {
-    "userData": [
-        {
-        "id": 1,
-        "name":"parru",
-        "maried": "true"
-        }  
-    ]
+  "userData": [
+    {
+      "id": 1,
+      "name": "parru",
+      "maried": true
+    },
+    {
+      "email": "rishabhyadav55888@gmail.com",
+      "pass": "yadav@123",
+      "gender": "male",
+      "country": "india",
+      "id": 2
+    },
+    {
+      "email": "test123@gmail.com",
+      "pass": "test123",
+      "gender": "male",
+      "country": "india",
+      "id": 3
+    }
+  ]
 }
