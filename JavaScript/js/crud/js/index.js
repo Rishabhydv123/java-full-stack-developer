@@ -1,46 +1,46 @@
-const BASE_URL = "http://localhost:8080/userData";
+const BASE_URL = 'http://localhost:8080/userData';
 
-const btn = document.getElementById("btn");
-const form = document.getElementById("myForm");
-const watchman = document.getElementById("watchman");
+const btnSubmit = document.querySelector('#btn');
+btnSubmit.disabled = true;
 
-watchman.addEventListener("change", () => {
-  btn.disabled = !watchman.checked;
-});
+const watchmanFunc = () => {
+    const watchman = document.querySelector('#watchman').checked;
+    if (watchman == true) {
+        btnSubmit.disabled = false;
+    } else {
+        btnSubmit.disabled = true;
+    }
+};
 
-form.addEventListener("submit", handleForm);
+const handleForm = (e) => {
+    e.preventDefault();
 
-function handleForm(e) {
-  e.preventDefault();
+    const getEmail = document.querySelector('#email').value;
+    const getPass = document.querySelector('#pass').value;
+    const getCountry = document.querySelector('#country').value;
+    const getGender = document.querySelectorAll('#gender');
 
-  const email = document.getElementById("email").value;
-  const pass = document.getElementById("pass").value;
-  const country = document.getElementById("country").value;
-  const genderEl = document.querySelector('input[name="gender"]:checked');
+    let userData = {
+        email: getEmail,
+        pass: getPass,
+        country: getCountry,
+    };
 
-  if (!genderEl) {
-    alert("Select gender");
-    return;
-  }
+    for (let i = 0; i < getGender.length; i++) {
+        if (getGender[i].checked == true) {
+            userData.gender = getGender[i].value;
+        }
+    }
 
-  const userData = {
-    email,
-    pass,
-    gender: genderEl.value,
-    country
-  };
+    postData(userData);
+};
 
-  fetch(BASE_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(userData)
-  })
-    .then(res => res.json())
-    .then(() => {
-      alert("Data saved successfully ✅");
-      form.reset();
-      btn.disabled = true;
-    })
-    .catch(err => console.error(err));
-}
-
+const postData = (data) => {
+    fetch(BASE_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+};
