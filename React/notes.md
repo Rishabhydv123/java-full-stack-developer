@@ -1,4 +1,4 @@
- set-up react
+set-up react
 
 -npm init -y
 
@@ -10,7 +10,6 @@
      npm install react react-dom react-scripts
 
 -package.json
-
     -"script":"react-scripts start"
 
 public
@@ -27,6 +26,11 @@ src
 
 2. VITE
    npm create vite@latest my-react-app (./)
+
+
+
+
+
 
 
 
