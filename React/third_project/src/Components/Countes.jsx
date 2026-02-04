@@ -1,4 +1,4 @@
-export const Countes = ({ xyz }) => {
+export const Countes = ({ xyz}) => {
   console.log('🚀 ~ xyz:', xyz);
 
   const handleDec = () => {
@@ -13,7 +13,7 @@ export const Countes = ({ xyz }) => {
 
   return (
     <>
-      {/* <h1 /> */}
+       {/* <h1 id="count">count {count}</h1> */}
       <button onClick={handleDec}>dec</button>
       <button onClick={handleInc}>inc</button>
     </>
