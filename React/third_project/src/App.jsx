@@ -1,14 +1,23 @@
-import { useState } from 'react';
-
 import './App.css';
-import { Countes } from './Components/Countes';
+import { useState } from 'react';
+import { Countes } from './Components/countes';
+import { Data } from './Components/Data';
+import { AxiosData } from './Components/Axios';
 
 export function App() {
-  const [count, setCount] = useState(0); // 'count' is assigned a value but never used
+  const [count, setCount] = useState(0);
+
+  const API = 'https://fakestoreapi.com/products';
+
+  const data = [];
+
   return (
     <>
-      <h1 id="count">count {count}</h1>
-      <Countes xyz={{ setCount }} />
+      <Countes xyz={{ setCount, count }} />
+
+      <Data props={{ data }} />
+
+      <AxiosData url={API} />
     </>
   );
 }
