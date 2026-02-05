@@ -15,7 +15,7 @@ export const AxiosData = ({ url }) => {
   return (
     <>
       <button onClick={getApi}>click</button>
-
+ 
       <div
         style={{
           display: 'grid',
