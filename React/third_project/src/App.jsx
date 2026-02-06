@@ -14,9 +14,7 @@ export function App() {
   return (
     <>
       <Countes xyz={{ setCount, count }} />
-
       <Data props={{ data }} />
-
       <AxiosData url={API} />
     </>
   );
