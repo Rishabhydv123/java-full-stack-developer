@@ -1,35 +1,78 @@
-import React from 'react';
-import { Todos } from './Todos';
+import React, { useState } from "react";
+import { Todos } from "./Todos.jsx";
 
 export const TodoInput = () => {
-  const [text, setText] = React.useState('');
-  const [todo, setTodo] = React.useState([]);
+  const [text, setText] = useState('');
+  const [todo, setTodo] = useState([]);
 
   const handleAdd = () => {
     if (text.trim() === '') return;
 
-    const data = {
-      id: Date.now(),
-      text,
-      isEdits: false,
-      isCompleted: false,
-    };
-    setTodo((prev) => [...prev, data]);
-    console.log('🚀 ~ todo: in function', todo);
+    setTodo([
+      ...todo,
+      {
+        id: Date.now(),
+        text,
+        isEdit: false,
+        isCompleted: false,
+      },
+    ]);
+    setText('');
   };
 
-  console.log('🚀 ~ todo: out of function', todo);
+  const handleDelete = (id) => {
+    setTodo(todo.filter((item) => item.id !== id));
+  };
+
+  const handleToggle = (id) => {
+    setTodo(
+      todo.map((item) =>
+        item.id === id
+          ? { ...item, isCompleted: !item.isCompleted }
+          : item
+      )
+    );
+  };
+
+  const handleEdit = (id) => {
+    setTodo(
+      todo.map((item) =>
+        item.id === id ? { ...item, isEdit: true } : item
+      )
+    );
+  };
+
+  const handleSave = (id, newText) => {
+    setTodo(
+      todo.map((item) =>
+        item.id === id
+          ? { ...item, text: newText, isEdit: false }
+          : item
+      )
+    );
+  };
 
   return (
-    <>
-      <input
-        type="text"
-        onChange={(e) => setText(e.target.value)}
-      />
-      <button onClick={handleAdd}>Add</button>
+    <div className="todo-container">
+      <h2 className="title">Todo App</h2>
 
-      <Todos props={{ todo }} />
-    </>
+      <div className="input-box">
+        <input
+          type="text"
+          value={text}
+          placeholder="Enter todo..."
+          onChange={(e) => setText(e.target.value)}
+        />
+        <button onClick={handleAdd}>Confirm</button>
+      </div>
+
+      <Todos
+        todo={todo}
+        onDelete={handleDelete}
+        onToggle={handleToggle}
+        onEdit={handleEdit}
+        onSave={handleSave}
+      />
+    </div>
   );
 };
-

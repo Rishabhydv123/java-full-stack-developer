@@ -1,10 +1,9 @@
-import './App.css';
-import { TodoInput } from './Components/TodoInput';
+import React from "react";
+import { TodoInput } from "./Components/TodoInput.jsx";
+import "./Components/style.css";
 
-export const App = () => {
-  return (
-    <>
-      <TodoInput />
-    </>
-  );
-};
+function App() {
+  return <TodoInput />;
+}
+
+export default App;
