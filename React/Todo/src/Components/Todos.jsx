@@ -1,134 +1,115 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-export const Todos = ({ props }) => {
-  const [editText, setEditText] = useState('');
-
-  const { todo, setTodo } = props;
+export const Todos = ({ todo, setTodo }) => {
+  const [editId, setEditId] = useState(null);
+  const [editText, setEditText] = useState("");
 
   const handleDelete = (id) => {
-    const deleteItems = todo.filter((el) => el.id !== id);
-    setTodo(deleteItems);
+    setTodo(todo.filter((el) => el.id !== id));
   };
 
-  const handleEdits = (id) => {
-    const editItems = todo.map((el) =>
-      el.id === id ? { ...el, isEdit: true } : el,
-    );
-    setTodo(editItems);
-  };
-
-  const handleCancel = (id) => {
-    const editItems = todo.map((el) =>
-      el.id === id ? { ...el, isEdit: false } : el,
-    );
-    setTodo(editItems);
+  const handleEdit = (id, text) => {
+    setEditId(id);
+    setEditText(text);
   };
 
   const handleConfirm = (id) => {
-    if (editText.trim() === '') return;
-    const editItems = todo.map((el) =>
-      el.id === id ? { ...el, isEdit: false, text: editText } : el,
-    );
-    setTodo(editItems);
-  };
+    if (editText.trim() === "") return;
 
-  const Checked = (id)=>{
     const updated = todo.map((el) =>
-    el.id === id ? { ...el, isChecked: !el.isChecked } : el);
+      el.id === id ? { ...el, text: editText } : el
+    );
+
     setTodo(updated);
-    console.log(updated)
+    setEditId(null);
+    setEditText("");
   };
 
-  const selectAll=()=>{
-     const updated  = todo.map(el => ({...el, isChecked: true
-  }));
-  setTodo(updated );
-  console.log(updated)
-  }
+  const handleCancel = () => {
+    setEditId(null);
+    setEditText("");
+  };
+
+  const toggleCheck = (id) => {
+    const updated = todo.map((el) =>
+      el.id === id ? { ...el, isChecked: !el.isChecked } : el
+    );
+    setTodo(updated);
+  };
+
+  const selectAll = () => {
+    setTodo(todo.map((el) => ({ ...el, isChecked: true })));
+  };
+
   const deselectAll = () => {
-    const updated = todo.map(el => ({...el,isChecked: false
-    }));
-    setTodo(updated);
-    console.log(updated)
+    setTodo(todo.map((el) => ({ ...el, isChecked: false })));
   };
-  const allChecked = todo.length > 0 && todo.every(el => el.isChecked);
 
-  const DeleteAll=()=>{
-    const deleteItems = todo.filter((el) => !el.isChecked);
-    setTodo(deleteItems);
-  }
+  const deleteSelected = () => {
+    setTodo(todo.filter((el) => !el.isChecked));
+  };
+
+  const allChecked = todo.length > 0 && todo.every((el) => el.isChecked);
+  const anyChecked = todo.some((el) => el.isChecked);
 
   return (
     <>
-    <div className='MainDiv'>
-      <h1>List of Todos</h1>
-      <button onClick={allChecked ? deselectAll : selectAll}>
-        {allChecked ? "Deselect All" : "Select All"}
-      </button>
-      <button onClick={DeleteAll}>Delete ALL</button>
-    </div>
-      {/* {
-        todo && 
-      } */}
+      {todo.length > 0 && (
+        <div className="MainDiv">
+          <h1>List of Todos</h1>
 
-      {todo.map((el) => {
-        return (
-          <div
-            key={el.id}
-            className={`todo-item ${el.isChecked ? "completed" : ""}`}
-          >
-            {/* <input onClick={()=>Checked(el.id)} type="checkbox" /> */}
+          <button onClick={allChecked ? deselectAll : selectAll}>
+            {allChecked ? "Deselect All" : "Select All"}
+          </button>
+
+          {anyChecked && (
+            <button onClick={deleteSelected}>Delete Selected</button>
+          )}
+        </div>
+      )}
+
+      {todo.map((el) => (
+        <div key={el.id} className="todo-item">
+          <input
+            type="checkbox"
+            checked={el.isChecked}
+            onChange={() => toggleCheck(el.id)}
+          />
+
+          {editId === el.id ? (
             <input
-              type="checkbox"
-              checked={el.isChecked }
-              onChange={() => Checked(el.id)}
+              type="text"
+              value={editText}
+              onChange={(e) => setEditText(e.target.value)}
             />
+          ) : (
+            <h4
+              style={{
+                textDecoration: el.isChecked ? "line-through" : "none",
+                opacity: el.isChecked ? 0.5 : 1,
+              }}
+            >
+              {el.text}
+            </h4>
+          )}
 
-            {el.isEdit ? (
-              <input
-                name="edit_items"
-                type="text"
-                defaultValue={el.text}
-                onChange={(e) => setEditText(e.target.value)}
-              />
-            ) : (
-              <h4>{el.text}</h4>
-            )}
-
-            {el.isEdit ? (
-              <>
-                <button
-                  onClick={() => handleCancel(el.id)}
-                  style={{ height: 'fit-content' }}
-                >
-                  cancel
-                </button>
-                <button
-                  onClick={() => handleConfirm(el.id)}
-                  style={{ height: 'fit-content' }}
-                >
-                  confirm
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  onClick={() => handleEdits(el.id)}
-                  style={{ height: 'fit-content' }}
-                >
-                  edit
-                </button>
-                <button
-                  onClick={() => handleDelete(el.id)}
-                  style={{ height: 'fit-content' }}
-                >
-                  delete
-                </button>
-              </>
-            )}
-          </div>
-        );
-      })}
+          {editId === el.id ? (
+            <>
+              <button onClick={() => handleConfirm(el.id)}>Confirm</button>
+              <button onClick={handleCancel}>Cancel</button>
+            </>
+          ) : (
+            <>
+              <button onClick={() => handleEdit(el.id, el.text)}>
+                Edit
+              </button>
+              <button onClick={() => handleDelete(el.id)}>
+                Delete
+              </button>
+            </>
+          )}
+        </div>
+      ))}
     </>
   );
 };
