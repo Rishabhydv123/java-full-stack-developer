@@ -52,10 +52,10 @@ export const Todos = ({ todo, setTodo }) => {
   const allChecked = todo.length > 0 && todo.every((el) => el.isChecked);
   const anyChecked = todo.some((el) => el.isChecked);
 
-
   if (todo.length===0){
     return<h1>No Data Found</h1>
   }
+  
   return (
     <>
       {todo.length > 0 && (
