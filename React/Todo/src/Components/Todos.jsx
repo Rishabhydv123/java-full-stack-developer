@@ -66,6 +66,7 @@ export const Todos = ({ todo, setTodo }) => {
     return <h1>No Data Found</h1>;
   }
 
+
   return (
     <>
       <div className="MainDiv">
@@ -80,7 +81,6 @@ export const Todos = ({ todo, setTodo }) => {
         )}
       </div>
 
-      {/* 🔵 PINNED BOX */}
       {pinnedTodos.length > 0 && (
         <div className="pinned-box">
           <h2>Pinned Todos</h2>
@@ -88,7 +88,6 @@ export const Todos = ({ todo, setTodo }) => {
         </div>
       )}
 
-      {/* 🟢 NORMAL BOX */}
       <div className="unpinned-box">
         <h2>Other Todos</h2>
         {unpinnedTodos.map((el) => renderTodo(el))}
