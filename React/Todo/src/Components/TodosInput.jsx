@@ -10,8 +10,9 @@ export const TodosInput = () => {
 
     const newTodo = {
       id: Date.now(),
-      text,
+      text: text,
       isChecked: false,
+      isPinned: false, // ✅ Added for Pin/Unpin feature
     };
 
     setTodo([...todo, newTodo]);
