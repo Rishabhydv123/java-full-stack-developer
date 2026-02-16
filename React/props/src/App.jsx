@@ -7,13 +7,13 @@ export const App = () => {
     <>
       <h1>Props</h1>
 
-      <NameShow label={"khan"} age={22} />
+      <NameShow label={"Yadav"} age={22} />
       <NameShow />
-      <NameShow age={99} />
+      <NameShow age={19} />
 
       <NameShow2 />
-      <NameShow2 name="mehfooz" age="999" label="fsd" />
-      <NameShow2 name="mehfooz" age="999" />
+      <NameShow2 name="Rishabh" age="20" label="fsd-Java" />
+      <NameShow2 name="Yadav" age="21" />
     </>
   );
 };

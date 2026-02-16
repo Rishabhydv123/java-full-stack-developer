@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const NameShow2 = ({ 
-  label = "not define yet", age = "00", name = "hello222" 
+  label = "not define yet", age = "00", name = "hello123" 
 }) => {
   return (
     <>
