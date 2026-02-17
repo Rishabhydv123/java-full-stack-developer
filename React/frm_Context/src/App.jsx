@@ -8,7 +8,7 @@ function App() {
 
   return (
     <UserContextProvider>
-      <h1>React with Rishabh and share is important</h1>
+      <h1>Important Deatils</h1>
       <Login />
       <Profile />
     </UserContextProvider>

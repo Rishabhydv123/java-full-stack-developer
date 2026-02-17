@@ -34,7 +34,8 @@ export const CustomForm = ({ style, data }) => {
         })
       }
 
-      <button>submit / register</button>
+      <button>submit/register</button>
     </form>
   )
 }
+
