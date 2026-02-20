@@ -15,11 +15,12 @@ export const Navbar = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        gap: "20px",
+        gap: "40px",
         textTransform: "capitalize",
         fontSize: "1.1rem",
         fontWeight: "normal",
         cursor: "pointer",
+        
       }}
     >
       {data.map((el, i) => {
