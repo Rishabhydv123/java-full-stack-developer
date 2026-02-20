@@ -7,4 +7,7 @@ export function App() {
     </>
   )
 }
+<<<<<<< HEAD
   
+=======
+>>>>>>> 1bfac835 (update)
