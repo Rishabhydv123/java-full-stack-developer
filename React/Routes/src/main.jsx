@@ -2,14 +2,14 @@ import { createRoot } from "react-dom/client";
 import { App } from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { CounterContext } from "./Context/CounterContext";
-import { TodosContext } from "./Context/TodoContext";
+import { TodoProvider } from "./Context/TodoContext"; // ✅ correct import
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <TodosContext>
+    <TodoProvider>   {/* ✅ correct provider */}
       <CounterContext>
         <App />
       </CounterContext>
-    </TodosContext>
+    </TodoProvider>
   </BrowserRouter>
 );
