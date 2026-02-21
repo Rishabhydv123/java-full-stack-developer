@@ -20,7 +20,6 @@ export const Navbar = () => {
         fontSize: "1.1rem",
         fontWeight: "normal",
         cursor: "pointer",
-        
       }}
     >
       {data.map((el, i) => {
