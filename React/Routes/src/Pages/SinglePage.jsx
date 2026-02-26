@@ -1,9 +1,9 @@
 import React from 'react'
 
-export  function Data() {
+export const singlePage = () => {
   return (
     <div>
-      <h1>Hello Data</h1>
+      
     </div>
   )
 }
