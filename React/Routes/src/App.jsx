@@ -1,14 +1,18 @@
-import React from "react";
-import { Navbar } from "./Components/Navbar1";
-import { Home } from "./Pages/Home";
-import { AllRoutes } from "./Router/AllRouters";
-import { TodoProvider } from "./Context/TodoContext";
+import { useState } from 'react'
 
-export const App = () => {
-  return(
+import './App.css'
+import {Navbar} from './Components/Navbar1'
+import AllRoutes from "./Router/AllRouters"
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
     <>
-      <Navbar />
+      <Navbar/>
       <AllRoutes />
     </>
-  );
-};
+  )
+}
+
+export default App

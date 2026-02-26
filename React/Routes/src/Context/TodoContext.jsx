@@ -1,47 +1,13 @@
-/* eslint-disable react-refresh/only-export-components */
-import { createContext, useState } from "react";
+import {createContext,useState} from 'react';
 
-export const TodoContext = createContext();
+export const TodosValContext = createContext(null)
 
-export const TodoProvider = ({ children }) => {
-  const [todos, setTodos] = useState([]);
-
-  const addTodo = (text) => {
-    const newTodo = {
-      id: Date.now(),
-      text,
-      completed: false,
-    };
-    setTodos([...todos, newTodo]);
-  };
-
-  const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
-
-  const toggleTodo = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id
-          ? { ...todo, completed: !todo.completed }
-          : todo
-      )
-    );
-  };
-
-  const editTodo = (id, newText) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, text: newText } : todo
-      )
-    );
-  };
-
+export const TodosContext = ({children}) => {
+  const [todo,setTodo]=useState([])
+  const [text,setText]=useState('')
   return (
-    <TodoContext.Provider
-      value={{ todos, addTodo, deleteTodo, toggleTodo, editTodo }}
-    >
+    <TodosValContext.Provider value={{todo,text,setTodo,setText}}>
       {children}
-    </TodoContext.Provider>
-  );
-};
+    </TodosValContext.Provider>
+  )
+}

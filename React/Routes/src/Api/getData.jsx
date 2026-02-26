@@ -4,7 +4,7 @@ const Base_API = axios.create({
     baseURL:'https://reqres.in/api',
 });
 
-export const FetchData = async (path) => {
+export const getData = async (path) => {
     try {
         const res = await Base_API.get(`${path}`,{
             headers:{"x-api-key":'reqres_d6053bc7a07245cab783ae8ef30f7666 '}

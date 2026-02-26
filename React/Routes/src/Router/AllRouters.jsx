@@ -8,8 +8,9 @@ import {Todo} from "../Pages/Todo"
 import {PrivateRoutes} from "../Components/PrivateRouter"
 import { User } from '../Pages/User'
 import {Login} from "../Pages/login"
+import {SinglePage} from "../Pages/SinglePage"
 
-export const AllRoutes = () => {
+const AllRoutes = () => {
   return (
     <>
       <Routes>
@@ -22,9 +23,12 @@ export const AllRoutes = () => {
         }>
         </Route>
         <Route path='/Login' element={<Login />}></Route>
+        <Route path='users/:paramId' element={
+          <PrivateRoutes><SinglePage /></PrivateRoutes>}>
+        </Route>
       </Routes>
     </>
   )
 }
 
-// export default AllRoutes
+export default AllRoutes

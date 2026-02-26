@@ -1,16 +1,13 @@
-import React from "react";
-import {TodoInput} from "../Components/TodoInput";
-import {TodoList} from "../Components/TodoList";
-import { TodoContext } from "../Context/TodoContext";
+import React from 'react'
+import {TodoInput} from "../Components/TodoInput"
+import { TodoList } from '../Components/TodoList'
 
 export const Todo = () => {
   return (
-    <div style={{ textAlign: "center" }}>
-      <h1>Todo App (Router)</h1>
+    <>
+      <h1>Todos</h1>
       <TodoInput />
       <TodoList />
-    </div>
-  );
-};
-
-
+    </>
+  )
+}
