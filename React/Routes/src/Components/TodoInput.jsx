@@ -1,36 +1,31 @@
+import { useContext, useEffect } from "react";
 
-import React, { useContext } from 'react';
+import { useReducer } from "react";
 import { TodosValContext } from "../Context/TodoContext";
+import * as types from '../Reducer/Action';
+import { Reducer } from "../Reducer/Reducer";
+
 
 export const TodoInput = () => {
-
   const { todo, setTodo, text, setText } = useContext(TodosValContext);
+  
+  const [state, dispatch] = useReducer(Reducer, todo);
+  console.log('state:', state);
 
   const handleAdd = () => {
-    if (text.trim() === '') return;
-
-    const newTodo = {
-      id:Date.now(),
-      text,
-      isEdit:false,
-      isChecked:false,
-      isPinned:false,
-    };
-
-    setTodo([...todo, newTodo]);
-    setText('');
-       
+    dispatch({ payload: text, type: types.ADD_TODO_ITEMS});
   };
+  console.log('todo:from input page', todo);
 
-  return (
-    <>
-      <input
-        type='text'
-        placeholder='Enter the Task....'
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
-      <button onClick={handleAdd}>Add</button>
-    </>
-  );
+
+useEffect (() => {
+  setTodo(state);
+}, [state]);
+
+return (
+  <>
+  <input type="text" onChange={(e) => setText(e.target.value)}/>
+  <button onClick={handleAdd}>add</button>
+  </>
+);
 };
