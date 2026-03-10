@@ -1,14 +1,26 @@
-import { legacy_createStore } from 'redux';
+import { legacy_createStore } from "redux";
 
-import { Reducer } from './Reducer';
-import { DOUBLE } from './Action';
+import { Reducer as RegularReducer } from "./Reducer";
+import { Reducer as ExtraReducer } from "./ExtraRedux";
 
-const initialValue = {
-  amount: 0,
-  isError: false,
-  isComplete: false,
-};
+import { DOUBLE } from "./Action";
 
-const myStore = legacy_createStore(Reducer, initialValue);
+const myStore = legacy_createStore(RegularReducer);
+
+setTimeout(() => {
+
+  myStore.replaceReducer(ExtraReducer);
+
+  myStore.dispatch({ type: DOUBLE });
+
+}, 2000);
+
+const observed = myStore["@@observable"]();
+
+observed.subscribe({
+  next: (event) => {
+    console.log("this is from observe subscribe function value", event);
+  },
+});
 
 export { myStore };

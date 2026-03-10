@@ -7,7 +7,11 @@ const initialValue = {
 };
 
 const Reducer = (oldState = initialValue, { type, payload }) => {
+
+  console.log("payload:", payload);
+
   switch (type) {
+
     case types.DEPOSIT:
       return {
         ...oldState,

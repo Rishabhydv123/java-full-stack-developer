@@ -1,38 +1,38 @@
-import { myStore } from '../Redux/Store';
-import { DEPOSIT, WITHDRAW } from '../Redux/Action';
-import { useState, useEffect } from 'react';
+import { myStore } from "../Redux/Store";
+import { DEPOSIT, DOUBLE, WITHDRAW } from "../Redux/Action";
+import { useState } from "react";
 
 export const Account = () => {
-  const { dispatch, subscribe, getState } = myStore;
+
+  const { dispatch, subscribe } = myStore;
 
   const [jugad, setJugad] = useState(0);
-
-  useEffect(() => {
-    const unsubscribe = subscribe(() => {
-      setJugad((prev) => prev + 1);
-    });
-
-    return () => unsubscribe(); // cleanup
-  }, []);
 
   const handleDeposit = () => {
     dispatch({ type: DEPOSIT, payload: 10 });
   };
 
+  subscribe(() => {
+    setJugad(jugad + 1);
+  });
+
   const handleWithdraw = () => {
     dispatch({ type: WITHDRAW, payload: 20 });
   };
 
-  const handleDOUBLE = () => {
-    dispatch({ type: 'DOUBLE' });
+  const handleDouble = () => {
+    dispatch({ type: DOUBLE });
   };
 
   return (
     <>
-      <h1>Account {getState().amount}</h1>
+      <h1>Account {myStore.getState().amount}</h1>
+
       <button onClick={handleDeposit}>deposit</button>
+
       <button onClick={handleWithdraw}>withdraw</button>
-      <button onClick={handleDOUBLE}>DOUBLE</button>
+
+      <button onClick={handleDouble}>double</button>
     </>
   );
 };
