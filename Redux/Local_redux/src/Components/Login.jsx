@@ -4,14 +4,13 @@ import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "../Redux/Action";
 import axios from "axios";
 
 export const Login = () => {
-
   const dispatch = useDispatch();
 
-  const value = useSelector((store) => store);
+  const isLoading = useSelector((store) => store.isLoading);
 
   const [userValue, setUserValue] = React.useState({
     email: "",
-    password: ""
+    password: "",
   });
 
   const handleChange = (e) => {
@@ -19,74 +18,70 @@ export const Login = () => {
 
     setUserValue((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleFormSubmit = (e) => {
-
     e.preventDefault();
 
     dispatch({ type: LOGIN_REQUEST });
 
-    axios.post(
-      "https://reqres.in/api/login",
-      userValue,
-      {
-        headers: {
-          "x-api-key": "reqres-free-v1"
-        }
-      }
-    )
-    .then((res) => {
+    axios
+      .post("https://reqres.in/api/login", userValue)
+      .then((res) => {
+        dispatch({
+          type: LOGIN_SUCCESS,
+          payload: {
+            users: userValue,
+            token: res.data.token,
+          },
+        });
+      })
+      .catch((err) => {
+        console.log("Error:", err);
 
-      dispatch({
-        type: LOGIN_SUCCESS,
-        payload: { users: userValue, token: res.data.token }
+        dispatch({ type: LOGIN_FAILURE });
       });
-
-    })
-    .catch((err) => {
-
-      console.log(err);
-
-      dispatch({ type: LOGIN_FAILURE });
-
-    });
   };
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <div>
-      <form onSubmit={handleFormSubmit}
+      <form
+        onSubmit={handleFormSubmit}
         style={{
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
           height: "30vh",
-          gap: "1rem"
+          gap: "1rem",
         }}
       >
-
         <div>
-          <label>email</label>
+          <label>Email</label>
           <input
             type="text"
             name="email"
+            value={userValue.email}
             onChange={handleChange}
           />
         </div>
 
         <div>
-          <label>password</label>
+          <label>Password</label>
           <input
-            type="text"
+            type="password"
             name="password"
+            value={userValue.password}
             onChange={handleChange}
           />
         </div>
 
-        <button type="submit">submit</button>
-
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
